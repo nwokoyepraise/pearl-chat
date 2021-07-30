@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nwokoyepraise/pearl-chat/issues"
   },
-  "homepage": "https://github.com/nwokoyepraise/pearl-chat#readme"
+  "homepage": "https://github.com/nwokoyepraise/pearl-chat#readme",
+  "dependencies": {
+    "socket.io": "^4.1.3"
+  }
 }
