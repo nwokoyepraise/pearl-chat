@@ -24,3 +24,6 @@ button.room{
     padding: 12px;
     background-color: green;
 }
+#ti:focus{
+    outline: none;
+}
