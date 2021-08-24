@@ -26,7 +26,7 @@
             socket.emit('join_room', room_number)
         }
         socket.on('redirect', function(room_number) {
-            window.location.href = (`/${room_number}`);
+            window.location.href = (`/chat?room=${room_number}`);
         })
     </script>
 </body>
