@@ -9,7 +9,7 @@ app.use(express.static("public"));
 try {
 
     app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
-    app.get('/chat', (req, res) => res.sendFile(__dirname + '/chat.html'));
+    app.get('/chat', (req, res) => res.sendFile(__dirname + '/public/html/chat.html'));
 
     const namespace = io.of('/chat');
 
