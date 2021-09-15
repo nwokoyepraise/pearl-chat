@@ -33,7 +33,7 @@ try {
             console.log(`client ${client.id} joined room ${room_number}!`);
         });
         client.on('message', message => {
-            namespace.emit('message', message);
+            namespace.to(message.room_number).emit('message', message.message);
         });
     });
 
