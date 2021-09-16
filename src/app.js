@@ -3,8 +3,15 @@ const app = express();
 const server = require('http').createServer(app);
 const port_number = 3000;
 const io = require('socket.io')(server);
+const user_reg = require('./routes/user_reg');
+const jwt_auth = require('./middleware/jwt_auth');
+const base_response = require('./middleware/base_response');
 
 app.use(express.static("public"));
+app.use(express.json());
+
+//load routes
+app.use('/api/user_reg', user_reg, base_response);
 
 try {
 
