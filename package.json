@@ -4,7 +4,8 @@
   "description": "real-time duo chat with sockets",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node src/app.js"
   },
   "repository": {
     "type": "git",
