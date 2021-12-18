@@ -174,7 +174,7 @@ section.section-main-sub div.img {
     margin-top: -100px;
 }
 
-section.section-main-sub2 div p{
+section.section-main-sub2 div p {
     font-size: 40px;
     color: #10283f;
     text-align: center;
@@ -187,12 +187,13 @@ section.section-main-sub2 div h3 {
     font-size: 18px;
     line-height: 30px;
     font-weight: 400;
-    font-family:sans-serif;
+    font-family: sans-serif;
     text-align: center;
     max-width: 50%;
     margin: 0 auto;
 }
 
-section.section-main-sub3 {
-    margin-top: 100px;
+section.section-footer {
+    margin-top: 200px;
+    text-align: center;
 }
