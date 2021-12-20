@@ -50,11 +50,6 @@ div.ul-wrapper-sub {
     margin-right: 30px;
 }
 
-ul.main-nav-ul {
-    list-style-type: none;
-    display: inline;
-}
-
 ul.main-nav-ul-sub {
     display: inline;
 }
@@ -94,7 +89,7 @@ main section {
 
 main section h1 {
     font-family: 'Recoleta', sans-serif;
-    font-size: 57px;
+    font-size: 50px;
     color: #10283f;
     font-weight: 600;
     line-height: 70px;
