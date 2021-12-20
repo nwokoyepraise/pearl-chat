@@ -19,6 +19,10 @@ body {
 ul.main-nav-ul li a {
     text-decoration: none;
     font-size: 20px;
+    color: #10283f;
+    font-weight: 400;
+    font-family: sans-serif;
+    padding: 10px;
 }
 
 ul li {
@@ -53,12 +57,6 @@ ul.main-nav-ul {
 
 ul.main-nav-ul-sub {
     display: inline;
-}
-
-ul.main-nav-ul li a {
-    color: black;
-    font-weight: 700;
-    padding: 10px;
 }
 
 ul button {
