@@ -16,6 +16,10 @@ body {
     padding: 0;
 }
 
+.logo {
+    margin-left: 70px;
+}
+
 ul.main-nav-ul li a {
     text-decoration: none;
     font-size: 20px;
@@ -34,10 +38,6 @@ nav.main-nav {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-}
-
-div.logo {
-    padding: 10px;
 }
 
 div.ul-wrapper {
@@ -217,9 +217,9 @@ section.section-main-sub3 div div form {
     margin-right: 40px;
 }
 
-section.section-main-sub3 div div form button{
-  margin-right: 0;
-  margin-left: 45px;
+section.section-main-sub3 div div form button {
+    margin-right: 0;
+    margin-left: 5px;
 }
 
 section.section-main-sub3 div div {
