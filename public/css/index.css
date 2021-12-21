@@ -69,7 +69,7 @@ ul button {
 main {
     padding: 70px;
     width: 100%;
-    margin-bottom: 800px;
+    margin-bottom: 500px;
 }
 
 main div.main-div-main-img img {
@@ -243,13 +243,136 @@ section.section-footer {
     color: #10283f;
 }
 
-.reveal{
+/*
+syling for reveal animation
+*/
+
+.reveal {
     position: relative;
     transform: translateY(150px);
     opacity: 0;
     transition: 2s all ease;
-  }
-  .reveal.active{
+}
+
+.reveal.active {
     transform: translateY(0);
     opacity: 1;
-  }
+}
+
+
+/*
+responsiveness styling for smaller width devices
+*/
+@media only screen and (max-width: 700px) {
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden !important;
+    }
+
+    ul {
+        display: none;
+    }
+
+    main section h1 {
+        font-size: 50px;
+    }
+
+    main section, main div img {
+        float: none !important;
+        display: block !important;
+        width: 100% !important;
+    }
+
+    main section div {
+        width: 100% !important;
+    }
+
+    main section div form button {
+        float: right;
+        margin-right: 10px;
+        margin-top: 9px;
+    }
+
+    main {
+        margin-bottom: 50px;
+        padding: 50px;
+    }
+
+    section.section-main-sub div.text, section.section-main-sub div.img {
+        float: none !important;
+        display: block !important;
+        width: 100% !important;
+    }
+
+    section.section-main-sub div.img img {
+        width: 100% !important;
+    }
+
+    section.section-main-sub div.text {
+        margin-top: -80px;
+    }
+
+    section.section-main-sub div.text h1 {
+        font-size: 32px;
+    }
+
+    section.section-main-sub div.text h3 {
+        font-size: 16px;
+    }
+
+    section.section-main-sub {
+        padding: 50px;
+        width: 100% !important;
+    }
+
+    section.section-main-sub3 div {
+        margin: 50px;
+    }
+
+    section.section-main-sub2 div p {
+        font-size: 30px;
+    }
+
+    section.section-main-sub2 div h3 {
+        font-size: 16px !important;
+        max-width: 80%;
+    }
+
+    section.section-main-sub3 div.div-email-join-waitlist {
+        width: 85%;
+        padding: 1px 0;
+        display: block;
+        align-items: unset !important;
+    }
+
+    section.section-main-sub3 div div.text h1 {
+        line-height: 50px;
+    }
+
+    section.section-main-sub3 div div.text {
+        float: none !important;
+        width: 100% !important;
+        margin-top: 50px;
+        margin-left: 10px;
+        margin-bottom: 20px;
+    }
+    
+
+    div.form {
+        background: white;
+        border-radius: 10px;
+        align-items: center;
+        float: none !important;
+        margin: 0 auto !important;
+        width: 80% !important;
+    }
+
+    div.form button {
+        width: 35%;
+        margin: auto auto;
+    }
+
+    div.form input {
+        width: 55%;
+    }
+}
