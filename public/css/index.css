@@ -371,7 +371,9 @@ responsiveness styling for smaller width devices
 
     div.form button {
         width: 35%;
-        margin: auto auto;
+        float: right;
+        margin-right: 10px;
+        margin-top: 9px;
     }
 
     div.form input {
