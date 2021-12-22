@@ -16,54 +16,8 @@ body {
     padding: 0;
 }
 
-.logo {
-    margin-left: 70px;
-}
-
-ul.main-nav-ul li a {
-    text-decoration: none;
-    font-size: 20px;
-    color: #10283f;
-    font-weight: 400;
-    font-family: sans-serif;
-    padding: 10px;
-}
-
-ul li {
-    list-style-type: none;
-    display: inline;
-}
-
-nav.main-nav {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-div.ul-wrapper {
-    text-align: center;
-    display: inline;
-}
-
-div.ul-wrapper-sub {
-    display: block;
-    margin-right: 30px;
-}
-
-ul.main-nav-ul-sub {
-    display: inline;
-}
-
-ul button {
-    padding: 12px 10px;
-    border-radius: 12px;
-    border-width: 0;
-    margin-left: 30px;
-    margin-right: 30px;
-    color: white;
-    background-color: #004dfc;
-    font-weight: 700;
-    text-decoration: none;
+.header-nav {
+    width: 100%
 }
 
 main {
@@ -269,10 +223,6 @@ responsiveness styling for smaller width devices
     html, body {
         max-width: 100%;
         overflow-x: hidden !important;
-    }
-
-    ul {
-        display: none;
     }
 
     main section h1 {
