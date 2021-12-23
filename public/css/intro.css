@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'Recoleta';
+    src: url('/public/font/recoleta.ttf');
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Nunito;
+    font-size: 16px;
+}
+
+body {
+    background-image: linear-gradient(#e2eaff, white, white);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav {
+    width: 100%
+}
+
+main {
+    padding: 0 70px;
+    margin-bottom: 800px;
+}
+
+main div {
+    max-width: 40%;
+}
+
+main div div {
+    max-width: 100%;
+}
+
+main div.div-left {
+    float: left;
+}
+
+main div.div-right {
+    float: right;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 1;
+    margin-right: 100px;
+    width: 30% !important;
+    position: relative;
+}
+
+main div div h1 {
+    font-family: 'Recoleta', sans-serif;
+    font-size: 40px;
+    color: #10283f;
+    font-weight: 600;
+}
+
+main div div h3 {
+    margin-bottom: 20px;
+    padding-right: 0px;
+    color: #5a6f95;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
+    font-family: sans-serif;
+}
+
+main div div button.new-meeting {
+    padding: 15px 20px;
+    border-radius: 5px;
+    border-width: 0;
+    color: white;
+    background-color: #004dfc;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: Nunito;
+    margin-right: 20px;
+}
+
+main div div button.join {
+    padding: 15px 40px;
+    border-radius: 5px;
+    border-width: 0;
+    color: white;
+    background-color: green;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: Nunito;
+}
+
+hr {
+    border-top: 0px;
+    margin-top: 30px;
+}
+
+main div img {
+    scale: .8;
+    vertical-align: top !important;
+    width: 100%;
+    position: absolute;
+    margin-top: -40px;
+}
+
+.a {
+    z-index: 2;
+}
+
+.b {
+    z-index: 1;
+}
+
+@keyframes cf3FadeInOut {
+    0% {
+        opacity: 1;
+    }
+
+    45% {
+        opacity: 1;
+    }
+
+    55% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.a {
+    animation-name: cf3FadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 7s;
+    animation-direction: alternate;
+}
