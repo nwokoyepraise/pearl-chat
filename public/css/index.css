@@ -24,19 +24,20 @@ main {
     padding: 70px;
     width: 100%;
     margin-bottom: 500px;
+    padding-top: 0px;
 }
 
 main div.main-div-main-img img {
     width: 60%;
     float: right;
-    margin-top: 70px;
+    margin-top: 0px;
 }
 
 
 main section {
     width: 40%;
     float: left;
-    margin-top: 70px;
+    margin-top: 0px;
     margin-left: 0px;
 
 }
