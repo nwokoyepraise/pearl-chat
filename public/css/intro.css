@@ -22,7 +22,6 @@ body {
 
 main {
     padding: 0 70px;
-    margin-bottom: 800px;
 }
 
 main div {
@@ -39,9 +38,6 @@ main div.div-left {
 
 main div.div-right {
     float: right;
-    background-color: white;
-    border-radius: 50%;
-    opacity: 1;
     margin-right: 100px;
     width: 30% !important;
     position: relative;
@@ -92,12 +88,30 @@ hr {
     margin-top: 30px;
 }
 
-main div img {
-    scale: .8;
+main div.div-right div.img img {
+    scale: .7;
     vertical-align: top !important;
     width: 100%;
     position: absolute;
-    margin-top: -40px;
+    margin-top: -80px;
+}
+
+div.illus-text  div{
+    margin-top: 0px;
+    position: absolute;
+}
+
+div.illus-text h1 {
+    font-size: 25px;
+    font-family: 'Nunito';
+    text-align: center;
+    margin: 0;
+}
+
+div.illus-text h3 {
+    font-size: 14px;
+    line-height: 15px;
+    text-align: center;
 }
 
 .illus1 {
@@ -110,8 +124,8 @@ main div img {
 
 object.footer {
     width: 100%;
-    margin-top: 200px;
-    height: 50px;
+    margin-top: 50px;
+    height: 20px;
 }
 
 @keyframes FadeInOut {
@@ -132,8 +146,42 @@ object.footer {
     }
 }
 
+@keyframes FadeOutIn {
+    0% {
+        opacity: 0;
+    }
+
+    45% {
+        opacity: 0;
+    }
+
+    55% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 .illus1 {
     animation-name: FadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 7s;
+    animation-direction: alternate;
+}
+
+.text1 {
+    animation-name: FadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 7s;
+    animation-direction: alternate; 
+}
+
+.text2 {
+    animation-name: FadeOutIn;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-duration: 7s;

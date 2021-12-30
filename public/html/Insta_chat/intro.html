@@ -19,7 +19,7 @@
         <div class="div-left">
             <div class="text">
                 <h1>Premium chats. <br>Nothing to download.</h1>
-                <h3>We bring to you QuickChat, start chatting right away securely with our state-of-the-art encryption
+                <h3>We bring to you InstaChat, start chatting right away securely with our state-of-the-art encryption
                     technology. No need to register. No need to share personal information.</h3>
             </div>
 
@@ -32,9 +32,33 @@
 
 
         <div class="div-right">
-            <img class="illus1" src="/public/img/intro_illus1.png" alt="">
-            <img class="illus2" src="/public/img/intro_illus2.png" alt="">
+            <div class="img">
+                <img class="illus1" src="/public/img/intro_illus1.png" alt="">
+                <img class="illus2" src="/public/img/intro_illus2.png" alt="">
+            </div>
+
+            <div class="illus-text">
+                <div class="text1">
+                    <h1>Start chatting in few clicks</h1>
+                    <h3>Quickly get a link to start chatting without sharing personal info</h3>
+                </div>
+
+                <div class="text2">
+                    <h1>Secure Communication</h1>
+                    <h3>Chat with encryption. Chats expire at the end of each session.</h3>
+                </div>
+            </div>
         </div>
+
+        <script>
+            window.addEventListener('load', function () {
+                var div = document.querySelector('.div-right div.img');
+                var img = document.querySelector('.div-right div img');
+                var rect = img.getBoundingClientRect();
+                div.style.height = rect.height + 'px';
+                div.style.width = rect.width + 'px';
+            });
+        </script>
     </main>
     <footer class="footer">
         <object class="footer" data="/public/html/footer.html" type="text/html"></object>
