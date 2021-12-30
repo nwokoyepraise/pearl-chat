@@ -39,7 +39,7 @@
 
             <div class="illus-text">
                 <div class="text1">
-                    <h1>Start chatting in few clicks</h1>
+                    <h1>Start chatting</h1>
                     <h3>Quickly get a link to start chatting without sharing personal info</h3>
                 </div>
 
@@ -48,15 +48,27 @@
                     <h3>Chat with encryption. Chats expire at the end of each session.</h3>
                 </div>
             </div>
+
+            <div class="illus-dots">
+                <div class="dot1"></div>
+                <div class="dot2"></div>
+            </div>
         </div>
 
         <script>
             window.addEventListener('load', function () {
                 var div = document.querySelector('.div-right div.img');
-                var img = document.querySelector('.div-right div img');
-                var rect = img.getBoundingClientRect();
-                div.style.height = rect.height + 'px';
-                div.style.width = rect.width + 'px';
+                var dot = document.querySelector('.illus-dots');
+                var div_text = document.querySelector('div.illus-text');
+
+                var img_rect = document.querySelector('.div-right div img').getBoundingClientRect();
+                var illus_text_rect = document.querySelector('div.illus-text .text1').getBoundingClientRect();
+
+                div.style.height = img_rect.height + 'px';
+                div.style.width = img_rect.width + 'px';
+
+                div_text.style.height = illus_text_rect.height + 'px';
+                div_text.style.width =  illus_text_rect.width + 'px'
             });
         </script>
     </main>

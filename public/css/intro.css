@@ -96,7 +96,7 @@ main div.div-right div.img img {
     margin-top: -80px;
 }
 
-div.illus-text  div{
+div.illus-text div {
     margin-top: 0px;
     position: absolute;
 }
@@ -112,6 +112,7 @@ div.illus-text h3 {
     font-size: 14px;
     line-height: 15px;
     text-align: center;
+    margin-bottom: 0px !important;
 }
 
 .illus1 {
@@ -122,10 +123,56 @@ div.illus-text h3 {
     z-index: 1;
 }
 
+.illus-dots {
+    text-align: center;
+}
+
+.dot1 {
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: blue;
+    display: inline-block;
+    animation-name: DotFadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 7s;
+    animation-direction: alternate;
+}
+
+.dot2 {
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: #dadce0;
+    display: inline-block;
+    animation-name: DotFadeOutIn;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 7s;
+    animation-direction: alternate;
+}
+
 object.footer {
     width: 100%;
     margin-top: 50px;
     height: 20px;
+}
+
+.illus1, .text1 {
+    animation-name: FadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 7s;
+    animation-direction: alternate;
+}
+
+.text2 {
+    animation-name: FadeOutIn;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 7s;
+    animation-direction: alternate;
 }
 
 @keyframes FadeInOut {
@@ -164,26 +211,38 @@ object.footer {
     }
 }
 
-.illus1 {
-    animation-name: FadeInOut;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 7s;
-    animation-direction: alternate;
+@keyframes DotFadeInOut {
+    0% {
+        background-color: blue;
+    }
+
+    45% {
+        background-color: blue;
+    }
+
+    55% {
+        background-color: #dadce0;
+    }
+
+    100% {
+        background-color: #dadce0;
+    }
 }
 
-.text1 {
-    animation-name: FadeInOut;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 7s;
-    animation-direction: alternate; 
-}
+@keyframes DotFadeOutIn {
+    0% {
+        background-color: #dadce0;
+    }
 
-.text2 {
-    animation-name: FadeOutIn;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 7s;
-    animation-direction: alternate;
+    45% {
+        background-color: #dadce0;
+    }
+
+    55% {
+        background-color: blue;
+    }
+
+    100% {
+        background-color: blue;
+    }
 }
