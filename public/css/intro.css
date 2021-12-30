@@ -100,11 +100,11 @@ main div img {
     margin-top: -40px;
 }
 
-.a {
+.illus1 {
     z-index: 2;
 }
 
-.b {
+.illus2 {
     z-index: 1;
 }
 
@@ -114,7 +114,7 @@ object.footer {
     height: 50px;
 }
 
-@keyframes cf3FadeInOut {
+@keyframes FadeInOut {
     0% {
         opacity: 1;
     }
@@ -132,8 +132,8 @@ object.footer {
     }
 }
 
-.a {
-    animation-name: cf3FadeInOut;
+.illus1 {
+    animation-name: FadeInOut;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-duration: 7s;
