@@ -194,10 +194,10 @@ section.section-main-sub3 div div.text h3 {
     transform: translateY(-10px);
 }
 
-section.section-footer {
+object.footer {
+    width: 100%;
     margin-top: 200px;
-    text-align: center;
-    color: #10283f;
+    height: 50px;
 }
 
 /*

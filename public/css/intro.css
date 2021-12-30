@@ -108,6 +108,12 @@ main div img {
     z-index: 1;
 }
 
+object.footer {
+    width: 100%;
+    margin-top: 200px;
+    height: 50px;
+}
+
 @keyframes cf3FadeInOut {
     0% {
         opacity: 1;

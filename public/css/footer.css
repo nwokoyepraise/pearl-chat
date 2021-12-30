@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Recoleta';
+    src: url('/public/font/recoleta.ttf');
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Nunito;
+    font-size: 16px;
+}
+
+
+.section-footer {
+    text-align: center;
+    color: #10283f;
+    min-width: 100%;
+}
