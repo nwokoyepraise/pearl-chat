@@ -89,11 +89,12 @@ hr {
 }
 
 main div.div-right div.img img {
-    transform: scale(.7);
+    transform: scale(.70);
     vertical-align: top !important;
     width: 100%;
     position: absolute;
     margin-top: -80px;
+    image-rendering: -webkit-optimize-contrast;
 }
 
 div.illus-text div {
