@@ -124,7 +124,7 @@ section.section-main-sub div.text {
 section.section-main-sub div.img {
     width: 50%;
     float: right;
-    scale: 0.7;
+    transform: scale(.7);
     margin-right: 100px;
     vertical-align: top;
     margin-top: -100px;
