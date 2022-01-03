@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/public/css/intro.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito" />
     <script src="/public/js/insta_chat/intro_button.js"></script>
+    <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
 </head>
 
 <body>
@@ -19,7 +20,7 @@
     </header>
 
     <main>
-        <div class="new-meeting-modal">
+        <div class="new-meeting-modal" id="new-meeting-modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <p>Some text in the Modal..</p>
@@ -35,7 +36,7 @@
             </div>
 
             <div class="buttons">
-                <button class="new-meeting" onclick=new_meeting()>+ New Meeting</button>
+                <button class="new-meeting" onclick=new_meeting(uuidv4())>+ New Meeting</button>
                 <button class="join" onclick="join()">Join</button>
             </div>
             <hr>

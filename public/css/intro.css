@@ -20,7 +20,7 @@ body {
     background-color: rgba(0, 0, 0, 0.4);
     width: 100%;
     height: 100%;
-    z-index: 1000;
+    z-index: 3;
     display: none;
     position: fixed;
     overflow: auto;
@@ -196,11 +196,11 @@ button:focus, button:hover {
 .new-meeting-modal {
     display: none;
     position: fixed;
-    z-index: 3;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: white;
+    z-index: 4;
 }
 
 /* button.new-meeting {
