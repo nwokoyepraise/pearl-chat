@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito" />
     <script src="/public/js/insta_chat/intro_button.js"></script>
     <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 </head>
 
 <body>
@@ -23,6 +24,10 @@
         <div class="new-meeting-modal" id="new-meeting-modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
+                <div class="qrcode-container">
+                    <div id="qrcode"></div>
+                </div>
+              
                 <p>Some text in the Modal..</p>
             </div>
 
@@ -35,8 +40,9 @@
                     technology. No need to register. No need to share personal information.</h3>
             </div>
 
+            <!-- onclick=new_meeting(uuidv4()) -->
             <div class="buttons">
-                <button class="new-meeting" onclick=new_meeting(uuidv4())>+ New Meeting</button>
+                <button id="new-meeting" class="new-meeting">+ New Meeting</button>
                 <button class="join" onclick="join()">Join</button>
             </div>
             <hr>
@@ -83,6 +89,35 @@
                 div_text.style.width = illus_text_rect.width + 'px'
             });
         </script>
+
+        <script type="text/javascript">
+            document.getElementById('new-meeting').onclick = function () {
+                let uuid = uuidv4();
+                new QRCode(document.getElementById("qrcode"), {
+                    text: uuid,
+                    width: 120,
+                    height: 120,
+                    colorDark: '#ffffff',
+                    colorLight: "#10283f",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                document.getElementById("body-overlay").style.display = "block";
+                document.getElementById('new-meeting-modal').style.display = "block";
+            }
+
+        </script>
+
+        <!-- <div id="qrcode-2"></div>
+        <script type="text/javascript">
+            var qrcode = new QRCode(document.getElementById("qrcode-2"), {
+                text: "https://webisora.com",
+                width: 128,
+                height: 128,
+                colorDark: "#5868bf",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        </script> -->
     </main>
     <footer class="footer">
         <object class="footer" data="/public/html/footer.html" type="text/html"></object>
