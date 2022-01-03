@@ -205,6 +205,19 @@ button:focus, button:hover {
     box-shadow: 3px 3px 5px 7px grey;
     border-radius: 12px;
     padding: 20px;
+    padding-top: 10px;
+}
+
+div.close {
+    display: block;
+    direction: rtl;
+    margin: 0 10px;
+    color: red;
+}
+
+div.close:hover, div.close:focus {
+    filter: brightness(70%);
+    cursor: pointer;
 }
 
 .qrcode-container {
@@ -224,7 +237,7 @@ button:focus, button:hover {
 }
 
 .modal-content h3 {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 25px;
     margin-left: 5px;
 }
@@ -234,6 +247,7 @@ button:focus, button:hover {
     margin-left: 5px;
     font-family: 'Nunito';
     color: #10283f;
+    margin-bottom: 5px;
 }
 
 h4#copy-link {
