@@ -230,7 +230,7 @@ button:focus, button:hover {
 }
 
 .modal-content h4 {
-    font-size: 14px;
+    font-size: 13px;
     margin-left: 5px;
     font-family: 'Nunito';
     color: #10283f;
@@ -240,16 +240,24 @@ h4#copy-link {
     display: inline-block;
     transform: translateY(-7px);
     color: #174ea6;
+    margin: 0;
 }
 
 .material-icons {
     color: #174ea6;
 }
 
-/* div.copy-link-container {
-    display: inline-block;
-    vertical-align: top;
-} */
+div.copy-link-container {
+    width: fit-content;
+    height: fit-content !important;
+    padding: 7px 10px;
+}
+
+div.copy-link-container:hover, div.copy-link-container:focus {
+    filter: brightness(90%);
+    cursor: pointer;
+    background-color: white;
+}
 
 /* button.new-meeting {
 
