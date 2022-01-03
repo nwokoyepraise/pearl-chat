@@ -217,6 +217,10 @@ syling for reveal animation
     opacity: 1;
 }
 
+button:focus, button:hover {
+    filter: brightness(85%);
+    cursor: pointer;
+}
 
 /*
 responsiveness styling for smaller width devices

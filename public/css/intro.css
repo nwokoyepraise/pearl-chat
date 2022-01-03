@@ -176,6 +176,11 @@ object.footer {
     animation-direction: alternate;
 }
 
+button:focus, button:hover {
+    filter: brightness(85%);
+    cursor: pointer;
+}
+
 @keyframes FadeInOut {
     0% {
         opacity: 1;
