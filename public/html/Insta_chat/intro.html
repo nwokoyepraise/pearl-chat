@@ -28,7 +28,10 @@
                     <div id="qrcode"></div>
                 </div>
               
-                <p>Some text in the Modal..</p>
+                <h1>Chat link ready</h1>
+                <h3>Copy and share the chat link below to start</h3>
+
+                <h4 id="chat-link"></h4>
             </div>
 
         </div>
@@ -103,6 +106,7 @@
                 });
                 document.getElementById("body-overlay").style.display = "block";
                 document.getElementById('new-meeting-modal').style.display = "block";
+                document.getElementById('chat-link').innerText = uuid
             }
 
         </script>
