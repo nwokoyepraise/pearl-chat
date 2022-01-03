@@ -24,8 +24,8 @@
 
     <main>
         <div class="new-meeting-modal" id="new-meeting-modal">
-            <div class="modal-content">
-                <div class="close">&times;</div>
+            <div class="modal-content" id="modal-content">
+                <div id="close" class="close">&times;</div>
                 <div class="qrcode-container">
                     <div id="qrcode"></div>
                 </div>
@@ -100,6 +100,9 @@
         </script>
 
         <script type="text/javascript">
+            let bodyOverlay = document.getElementById("body-overlay");
+            let newMeetingModal = document.getElementById('new-meeting-modal');
+
             document.getElementById('new-meeting').onclick = function () {
                 let uuid = uuidv4();
                 new QRCode(document.getElementById("qrcode"), {
@@ -110,11 +113,23 @@
                     colorLight: "#10283f",
                     correctLevel: QRCode.CorrectLevel.H
                 });
-                document.getElementById("body-overlay").style.display = "block";
-                document.getElementById('new-meeting-modal').style.display = "block";
+                bodyOverlay.style.display = "block";
+                newMeetingModal.style.display = "block";
                 document.getElementById('chat-link').innerText = uuid;
             }
 
+            document.getElementById('close').onclick = function () {
+                newMeetingModal.style.display = "none";
+                bodyOverlay.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                console.log(event.target)
+                if (event.target == bodyOverlay) {
+                    newMeetingModal.style.display = "none";
+                    bodyOverlay.style.display = "none";
+                }
+            } 
         </script>
 
         <!-- <div id="qrcode-2"></div>
