@@ -8,14 +8,25 @@
     <title>Pearl Chat | Your Best Minimalist Chat App</title>
     <link rel="stylesheet" href="/public/css/intro.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito" />
+    <script src="/public/js/insta_chat/intro_button.js"></script>
 </head>
 
 <body>
+    <div class="body-overlay" id="body-overlay"></div>
+
     <header>
         <object class="header-nav" data="/public/html/header_nav.html" type=""></object>
     </header>
 
     <main>
+        <div class="new-meeting-modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+
+        </div>
+
         <div class="div-left">
             <div class="text">
                 <h1>Premium chats. <br>Nothing to download.</h1>
@@ -24,7 +35,7 @@
             </div>
 
             <div class="buttons">
-                <button class="new-meeting">+ New Meeting</button>
+                <button class="new-meeting" onclick=new_meeting()>+ New Meeting</button>
                 <button class="join">Join</button>
             </div>
             <hr>
@@ -68,7 +79,7 @@
                 div.style.width = img_rect.width + 'px';
 
                 div_text.style.height = illus_text_rect.height + 'px';
-                div_text.style.width =  illus_text_rect.width + 'px'
+                div_text.style.width = illus_text_rect.width + 'px'
             });
         </script>
     </main>
