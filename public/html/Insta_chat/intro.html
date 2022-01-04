@@ -121,6 +121,7 @@
             document.getElementById('close').onclick = function () {
                 newMeetingModal.style.display = "none";
                 bodyOverlay.style.display = "none";
+                document.querySelector('#qrcode > img').remove();
             }
 
             window.onclick = function (event) {
@@ -128,6 +129,7 @@
                 if (event.target == bodyOverlay) {
                     newMeetingModal.style.display = "none";
                     bodyOverlay.style.display = "none";
+                    document.querySelector('#qrcode > img').remove();
                 }
             } 
         </script>
