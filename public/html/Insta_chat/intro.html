@@ -34,10 +34,16 @@
                 <h3>Copy and share the chat link below to start OR Scan QR code</h3>
 
                 <h4 id="chat-link"></h4>
-                <div class="copy-link-container">
-                    <span class="material-icons">copy_all</span>
-                    <h4 id="copy-link">Copy chat link</h3>
+                <div>
+                    <div id="copy-link-container" class="copy-link-container">
+                        <span id="icon-copy-all" class="material-icons">copy_all</span>
+                        <h4 id="copy-link">Copy chat link</h4>
+                    </div>
+                    <div id="link-copied">
+                        <h4>Link copied!</h4>
+                    </div>
                 </div>
+
             </div>
 
         </div>
@@ -46,7 +52,7 @@
             <div class="text">
                 <h1>Premium chats. <br>Nothing to download.</h1>
                 <h3>We bring to you InstaChat, start chatting right away securely with our state-of-the-art encryption
-                    technology. No need to register. No need to share personal information.</h3>
+                    technology. No need to share personal information.</h3>
             </div>
 
             <!-- onclick=new_meeting(uuidv4()) -->
@@ -99,9 +105,11 @@
             });
         </script>
 
+        <!-- script for new-meeting modal -->
         <script type="text/javascript">
             let bodyOverlay = document.getElementById("body-overlay");
             let newMeetingModal = document.getElementById('new-meeting-modal');
+            let linkCopied = document.getElementById('link-copied');
 
             document.getElementById('new-meeting').onclick = function () {
                 let uuid = uuidv4();
@@ -125,26 +133,20 @@
             }
 
             window.onclick = function (event) {
-                console.log(event.target)
                 if (event.target == bodyOverlay) {
                     newMeetingModal.style.display = "none";
                     bodyOverlay.style.display = "none";
                     document.querySelector('#qrcode > img').remove();
                 }
-            } 
-        </script>
+            }
 
-        <!-- <div id="qrcode-2"></div>
-        <script type="text/javascript">
-            var qrcode = new QRCode(document.getElementById("qrcode-2"), {
-                text: "https://webisora.com",
-                width: 128,
-                height: 128,
-                colorDark: "#5868bf",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
-            });
-        </script> -->
+            document.getElementById('copy-link-container').onclick = function () {
+                let text = document.getElementById('chat-link');
+                navigator.clipboard.writeText(text.innerText);
+                linkCopied.style.display = 'inline';
+                setTimeout(function () { linkCopied.style.display = 'none' }, 3000)
+            }            
+        </script>
     </main>
     <footer class="footer">
         <object class="footer" data="/public/html/footer.html" type="text/html"></object>
