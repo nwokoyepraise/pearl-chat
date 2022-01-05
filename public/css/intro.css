@@ -266,24 +266,27 @@ div.copy-link-container {
     height: fit-content !important;
     padding: 5px 10px;
     margin-bottom: 0;
-    display: inline;
+    display: block;
 }
 
 div.copy-link-container:hover, div.copy-link-container:focus {
     filter: brightness(90%);
     cursor: pointer;
     background-color: white;
+    border-radius: 5px;
 }
 
 #link-copied{
     background-color: #dadce0;
+    background-color: white;
+    filter: brightness(90%);
     padding: 5px;
     border-radius: 5px;
     text-align: center;
     margin-top: 5px;
     width: fit-content !important;
     margin-left: 30px;
-    display: inline;
+    display: none;
 }
 
 #link-copied h4 {

@@ -34,14 +34,14 @@
                 <h3>Copy and share the chat link below to start OR Scan QR code</h3>
 
                 <h4 id="chat-link"></h4>
-                <div>
-                    <div id="copy-link-container" class="copy-link-container">
-                        <span id="icon-copy-all" class="material-icons">copy_all</span>
-                        <h4 id="copy-link">Copy chat link</h4>
-                    </div>
-                    <div id="link-copied">
-                        <h4>Link copied!</h4>
-                    </div>
+
+                <div id="copy-link-container" class="copy-link-container">
+                    <span id="icon-copy-all" class="material-icons">copy_all</span>
+                    <h4 id="copy-link">Copy chat link</h4>
+                </div>
+
+                <div id="link-copied">
+                    <h4>Link copied!</h4>
                 </div>
 
             </div>
@@ -55,7 +55,6 @@
                     technology. No need to share personal information.</h3>
             </div>
 
-            <!-- onclick=new_meeting(uuidv4()) -->
             <div class="buttons">
                 <button id="new-meeting" class="new-meeting">+ New Meeting</button>
                 <button class="join" onclick="join()">Join</button>
@@ -143,7 +142,7 @@
             document.getElementById('copy-link-container').onclick = function () {
                 let text = document.getElementById('chat-link');
                 navigator.clipboard.writeText(text.innerText);
-                linkCopied.style.display = 'inline';
+                linkCopied.style.display = 'block';
                 setTimeout(function () { linkCopied.style.display = 'none' }, 3000)
             }            
         </script>
