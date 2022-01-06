@@ -23,7 +23,8 @@
     </header>
 
     <main>
-        <div class="new-meeting-modal" id="new-meeting-modal">
+        <!-- new meeting modal -->
+        <div class="meeting-modal" id="new-meeting-modal">
             <div class="modal-content" id="modal-content">
                 <div id="close" class="close">&times;</div>
                 <div class="qrcode-container">
@@ -43,9 +44,21 @@
                 <div id="link-copied">
                     <h4>Link copied!</h4>
                 </div>
-
             </div>
+        </div>
 
+        <!-- join meeting modal -->
+        <div id="join-meeting-modal" class="meeting-modal">
+            <div class="modal-content">
+                <div id="join-close" class="close">&times;</div>
+                <h1 class="enter-link">Enter chat link to start</h1>
+                <div class="form">
+                    <form action="">
+                        <input type="url" placeholder="Enter chat link" name="chat_link" id="" required>
+                        <button>Join</a></li>
+                    </form>
+                </div>
+            </div>
         </div>
 
         <div class="div-left">
@@ -57,7 +70,7 @@
 
             <div class="buttons">
                 <button id="new-meeting" class="new-meeting">+ New Meeting</button>
-                <button class="join" onclick="join()">Join</button>
+                <button id="join-meeting" class="join">Join</button>
             </div>
             <hr>
         </div>
@@ -145,6 +158,27 @@
                 linkCopied.style.display = 'block';
                 setTimeout(function () { linkCopied.style.display = 'none' }, 4000)
             }            
+        </script>
+
+        <script type="text/javascript">
+            let joinMeetingModal = document.getElementById('join-meeting-modal');
+
+            document.getElementById('join-meeting').onclick = function () {
+                joinMeetingModal.style.display = 'block';
+                bodyOverlay.style.display = "block";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == bodyOverlay) {
+                    joinMeetingModal.style.display = "none";
+                    bodyOverlay.style.display = "none";
+                }
+            }
+
+            document.getElementById('join-close').onclick = function () {
+                joinMeetingModal.style.display = "none";
+                bodyOverlay.style.display = "none";
+            }
         </script>
     </main>
     <footer class="footer">

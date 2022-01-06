@@ -193,7 +193,7 @@ button:focus, button:hover {
     cursor: pointer;
 }
 
-.new-meeting-modal {
+.meeting-modal {
     display: none;
     position: fixed;
     left: 50%;
@@ -276,7 +276,7 @@ div.copy-link-container:hover, div.copy-link-container:focus {
     border-radius: 5px;
 }
 
-#link-copied{
+#link-copied {
     background-color: white;
     /* filter: brightness(90%); */
     padding: 5px;
@@ -293,9 +293,41 @@ div.copy-link-container:hover, div.copy-link-container:focus {
     width: fit-content;
 }
 
-/* button.new-meeting {
+h1.enter-link {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-} */
+div.form {
+    align-items: center;
+    float: none !important;
+    margin: 0 auto !important;
+    width: fit-content;
+    padding: 20px 10px;
+    border-radius: 10px;
+    background-color: #10283f;;
+}
+
+div.form button {
+    width: fit-content;
+    float: right;
+    border-radius: 5px;
+    border-width: 0;
+    color: white;
+    padding: 5px 20px;
+    background-color: green;
+    vertical-align: middle;
+}
+
+div.form input {
+    width: 250px;
+    padding: 5px 5px;
+    background-color: #f3f5f9;
+    /* border: 1px solid #e5e8ed; */
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin-right: 10px;
+}
 
 @keyframes FadeInOut {
     0% {
