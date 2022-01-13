@@ -101,6 +101,13 @@
         </div>
 
         <script>
+            let currentModal = "none";
+            let bodyOverlay = document.getElementById("body-overlay");
+            let newMeetingModal = document.getElementById('new-meeting-modal');
+            let linkCopied = document.getElementById('link-copied');
+            let joinMeetingModal = document.getElementById('join-meeting-modal');
+
+            //snippet for cntrolling the start height and width of illustration dots
             window.addEventListener('load', function () {
                 var div = document.querySelector('.div-right div.img');
                 var dot = document.querySelector('.illus-dots');
@@ -115,14 +122,9 @@
                 div_text.style.height = illus_text_rect.height + 'px';
                 div_text.style.width = illus_text_rect.width + 'px'
             });
-        </script>
 
-        <!-- script for new-meeting modal -->
-        <script type="text/javascript">
-            let bodyOverlay = document.getElementById("body-overlay");
-            let newMeetingModal = document.getElementById('new-meeting-modal');
-            let linkCopied = document.getElementById('link-copied');
 
+            // <!-- snippet for new-meeting modal -->
             document.getElementById('new-meeting').onclick = function () {
                 let uuid = uuidv4();
                 new QRCode(document.getElementById("qrcode"), {
@@ -136,6 +138,7 @@
                 bodyOverlay.style.display = "block";
                 newMeetingModal.style.display = "block";
                 document.getElementById('chat-link').innerText = uuid;
+                currentModal = 'new-meeting'
             }
 
             document.getElementById('close').onclick = function () {
@@ -144,11 +147,21 @@
                 document.querySelector('#qrcode > img').remove();
             }
 
+            //snippet to close modals when a click is performed outside the scope of the modals
             window.onclick = function (event) {
                 if (event.target == bodyOverlay) {
-                    newMeetingModal.style.display = "none";
-                    bodyOverlay.style.display = "none";
-                    document.querySelector('#qrcode > img').remove();
+                    switch (currentModal) {
+                        case 'new-meeting':
+                            newMeetingModal.style.display = "none";
+                            bodyOverlay.style.display = "none";
+                            document.querySelector('#qrcode > img').remove();
+                            break;
+
+                        case 'join-meeting':
+                            joinMeetingModal.style.display = "none";
+                            bodyOverlay.style.display = "none";
+                            break;
+                    }
                 }
             }
 
@@ -157,22 +170,14 @@
                 navigator.clipboard.writeText(text.innerText);
                 linkCopied.style.display = 'block';
                 setTimeout(function () { linkCopied.style.display = 'none' }, 4000)
-            }            
-        </script>
+            }
 
-        <script type="text/javascript">
-            let joinMeetingModal = document.getElementById('join-meeting-modal');
 
+            // <!-- snippet for join meeting modal -->
             document.getElementById('join-meeting').onclick = function () {
                 joinMeetingModal.style.display = 'block';
                 bodyOverlay.style.display = "block";
-            }
-
-            window.onclick = function (event) {
-                if (event.target == bodyOverlay) {
-                    joinMeetingModal.style.display = "none";
-                    bodyOverlay.style.display = "none";
-                }
+                currentModal = 'join-meeting';
             }
 
             document.getElementById('join-close').onclick = function () {
@@ -180,6 +185,8 @@
                 bodyOverlay.style.display = "none";
             }
         </script>
+
+
     </main>
     <footer class="footer">
         <object class="footer" data="/public/html/footer.html" type="text/html"></object>
