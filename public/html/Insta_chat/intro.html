@@ -55,7 +55,7 @@
                 <div class="form">
                     <form action="">
                         <input type="url" placeholder="Enter chat link" name="chat_link" id="" required>
-                        <button>Join</a></li>
+                        <button id="form-join">Join</a></li>
                     </form>
                 </div>
             </div>
@@ -183,6 +183,10 @@
             document.getElementById('join-close').onclick = function () {
                 joinMeetingModal.style.display = "none";
                 bodyOverlay.style.display = "none";
+            }
+
+            document.getElementById('form-join').onclick = function(){
+                window.location.href = '/public/html/chat.html';
             }
         </script>
 
