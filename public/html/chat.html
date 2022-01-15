@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pearl Chat | Your Best Minimalist Chat App</title>
+    <link rel="stylesheet" href="/public/css/chat.css">
+</head>
+
+<body>
+    <main>
+        <section id="nav-section" class="nav-section">
+            <div class="logo"><img src="/public/img/logo.png" alt="" class="img-logo"></div>
+            <div class="container-profile">
+                <div class="div-profile">
+                    <img class="profile-pic" src="../img/ninja_512.webp" alt="">
+                    <h3 class="profile-name">Bill Bradford</h3>
+
+                    <div class="div-switch">
+                        <label class="switch">
+                            <input id="input-slider" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <span id="active-away" class="active-away">Away</span>
+                    </div>
+
+                </div>
+            </div>
+          
+            <!-- <div class="container3">
+                <h4>Profile</h4>
+                <h4>Settings</h4>
+                <h4>Log out</h4>
+            </div> -->
+        </section>
+    </main>
+    <!-- <a href="https://www.freepik.com/vectors/people">People vector created by pikisuperstar - www.freepik.com</a> -->
+
+    <script>
+        let inputSlider = document.getElementById('input-slider');
+        let activeAway = document.getElementById('active-away');
+
+        window.addEventListener('load', function () {
+            let navSection = document.getElementById('nav-section');
+            navSection.style.height = screen.height + 'px';
+        });
+
+        inputSlider.addEventListener('change', function(){
+            if (this.checked) {
+                setTimeout(function(){
+                    activeAway.innerHTML = 'Active';
+                }, 400)
+            }
+            else {
+                setTimeout(function(){
+                    activeAway.innerHTML = 'Away';
+                }, 400)
+
+            }
+        });
+    </script>
+</body>
+
+</html>
