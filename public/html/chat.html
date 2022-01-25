@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pearl Chat | Your Best Minimalist Chat App</title>
     <link rel="stylesheet" href="/public/css/chat.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 </head>
 
 <body>
@@ -28,7 +29,20 @@
 
                 </div>
             </div>
-          
+
+            <div class="div-active-conv">
+                <div class="a">
+                    <h4>Active Conversations</h4>
+                    <div class="div-conv-count">&nbsp;</div>
+                    <span class="material-icons-outlined">
+                        expand_more
+                        </span>
+                </div>
+                <!-- <div><img src="" alt="">
+                    <h4>Henry Boyd</h4>
+                </div> -->
+            </div>
+
             <!-- <div class="container3">
                 <h4>Profile</h4>
                 <h4>Settings</h4>
@@ -47,14 +61,14 @@
             navSection.style.height = screen.height + 'px';
         });
 
-        inputSlider.addEventListener('change', function(){
+        inputSlider.addEventListener('change', function () {
             if (this.checked) {
-                setTimeout(function(){
+                setTimeout(function () {
                     activeAway.innerHTML = 'Active';
                 }, 400)
             }
             else {
-                setTimeout(function(){
+                setTimeout(function () {
                     activeAway.innerHTML = 'Away';
                 }, 400)
 
