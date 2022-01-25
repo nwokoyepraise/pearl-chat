@@ -180,6 +180,9 @@ h4 {
   vertical-align: middle;
 }
 
+.material-icons-outlined:hover {
+    cursor: pointer;
+}
 .div-active-conv {
     margin-top: 10px;
 }

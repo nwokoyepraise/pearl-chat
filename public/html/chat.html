@@ -34,7 +34,7 @@
                 <div class="div-header">
                     <h4>Active Chats</h4>
                     <div class="div-conv-count">&nbsp;</div>
-                    <span class="material-icons-outlined">
+                    <span id="expand-icon" class="material-icons-outlined">
                         expand_more
                         </span>
                 </div>
@@ -55,6 +55,7 @@
     <script>
         let inputSlider = document.getElementById('input-slider');
         let activeAway = document.getElementById('active-away');
+        let expandIcon = document.getElementById('expand-icon');
 
         window.addEventListener('load', function () {
             let navSection = document.getElementById('nav-section');
@@ -74,6 +75,10 @@
 
             }
         });
+
+        expandIcon.onclick = function (){
+            expandIcon.innerText =  (expandIcon.innerText == 'expand_more') ? 'expand_less' : 'expand_more';
+        }
     </script>
 </body>
 
