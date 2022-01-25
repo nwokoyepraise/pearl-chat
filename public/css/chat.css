@@ -32,6 +32,7 @@ main {
 .img-logo {
   margin-top: 20px;
   scale: 0.7;
+  transform: translateX(-35px);
 }
 
 .div-profile {
@@ -40,8 +41,8 @@ main {
 }
 
 img.profile-pic {
-  height: 70px;
-  width: 70px;
+  height: 50px;
+  width: 50px;
 }
 
 h3 {
@@ -60,8 +61,8 @@ h3 {
 }
 
 div.container-profile {
-  height: 24%;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   background-color: #f5f8fc;
   margin-top: 10px;
   border-radius: 15px;
@@ -177,12 +178,8 @@ h4 {
 .material-icons-outlined {
   padding: 0px 0 !important;
   vertical-align: middle;
-
 }
 
-.a {
-  /* background: cornsilk; */
-
+.div-active-conv {
+    margin-top: 10px;
 }
-/* aactive-conv h4 {
-} */
