@@ -37,6 +37,7 @@ main {
   float: left;
   overflow-x: hidden;
   scrollbar-color: #dae4ee white;
+  border-right: 1px solid #dae4ee;
 }
 
 .img-logo {
