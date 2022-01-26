@@ -256,6 +256,11 @@ h5 {
   vertical-align: middle;
 }
 
+/* .div-settings {
+  position: absolute;
+  bottom: 10px;
+} */
+
 .material-icons {
   color: #10283f;
   vertical-align: middle;

@@ -54,7 +54,7 @@
             </div>
 
 
-            <div class="div-settings">
+            <div id="div-settings" class="div-settings">
                 <div>
                     <span class="material-icons">
                         account_circle
@@ -129,7 +129,11 @@
         expandIcon.onclick = function () {
             expandIcon.innerText = (expandIcon.innerText == 'expand_more') ? 'expand_less' : 'expand_more';
             msgsList.style.display = (expandIcon.innerText == 'expand_more') ? 'block' : 'none';
-
+            if (expandIcon.innerText == 'expand_less') {
+                document.getElementById('div-settings').style.position = 'absolute';
+                document.getElementById('div-settings').style.bottom = 10 + 'px';
+            }
+            else {document.getElementById('div-settings').style.position = 'relative';}
         }
     </script>
 </body>
