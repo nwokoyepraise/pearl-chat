@@ -36,7 +36,7 @@
                 <div class="div-header">
                     <h4>Active Chats</h4>
                     <div class="div-conv-count">
-                        <h5>1</h5>
+                        <h5 id="msg-count">1</h5>
                     </div>
                     <span id="expand-icon" class="material-icons-outlined">
                         expand_more
@@ -89,6 +89,7 @@
         let msgIcon = document.getElementById('msg-icon');
         let msgNameTag = document.getElementById('msg-name-tag');
         let msgName = document.getElementById('msg-name');
+        let msgCount = document.getElementById('msg-count');
 
         window.addEventListener('load', function () {
             // let navSection = document.getElementById('nav-section');
@@ -107,7 +108,7 @@
 
 
             msgsList.appendChild(fragment);
-
+            msgCount.textContent = msgsList.childElementCount;
         });
 
 
