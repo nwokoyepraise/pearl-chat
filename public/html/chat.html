@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pearl Chat | Your Best Minimalist Chat App</title>
     <link rel="stylesheet" href="/public/css/chat.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -41,20 +43,36 @@
                     </span>
                 </div>
                 <div id="msgs-list" class="div-msgs-list">
-                    <div class="div-msg">
-                        <span class="message-icon">
-                            <h4>JD</h4>
+                    <div id="div-msg" class="div-msg">
+                        <span id="msg-icon" class="message-icon">
+                            <h4 id="msg-name-tag">JD</h4>
                         </span>
-                        <h4>John Doe</h4>
+                        <h4 id="msg-name">John Doe</h4>
                     </div>
-
                 </div>
 
-                <!-- <div class="container3">
-                <h4>Profile</h4>
-                <h4>Settings</h4>
-                <h4>Log out</h4>
-            </div> -->
+            </div>
+
+
+            <div class="div-settings">
+                <div>
+                    <span class="material-icons">
+                        account_circle
+                    </span>
+                    <h4>Profile</h4>
+                </div>
+                <div>
+                    <span class="material-icons">
+                        settings
+                    </span>
+                    <h4>Settings</h4>
+                </div>
+                <div>
+                    <span class="material-icons">
+                        logout
+                    </span>
+                    <h4>Log Out</h4>
+                </div>
         </section>
     </main>
     <!-- <a href="https://www.freepik.com/vectors/people">People vector created by pikisuperstar - www.freepik.com</a> -->
@@ -64,11 +82,32 @@
         let activeAway = document.getElementById('active-away');
         let expandIcon = document.getElementById('expand-icon');
         let msgsList = document.getElementById('msgs-list');
+        let msg = document.getElementById('div-msg');
+        let fragment = document.createDocumentFragment();
+        let msgIcon = document.getElementById('msg-icon');
+        let msgNameTag = document.getElementById('msg-name-tag');
+        let msgName = document.getElementById('msg-name');
 
         window.addEventListener('load', function () {
-            let navSection = document.getElementById('nav-section');
-            navSection.style.height = screen.height + 'px';
+            // let navSection = document.getElementById('nav-section');
+            // navSection.style.height = screen.height + 'px';
+            let mColors = ['#fe95ca', '#deba31', '#998afe', '#649ef3'];
+            let mNames = ['Henry Boyd', 'Martha Curtis', 'Chukwu Nweze', 'Louis Ezeka'];
+            let nameTag = ['HB', 'MC', 'CN', 'LE'];
+
+            for (let i = 0; i < 4; i++) {
+                msgIcon.style.backgroundColor = mColors[i]
+                msgNameTag.textContent = nameTag[i];
+                msgName.textContent = mNames[i];
+                let item = msg.cloneNode(true);
+                fragment.appendChild(item);
+            }
+
+
+            msgsList.appendChild(fragment);
+
         });
+
 
         inputSlider.addEventListener('change', function () {
             if (this.checked) {
