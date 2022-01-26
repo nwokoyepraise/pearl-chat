@@ -33,17 +33,24 @@
             <div class="div-active-conv">
                 <div class="div-header">
                     <h4>Active Chats</h4>
-                    <div class="div-conv-count">&nbsp;</div>
+                    <div class="div-conv-count">
+                        <h5>1</h5>
+                    </div>
                     <span id="expand-icon" class="material-icons-outlined">
                         expand_more
-                        </span>
+                    </span>
                 </div>
-                <!-- <div><img src="" alt="">
-                    <h4>Henry Boyd</h4>
-                </div> -->
-            </div>
+                <div id="msgs-list" class="div-msgs-list">
+                    <div class="div-msg">
+                        <span class="message-icon">
+                            <h4>JD</h4>
+                        </span>
+                        <h4>John Doe</h4>
+                    </div>
 
-            <!-- <div class="container3">
+                </div>
+
+                <!-- <div class="container3">
                 <h4>Profile</h4>
                 <h4>Settings</h4>
                 <h4>Log out</h4>
@@ -56,6 +63,7 @@
         let inputSlider = document.getElementById('input-slider');
         let activeAway = document.getElementById('active-away');
         let expandIcon = document.getElementById('expand-icon');
+        let msgsList = document.getElementById('msgs-list');
 
         window.addEventListener('load', function () {
             let navSection = document.getElementById('nav-section');
@@ -76,8 +84,10 @@
             }
         });
 
-        expandIcon.onclick = function (){
-            expandIcon.innerText =  (expandIcon.innerText == 'expand_more') ? 'expand_less' : 'expand_more';
+        expandIcon.onclick = function () {
+            expandIcon.innerText = (expandIcon.innerText == 'expand_more') ? 'expand_less' : 'expand_more';
+            msgsList.style.display = (expandIcon.innerText == 'expand_more') ? 'block' : 'none';
+
         }
     </script>
 </body>

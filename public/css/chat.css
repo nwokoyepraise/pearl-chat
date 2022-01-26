@@ -166,12 +166,13 @@ h4 {
 
 .div-conv-count {
   background-color: #dadce0;
-  height: 28px;
-  width: 28px;
+  height: 22px;
+  width: 22px;
   border-radius: 50%;
   display: inline-block;
   margin-left: 5px;
   vertical-align: middle;
+  text-align: center;
   /* padding: 5px 0; */
 }
 
@@ -181,8 +182,39 @@ h4 {
 }
 
 .material-icons-outlined:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
+
 .div-active-conv {
-    margin-top: 10px;
+  margin-top: 10px;
+}
+
+span.message-icon {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-color: dodgerblue;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+}
+
+span.message-icon h4 {
+  display: inline-block;
+}
+
+div.div-msg h4 {
+  vertical-align: middle;
+  margin-left: 10px;
+  display: inline-block;
+  margin: 0 10px !important;
+}
+
+h5 {
+  margin: 0 auto;
+  padding: 0;
+  font-size: 13px;
+  vertical-align: middle;
+  display: inline;
+  font-weight: normal;
 }
