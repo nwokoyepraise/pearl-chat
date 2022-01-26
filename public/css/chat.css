@@ -9,24 +9,33 @@
   font-size: 16px;
 }
 
+html {
+height: 100%;
+}
+
 body {
   /* background-image: linear-gradient(to right, #e2eaff, white, white); */
   width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 main {
   height: 100% !important;
   width: 100%;
-  overflow: hidden;
   position: relative;
 }
 
 .nav-section {
-  padding-left: 40px;
+  padding-left: 30px;
   background-color: white;
-  /* width: 15%; */
+  overflow-y: auto;
+  width: 220px;
+  height: 100%;
+  float: left;
+  overflow-x: hidden;
 }
 
 .img-logo {
@@ -185,7 +194,7 @@ h4 {
 
 .div-active-conv {
   margin-top: 10px;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
 }
 
 span.message-icon {
@@ -243,4 +252,8 @@ h5 {
   color: #10283f;
   vertical-align: middle;
   margin-right: 10px;
+}
+
+.msg-section {
+  float: right;
 }
