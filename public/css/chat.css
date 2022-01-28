@@ -23,21 +23,23 @@ body {
 }
 
 main {
-  height: 100% !important;
+  height: 100%;
   width: 100%;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav-section {
   padding-left: 30px;
   background-color: white;
   overflow-y: auto;
-  width: 230px;
+  width: 17%;
   height: 100%;
   float: left;
   overflow-x: hidden;
   scrollbar-color: #dae4ee white;
   border-right: 1px solid #dae4ee;
+  /* margin-right: 30px; */
 }
 
 .img-logo {
@@ -269,5 +271,32 @@ h5 {
 }
 
 .msg-section {
+  width: 50%;
+  height: 100%;
+  float: left;
+  padding: 20px 0;
+}
+
+.div-msg-section {
+  height: 100%;
+  width: 100%;
+  background-color: #f5f8fc;
+  border-radius: 15px;
+  /* border: 1px solid #dae4ee; */
+}
+
+.user-section {
+  width: 20%;
+  height: 100%;
   float: right;
+  padding: 20px 0;
+  margin-right: 30px;
+}
+
+.div-user-section {
+  height: 100%;
+  width: 100%;
+  background-color: #f5f8fc;
+  border-radius: 15px;
+  /* border: 1px solid #dae4ee; */
 }

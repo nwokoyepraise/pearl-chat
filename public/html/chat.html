@@ -75,7 +75,17 @@
                 </div>
         </section>
 
-        <section class="msg-section"></section>
+        <section id="msg-section" class="msg-section">
+            <div class="div-msg-section">
+
+            </div>
+        </section>
+
+        <section class="user-section">
+            <div class="div-user-section">
+
+            </div>
+        </section>
     </main>
     <!-- <a href="https://www.freepik.com/vectors/people">People vector created by pikisuperstar - www.freepik.com</a> -->
 
@@ -90,6 +100,7 @@
         let msgNameTag = document.getElementById('msg-name-tag');
         let msgName = document.getElementById('msg-name');
         let msgCount = document.getElementById('msg-count');
+        let msgSection = document.getElementById('msg-section');
 
         window.addEventListener('load', function () {
             // let navSection = document.getElementById('nav-section');
@@ -109,6 +120,7 @@
 
             msgsList.appendChild(fragment);
             msgCount.textContent = msgsList.childElementCount;
+
         });
 
 
@@ -133,7 +145,7 @@
                 document.getElementById('div-settings').style.position = 'absolute';
                 document.getElementById('div-settings').style.bottom = 10 + 'px';
             }
-            else {document.getElementById('div-settings').style.position = 'relative';}
+            else { document.getElementById('div-settings').style.position = 'relative'; }
         }
     </script>
 </body>
