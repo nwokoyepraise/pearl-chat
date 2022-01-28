@@ -288,15 +288,14 @@ h5 {
 
 .div-form {
   width: 100%;
-  /* padding: 30px !important; */
   display: flex;
   justify-content: center;
 }
 
 form {
   position: absolute;
-  bottom: 20px;
-  width: 90%;
+  bottom: 15px;
+  width: 95%;
   border-radius: 15px;
   background-color: white;
   padding: 10px;
@@ -305,11 +304,13 @@ form {
 }
 
 form input {
-  width: 80%;
+  width: 86%;
   border: 1px solid grey;
   border-radius: 7px;
   font-size: 13px;
   padding: 5px;
+  padding-left: 10px;
+  font-family: sans-serif;
 }
 
 form input:focus {
@@ -319,7 +320,7 @@ form input:focus {
 }
 
 form button {
-  width: 15%;
+  width: 12%;
   padding: 7px 0px;
   border-radius: 5px;
   border-width: 0;
@@ -327,6 +328,11 @@ form button {
   background-color: #004dfc;
   text-decoration: none;
   font-family: "Nunito";
+}
+
+form button {
+  filter: brightness(85%);
+  cursor: pointer;
 }
 
 .user-section {
