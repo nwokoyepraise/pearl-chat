@@ -283,6 +283,50 @@ h5 {
   background-color: #f5f8fc;
   border-radius: 15px;
   /* border: 1px solid #dae4ee; */
+  position: relative;
+}
+
+.div-form {
+  width: 100%;
+  /* padding: 30px !important; */
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  position: absolute;
+  bottom: 20px;
+  width: 90%;
+  border-radius: 15px;
+  background-color: white;
+  padding: 10px;
+  justify-content: space-between;
+  display: flex;
+}
+
+form input {
+  width: 80%;
+  border: 1px solid grey;
+  border-radius: 7px;
+  font-size: 13px;
+  padding: 5px;
+}
+
+form input:focus {
+  border: 1px solid grey;
+  box-shadow: 0 0 10px #719ece;
+  outline: none;
+}
+
+form button {
+  width: 15%;
+  padding: 7px 0px;
+  border-radius: 5px;
+  border-width: 0;
+  color: white;
+  background-color: #004dfc;
+  text-decoration: none;
+  font-family: "Nunito";
 }
 
 .user-section {
