@@ -190,6 +190,7 @@ h4 {
 .material-icons-outlined {
   padding: 0px 0 !important;
   vertical-align: middle;
+  color: #10283f;
 }
 
 .material-icons-outlined:hover {
@@ -227,7 +228,7 @@ span.message-icon h4 {
 }
 
 #msg-name {
-  color: grey;
+  color: #5a6f95;
   font-size: 14px;
   text-shadow: 0px 0px 0.5px grey;
 }
@@ -358,7 +359,7 @@ form div:hover {
   padding: 0;
 }
 
-.msg-item{
+.msg-item {
   background-color: white;
   padding: 8px;
   width: fit-content;
@@ -396,7 +397,85 @@ form div:hover {
 .div-user-section {
   height: 100%;
   width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.div-prospect-details {
+  height: fit-content;
+  width: 100%;
   background-color: #f5f8fc;
   border-radius: 15px;
-  /* border: 1px solid #dae4ee; */
+  border: 1px solid #dae4ee;
+  margin: 0;
+  padding: 20px;
+}
+
+.div-prospect-details .div-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.div-prospect-details div h4 {
+  margin: 0px;
+}
+
+.div-prospect-details div span {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+div.prospect-icon {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+span#prospect-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h4.prospect-name-tag {
+  font-size: 32px;
+}
+
+.div-details {
+  margin-top: 10px;
+}
+
+span#prospect-email {
+  margin-left: 0 !important;
+}
+
+.div-details h4 {
+  font-family: sans-serif;
+  color: #5a6f95;
+  font-weight: normal;
+  text-shadow: none;
+  font-size: 14px;
+  margin-left: 5px !important;
+}
+
+.div-archive {
+  width: fit-content;
+  background-color: #f5f8fc;
+  border-radius: 15px;
+  border: 1px solid #004dfc;
+  text-align: center;
+  padding: 5px;
+  margin: 0 auto;
+  margin-top: 10px;
+  color: blue6;
+}
+
+.div-archive h4, .div-archive span {
+  color: #004dfc;
 }

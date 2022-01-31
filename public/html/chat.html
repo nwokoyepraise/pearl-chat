@@ -78,7 +78,8 @@
         <section id="msg-section" class="msg-section">
             <div class="div-msg-section">
                 <ul id="messages"></ul>
-                <div class="receiver-msg msg-item">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque temporibus ut ex venia.</div>
+                <div class="receiver-msg msg-item">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque
+                    temporibus ut ex venia.</div>
                 <div class="div-form">
                     <form id="form" action="">
                         <input placeholder="Enter your message here" type="text" name="" id="input">
@@ -97,7 +98,41 @@
 
         <section class="user-section">
             <div class="div-user-section">
+                <div class="div-prospect-details">
+                    <div class="div-header">
+                        <h4>Prospect Details</h4>
+                        <span id="expand-prospect-details" class="material-icons-outlined">
+                            expand_more
+                        </span>
+                    </div>
+                    <div class="div-prospect-icon">
+                        <span id="prospect-icon" class="message-icon prospect-icon">
+                            <h4 id="msg-name-tag" class="prospect-name-tag">LE</h4>
+                        </span>
+                    </div>
+                    <div class="div-prospect-email div-details">
+                        <span id="prospect-email" class="material-icons-outlined">
+                            email
+                        </span> 
+                        <h4 class="prospect-email">louisezeka@gmail.com</h4>  
+                    </div>
+                    <div class="div-details">
+                        <span id="prospect-account" class="material-icons-outlined">
+                            account_circle
+                        </span> 
+                        <h4>Louis Ezeka</h4>  
+                    </div>
 
+                    <div class="div-archive">
+                        <h4>Archive</h4>
+                        <span id="prospect-account" class="material-icons-outlined">
+                            archive
+                        </span>
+                    </div>
+
+                </div>
+                <div></div>
+                <div></div>
             </div>
         </section>
     </main>
@@ -168,7 +203,7 @@
         });
 
         btnSend.onclick = function () {
-            if (!input.value) {return;}
+            if (!input.value) { return; }
             let item = document.createElement('li');
             let divMsg = document.createElement('div');
             divMsg.className = 'sender-msg msg-item'
