@@ -105,31 +105,33 @@
                             expand_more
                         </span>
                     </div>
-                    <div class="div-prospect-icon">
-                        <span id="prospect-icon" class="message-icon prospect-icon">
-                            <h4 id="msg-name-tag" class="prospect-name-tag">LE</h4>
-                        </span>
-                    </div>
-                    <div class="div-prospect-email div-details">
-                        <span id="prospect-email" class="material-icons-outlined">
-                            email
-                        </span> 
-                        <h4 class="prospect-email">louisezeka@gmail.com</h4>  
-                    </div>
-                    <div class="div-details">
-                        <span id="prospect-account" class="material-icons-outlined">
-                            account_circle
-                        </span> 
-                        <h4>Louis Ezeka</h4>  
-                    </div>
+                    <div id="details-container">
+                        <div class="div-prospect-icon">
+                            <span id="prospect-icon" class="message-icon prospect-icon">
+                                <h4 id="msg-name-tag" class="prospect-name-tag">LE</h4>
+                            </span>
+                        </div>
+                        <div class="div-prospect-email div-details">
+                            <span id="prospect-email" class="material-icons-outlined">
+                                email
+                            </span>
+                            <h4 class="prospect-email">louisezeka@gmail.com</h4>
+                        </div>
+                        <div class="div-details">
+                            <span id="prospect-account" class="material-icons-outlined">
+                                account_circle
+                            </span>
+                            <h4>Louis Ezeka</h4>
+                        </div>
 
-                    <div class="div-archive">
-                        <h4>Archive</h4>
-                        <span id="prospect-account" class="material-icons-outlined">
-                            archive
-                        </span>
-                    </div>
+                        <div class="div-archive">
+                            <h4>Archive</h4>
+                            <span id="prospect-account" class="material-icons-outlined">
+                                archive
+                            </span>
+                        </div>
 
+                    </div>
                 </div>
                 <div></div>
                 <div></div>
@@ -154,6 +156,8 @@
         let form = document.getElementById('form');
         let messages = document.getElementById('messages');
         let senderMsg = document.getElementById('sender-msg');
+        let expandProspect = document.getElementById('expand-prospect-details');
+        let detailsContainer = document.getElementById('details-container');
 
         window.addEventListener('load', function () {
             let mColors = ['#fe95ca', '#deba31', '#998afe', '#649ef3'];
@@ -212,6 +216,17 @@
             messages.appendChild(item);
             window.scrollTo(0, document.body.scrollHeight);
             input.value = '';
+        }
+
+        expandProspect.onclick = function () {
+            expandProspect.innerText = (expandProspect.innerText == 'expand_more') ? 'expand_less' : 'expand_more';
+            detailsContainer.style.display = (expandProspect.innerText == 'expand_more') ? 'block' : 'none';
+            // msgsList.style.display = (expandIcon.innerText == 'expand_more') ? 'block' : 'none';
+            // if (expandIcon.innerText == 'expand_less') {
+            //     document.getElementById('div-settings').style.position = 'absolute';
+            //     document.getElementById('div-settings').style.bottom = 10 + 'px';
+            // }
+            // else { document.getElementById('div-settings').style.position = 'relative'; }
         }
     </script>
 </body>
