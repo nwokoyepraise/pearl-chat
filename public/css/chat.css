@@ -387,7 +387,7 @@ form div:hover {
 } */
 
 .user-section {
-  width: 20%;
+  width: 18%;
   height: 100%;
   float: right;
   padding: 15px 0;
@@ -408,7 +408,7 @@ form div:hover {
   border-radius: 15px;
   border: 1px solid #dae4ee;
   margin: 0;
-  padding: 20px;
+  padding: 13px;
 }
 
 .div-prospect-details .div-header {
@@ -416,6 +416,7 @@ form div:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 5px;
 }
 
 .div-prospect-details div h4 {
@@ -434,8 +435,8 @@ div.prospect-icon {
 }
 
 span#prospect-icon {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   margin: 0 auto;
   text-align: center;
   display: flex;
@@ -448,7 +449,7 @@ h4.prospect-name-tag {
 }
 
 .div-details {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 span#prospect-email {
@@ -472,8 +473,8 @@ span#prospect-email {
   text-align: center;
   padding: 5px;
   margin: 0 auto;
-  margin-top: 10px;
-  color: blue6;
+  margin-top: 5px;
+  color: #004dfc;
 }
 
 .div-archive h4, .div-archive span {
