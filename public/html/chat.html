@@ -77,12 +77,13 @@
 
         <section id="msg-section" class="msg-section">
             <div class="div-msg-section">
+                <ul id="messages"></ul>
                 <div class="div-form">
                     <form id="form" action="">
                         <input placeholder="Enter your message here" type="text" name="" id="input">
-                        <div>
+                        <div id="send">
                             <button>Send</button>
-                            <span class="material-icons-outlined">
+                            <span id="mio-send" class="material-icons-outlined">
                                 send
                             </span>
                         </div>
@@ -99,7 +100,7 @@
             </div>
         </section>
     </main>
-   
+
     <script>
         let inputSlider = document.getElementById('input-slider');
         let activeAway = document.getElementById('active-away');
@@ -112,6 +113,11 @@
         let msgName = document.getElementById('msg-name');
         let msgCount = document.getElementById('msg-count');
         let msgSection = document.getElementById('msg-section');
+        let btnSend = document.getElementById('send');
+        let input = document.getElementById('input');
+        let form = document.getElementById('form');
+        let messages = document.getElementById('messages');
+        let senderMsg = document.getElementById('sender-msg');
 
         window.addEventListener('load', function () {
             // let navSection = document.getElementById('nav-section');
@@ -121,13 +127,12 @@
             let nameTag = ['HB', 'MC', 'CN', 'LE'];
 
             for (let i = 0; i < 4; i++) {
+                let item = msg.cloneNode(true);
                 msgIcon.style.backgroundColor = mColors[i]
                 msgNameTag.textContent = nameTag[i];
                 msgName.textContent = mNames[i];
-                let item = msg.cloneNode(true);
                 fragment.appendChild(item);
             }
-
 
             msgsList.appendChild(fragment);
             msgCount.textContent = msgsList.childElementCount;
@@ -157,6 +162,21 @@
                 document.getElementById('div-settings').style.bottom = 10 + 'px';
             }
             else { document.getElementById('div-settings').style.position = 'relative'; }
+        }
+
+        form.addEventListener('submit', function (ev) {
+            ev.preventDefault();
+        });
+
+        btnSend.onclick = function () {
+            let item = document.createElement('li');
+            let divMsg = document.createElement('div');
+            divMsg.className = 'sender-msg'
+            divMsg.textContent = input.value
+            //item.textContent = input.value;
+            item.appendChild(divMsg);
+            messages.appendChild(item);
+            window.scrollTo(0, document.body.scrollHeight);
         }
     </script>
 </body>

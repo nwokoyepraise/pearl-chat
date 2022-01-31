@@ -340,7 +340,7 @@ form div button {
   vertical-align: middle;
 }
 
-span.material-icons-outlined {
+#mio-send {
   color: white;
   vertical-align: middle;
   font-size: 16px;
@@ -350,6 +350,27 @@ form div:hover {
   filter: brightness(85%);
   cursor: pointer;
 }
+
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sender-msg {
+  background-color: #dbe1e9;
+  padding: 8px;
+  width: fit-content;
+  border-radius: 10px;
+  font-family: sans-serif;
+  font-size: 14px;
+  margin-bottom: 15px;
+
+}
+
+/* #messages>li:nth-child(odd) {
+  background: #efefef;
+} */
 
 .user-section {
   width: 20%;
