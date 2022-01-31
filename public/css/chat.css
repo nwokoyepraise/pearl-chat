@@ -274,7 +274,7 @@ h5 {
   width: 50%;
   height: 100%;
   float: left;
-  padding: 20px 0;
+  padding: 15px 0;
 }
 
 .div-msg-section {
@@ -282,7 +282,6 @@ h5 {
   width: 100%;
   background-color: #f5f8fc;
   border-radius: 15px;
-  /* border: 1px solid #dae4ee; */
   position: relative;
 }
 
@@ -298,7 +297,7 @@ form {
   width: 95%;
   border-radius: 15px;
   background-color: white;
-  padding: 10px;
+  padding: 7px;
   justify-content: space-between;
   display: flex;
 }
@@ -319,18 +318,35 @@ form input:focus {
   outline: none;
 }
 
-form button {
+form div {
   width: 12%;
-  padding: 7px 0px;
+  background-color: #004dfc;
   border-radius: 5px;
   border-width: 0;
-  color: white;
-  background-color: #004dfc;
-  text-decoration: none;
-  font-family: "Nunito";
+  padding: 7px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-form button {
+form div button {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+  font-family: sans-serif;
+  border-width: 0;
+  margin-left: 0;
+  font-size: 13.5px;
+  vertical-align: middle;
+}
+
+span.material-icons-outlined {
+  color: white;
+  vertical-align: middle;
+  font-size: 16px;
+}
+
+form div:hover {
   filter: brightness(85%);
   cursor: pointer;
 }
@@ -339,7 +355,7 @@ form button {
   width: 20%;
   height: 100%;
   float: right;
-  padding: 20px 0;
+  padding: 15px 0;
   margin-right: 30px;
 }
 
