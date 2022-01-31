@@ -257,6 +257,11 @@ h4#copy-link {
     margin: 0;
 }
 
+#chat-link {
+    margin-left: 20px;
+    text-decoration: underline;
+}
+
 .material-icons {
     color: #174ea6;
 }

@@ -137,7 +137,7 @@
                 });
                 bodyOverlay.style.display = "block";
                 newMeetingModal.style.display = "block";
-                document.getElementById('chat-link').innerText = uuid;
+                document.getElementById('chat-link').innerText = `https://tiny.ul/${uuid.substring(0, 8)}`;
                 currentModal = 'new-meeting'
             }
 
