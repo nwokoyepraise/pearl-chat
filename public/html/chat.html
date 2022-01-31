@@ -78,6 +78,7 @@
         <section id="msg-section" class="msg-section">
             <div class="div-msg-section">
                 <ul id="messages"></ul>
+                <div class="receiver-msg msg-item">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque temporibus ut ex venia.</div>
                 <div class="div-form">
                     <form id="form" action="">
                         <input placeholder="Enter your message here" type="text" name="" id="input">
@@ -120,8 +121,6 @@
         let senderMsg = document.getElementById('sender-msg');
 
         window.addEventListener('load', function () {
-            // let navSection = document.getElementById('nav-section');
-            // navSection.style.height = screen.height + 'px';
             let mColors = ['#fe95ca', '#deba31', '#998afe', '#649ef3'];
             let mNames = ['Henry Boyd', 'Martha Curtis', 'Chukwu Nweze', 'Louis Ezeka'];
             let nameTag = ['HB', 'MC', 'CN', 'LE'];
@@ -172,7 +171,7 @@
             if (!input.value) {return;}
             let item = document.createElement('li');
             let divMsg = document.createElement('div');
-            divMsg.className = 'sender-msg'
+            divMsg.className = 'sender-msg msg-item'
             divMsg.textContent = input.value
             item.appendChild(divMsg);
             messages.appendChild(item);

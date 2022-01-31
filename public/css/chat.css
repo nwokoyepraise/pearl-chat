@@ -358,8 +358,8 @@ form div:hover {
   padding: 0;
 }
 
-.sender-msg {
-  background-color: #dbe1e9;
+.msg-item{
+  background-color: white;
   padding: 8px;
   width: fit-content;
   border-radius: 10px;
@@ -370,6 +370,15 @@ form div:hover {
   margin-right: 10px;
   max-width: 50%;
   overflow-wrap: break-word;
+  box-shadow: 0 2px 3px 0 #efefef;
+}
+
+.sender-msg {
+  background-color: #dbe1e9;
+}
+.receiver-msg {
+  margin-left: 10px;
+  margin-right: auto;
 }
 
 /* #messages>li:nth-child(odd) {
