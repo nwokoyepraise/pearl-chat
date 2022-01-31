@@ -169,6 +169,7 @@
         });
 
         btnSend.onclick = function () {
+            if (!input.value) {return;}
             let item = document.createElement('li');
             let divMsg = document.createElement('div');
             divMsg.className = 'sender-msg'
