@@ -174,10 +174,10 @@
             let divMsg = document.createElement('div');
             divMsg.className = 'sender-msg'
             divMsg.textContent = input.value
-            //item.textContent = input.value;
             item.appendChild(divMsg);
             messages.appendChild(item);
             window.scrollTo(0, document.body.scrollHeight);
+            input.value = '';
         }
     </script>
 </body>
