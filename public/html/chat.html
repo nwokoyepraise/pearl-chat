@@ -211,7 +211,7 @@
 
         window.addEventListener('load', function () {
             let mColors = ['#fe95ca', '#deba31', '#998afe', '#649ef3'];
-            let mNames = ['Henry Boyd', 'Martha Curtis', 'Chukwu Nweze', 'Louis Ezeka'];
+            let mNames = ['Henry Boyd', 'Martha Curtis', 'Chuks Nweze', 'Louis Ezeka'];
             let nameTag = ['HB', 'MC', 'CN', 'LE'];
 
             for (let i = 0; i < 4; i++) {
@@ -219,6 +219,7 @@
                 msgIcon.style.backgroundColor = mColors[i]
                 msgNameTag.textContent = nameTag[i];
                 msgName.textContent = mNames[i];
+                item.id = `${item.id}${i}`
                 fragment.appendChild(item);
             }
 
@@ -251,6 +252,13 @@
             }
             else { document.getElementById('div-settings').style.position = 'relative'; }
         }
+
+        msgsList.addEventListener('click', function (ev) {
+            if (ev.target.closest('DIV').className != 'div-msg') { return; }
+            let closestDiv = ev.target.closest('DIV');
+            document.querySelectorAll('.div-msg').forEach(element => element.style.backgroundColor = 'white')
+            closestDiv.style.backgroundColor = '#dadce0';
+        });
 
         form.addEventListener('submit', function (ev) {
             ev.preventDefault();

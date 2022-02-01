@@ -236,6 +236,13 @@ span.message-icon h4 {
 div.div-msg {
   display: block;
   margin-bottom: 20px;
+  border-radius: 7px;
+  padding: 10px;
+}
+
+div.div-msg:hover {
+  filter: brightness(85%);
+  cursor: pointer;
 }
 
 div.div-msg h4 {
@@ -243,6 +250,7 @@ div.div-msg h4 {
   padding: 0;
   display: inline-block;
   margin: 0 10px;
+ 
 }
 
 h5 {
@@ -388,6 +396,8 @@ form div:hover {
   float: right;
   padding: 15px 0;
   margin-right: 30px;
+  border-left: 1px solid #dae4ee;
+  padding-left: 3px;
 }
 
 .div-user-section {
