@@ -401,7 +401,8 @@ form div:hover {
 }
 
 .div-prospect-details,
-.div-notes {
+.div-notes,
+.div-onboard {
   height: fit-content;
   width: 100%;
   background-color: #f5f8fc;
@@ -413,7 +414,8 @@ form div:hover {
 }
 
 .div-prospect-details .div-header,
-.div-notes .div-header {
+.div-notes .div-header,
+.div-onboard .div-header {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -422,12 +424,14 @@ form div:hover {
 }
 
 .div-prospect-details div h4,
-.div-notes div h4 {
+.div-notes div h4,
+.div-onboard h4 {
   margin: 0px;
 }
 
 .div-prospect-details div span,
-span#expand-notes {
+span#expand-notes,
+span#expand-onboard {
   margin-left: auto;
   margin-right: 0;
 }
@@ -519,7 +523,7 @@ div.input {
 
 div.input input {
   float: left;
-  width: 150px;
+  width: 140px;
   height: 100%;
   outline: hidden;
   border: hidden;
@@ -556,4 +560,48 @@ input:focus {
 button.submit:hover {
   filter: brightness(85%);
   cursor: pointer;
+}
+
+#onboard-container {
+  margin-top: 10px;
+}
+
+#onboard-container h4 {
+  font-family: sans-serif;
+  color: #5a6f95;
+  font-weight: normal;
+  text-shadow: none;
+  font-size: 12px;
+  margin: 0 !important;
+  text-align: center !important;
+  line-height: 20px;
+}
+
+div.div-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+div.div-button div {
+  width: fit-content;
+  background-color: #004dfc;
+  border-radius: 7px;
+  padding: 10px 20px;
+}
+
+#onboard-container button {
+  background-color: transparent;
+  border-width: 0;
+  text-align: center;
+  font-family: sans-serif;
+  color: white;
+  display: inline;
+  vertical-align: middle;
+}
+
+.div-button div span {
+  rotate: 135deg;
 }
