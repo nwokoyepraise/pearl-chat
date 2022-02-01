@@ -473,13 +473,14 @@ span#prospect-email {
   text-align: center;
   padding: 5px;
   margin: 0 auto;
-  margin-top: 5px;
+  margin-top: 10px;
   color: #004dfc;
 }
 
 .div-archive h4,
 .div-archive span {
   color: #004dfc;
+  font-size: 16px;
 }
 
 .div-content {

@@ -143,8 +143,6 @@
                         </span>
                     </div>
                     <div id="notes-container">
-
-
                         <div class="div-content">
                             <h4>Good client to be considered.</h4>
                         </div>
@@ -163,24 +161,26 @@
     </main>
 
     <script>
-        let inputSlider = document.getElementById('input-slider');
-        let activeAway = document.getElementById('active-away');
-        let expandIcon = document.getElementById('expand-icon');
-        let msgsList = document.getElementById('msgs-list');
-        let msg = document.getElementById('div-msg');
-        let fragment = document.createDocumentFragment();
-        let msgIcon = document.getElementById('msg-icon');
-        let msgNameTag = document.getElementById('msg-name-tag');
-        let msgName = document.getElementById('msg-name');
-        let msgCount = document.getElementById('msg-count');
-        let msgSection = document.getElementById('msg-section');
-        let btnSend = document.getElementById('send');
-        let input = document.getElementById('input');
-        let form = document.getElementById('form');
-        let messages = document.getElementById('messages');
-        let senderMsg = document.getElementById('sender-msg');
-        let expandProspect = document.getElementById('expand-prospect-details');
-        let detailsContainer = document.getElementById('details-container');
+        let inputSlider = document.getElementById('input-slider'),
+            activeAway = document.getElementById('active-away'),
+            expandIcon = document.getElementById('expand-icon'),
+            msgsList = document.getElementById('msgs-list'),
+            msg = document.getElementById('div-msg'),
+            fragment = document.createDocumentFragment(),
+            msgIcon = document.getElementById('msg-icon'),
+            msgNameTag = document.getElementById('msg-name-tag'),
+            msgName = document.getElementById('msg-name'),
+            msgCount = document.getElementById('msg-count'),
+            msgSection = document.getElementById('msg-section'),
+            btnSend = document.getElementById('send'),
+            input = document.getElementById('input'),
+            form = document.getElementById('form'),
+            messages = document.getElementById('messages'),
+            senderMsg = document.getElementById('sender-msg'),
+            expandProspect = document.getElementById('expand-prospect-details'),
+            detailsContainer = document.getElementById('details-container'),
+            expandNotes = document.getElementById('expand-notes'),
+            notesContainer = document.getElementById('notes-container');
 
         window.addEventListener('load', function () {
             let mColors = ['#fe95ca', '#deba31', '#998afe', '#649ef3'];
@@ -244,12 +244,11 @@
         expandProspect.onclick = function () {
             expandProspect.innerText = (expandProspect.innerText == 'expand_more') ? 'expand_less' : 'expand_more';
             detailsContainer.style.display = (expandProspect.innerText == 'expand_more') ? 'block' : 'none';
-            // msgsList.style.display = (expandIcon.innerText == 'expand_more') ? 'block' : 'none';
-            // if (expandIcon.innerText == 'expand_less') {
-            //     document.getElementById('div-settings').style.position = 'absolute';
-            //     document.getElementById('div-settings').style.bottom = 10 + 'px';
-            // }
-            // else { document.getElementById('div-settings').style.position = 'relative'; }
+        }
+
+        expandNotes.onclick = function () {
+            expandNotes.innerText = (expandNotes.innerText == 'expand_more') ? 'expand_less' : 'expand_more';
+            notesContainer.style.display = (expandNotes.innerText == 'expand_more') ? 'block' : 'none';
         }
     </script>
 </body>
