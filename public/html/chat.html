@@ -205,7 +205,9 @@
             expandProspect = document.getElementById('expand-prospect-details'),
             detailsContainer = document.getElementById('details-container'),
             expandNotes = document.getElementById('expand-notes'),
-            notesContainer = document.getElementById('notes-container');
+            notesContainer = document.getElementById('notes-container'),
+            expandOnboard = document.getElementById('expand-onboard'),
+            onboardContainer = document.getElementById('onboard-container');
 
         window.addEventListener('load', function () {
             let mColors = ['#fe95ca', '#deba31', '#998afe', '#649ef3'];
@@ -274,6 +276,11 @@
         expandNotes.onclick = function () {
             expandNotes.innerText = (expandNotes.innerText == 'expand_more') ? 'expand_less' : 'expand_more';
             notesContainer.style.display = (expandNotes.innerText == 'expand_more') ? 'block' : 'none';
+        }
+
+        expandOnboard.onclick = function () {
+            expandOnboard.innerText = (expandOnboard.innerText == 'expand_more') ? 'expand_less' : 'expand_more';
+            onboardContainer.style.display = (expandOnboard.innerText == 'expand_more') ? 'block' : 'none';
         }
     </script>
 </body>
