@@ -557,7 +557,7 @@ input:focus {
   outline: none;
 }
 
-button.submit:hover {
+button {
   filter: brightness(85%);
   cursor: pointer;
 }
