@@ -21,6 +21,7 @@ app.use("/user_auth/login", user_login, base_response);
 
 try {
   app.get("/", (req, res) => res.render("pages/index"));
+  app.get("/insta_chat", (req, res) => res.render("pages/insta-chat"));
   app.get("/chat", (req, res) => res.sendFile(__dirname + "/public/html/chat.html"));
 
   const namespace = io.of("/chat");

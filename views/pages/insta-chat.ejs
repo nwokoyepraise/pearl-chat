@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pearl Chat | Your Best Minimalist Chat App</title>
-    <link rel="stylesheet" href="/public/css/intro.css">
+    <link rel="stylesheet" href="/css/insta-chat.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
-    <link rel="manifest" href="/public/site.webmanifest">
-    <script src="/public/js/insta_chat/intro_button.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script src="/js/insta_chat/intro_button.js"></script>
     <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
@@ -21,10 +21,7 @@
 
 <body>
     <div class="body-overlay" id="body-overlay"></div>
-
-    <header>
-        <object class="header-nav" data="/public/html/header_nav.html" type=""></object>
-    </header>
+    <%- include("../partials/header") %>
 
     <main>
         <!-- new meeting modal -->
@@ -82,8 +79,8 @@
 
         <div class="div-right">
             <div class="img">
-                <img class="illus1" src="/public/img/intro_illus1.svg" alt="">
-                <img class="illus2" src="/public/img/intro_illus2.svg" alt="">
+                <img class="illus1" src="/img/intro_illus1.svg" alt="">
+                <img class="illus2" src="/img/intro_illus2.svg" alt="">
             </div>
 
             <div class="illus-text">
@@ -190,15 +187,14 @@
             }
 
             document.getElementById('form-join').onclick = function () {
-                window.location.href = '/public/html/chat.html';
+                window.location.href = '/html/chat.html';
             }
         </script>
-
-
     </main>
-    <footer class="footer">
-        <object class="footer" data="/public/html/footer.html" type="text/html"></object>
-    </footer>
+    <div class="footer">
+        <%- include("../partials/footer") %>
+    </div>
+
 </body>
 
 </html>

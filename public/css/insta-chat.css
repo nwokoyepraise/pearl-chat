@@ -9,10 +9,11 @@
     font-size: 16px;
 }
 
-body {
+html, body {
     background-image: linear-gradient(#e2eaff, white, white);
     width: 100%;
     margin: 0;
+    height: 100%;
     padding: 0;
 }
 
@@ -166,10 +167,12 @@ div.illus-text h3 {
     animation-direction: alternate;
 }
 
-object.footer {
+div.footer {
     width: 100%;
     margin-top: 50px;
     height: 20px;
+    bottom: 0;
+    position: absolute;
 }
 
 .illus1, .text1 {
