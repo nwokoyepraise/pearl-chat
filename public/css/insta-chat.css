@@ -167,10 +167,8 @@ div.illus-text h3 {
     animation-direction: alternate;
 }
 
-div.footer {
+footer {
     width: 100%;
-    margin-top: 50px;
-    height: 20px;
     bottom: 0;
     position: absolute;
 }
