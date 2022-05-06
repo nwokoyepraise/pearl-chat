@@ -14,6 +14,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 
 <body>
@@ -186,6 +187,8 @@
     </main>
 
     <script>
+        let socket = io('/chat');
+        socket.emit('join_room', 1234);
         let inputSlider = document.getElementById('input-slider'),
             activeAway = document.getElementById('active-away'),
             expandIcon = document.getElementById('expand-icon'),
@@ -273,8 +276,19 @@
             item.appendChild(divMsg);
             messages.appendChild(item);
             window.scrollTo(0, document.body.scrollHeight);
+            socket.emit('message', { room_number: 1234, message: input.value });
             input.value = '';
         }
+
+        socket.on("message", message => {
+            let item = document.createElement('li');
+            let divMsg = document.createElement('div');
+            divMsg.className = 'receiver-msg msg-item'
+            divMsg.textContent = message;
+            item.appendChild(divMsg);
+            messages.appendChild(item);
+            window.scrollTo(0, document.body.scrollHeight);
+        });
 
         expandProspect.onclick = function () {
             expandProspect.innerText = (expandProspect.innerText == 'expand_more') ? 'expand_less' : 'expand_more';
