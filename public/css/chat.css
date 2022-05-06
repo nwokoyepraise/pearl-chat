@@ -250,7 +250,6 @@ div.div-msg h4 {
   padding: 0;
   display: inline-block;
   margin: 0 10px;
- 
 }
 
 h5 {
@@ -365,6 +364,9 @@ form div:hover {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  overflow-y: scroll;
+  scrollbar-color: #dae4ee white;
+  max-height: 90%;
 }
 
 .msg-item {
