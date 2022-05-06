@@ -407,6 +407,7 @@ form div:hover {
   height: 100%;
   width: 100%;
   padding: 0;
+  padding-right: 7px !important;
   margin: 0;
   overflow-y: auto;
   overflow-x: hidden;
@@ -617,4 +618,40 @@ div.div-button div {
 
 .div-button div span {
   rotate: 135deg;
+}
+
+@media only screen and (max-width: 700px) {
+  #nav-section {
+    display: none !important;
+  }
+  #msg-section {
+    float: left;
+    width: 60%;
+    margin-left: 10px;
+  }
+  #user-section {
+    float: right;
+    width: 35%;
+    margin-right: 10px;
+  }
+  .div-prospect-details,
+  .div-notes,
+  .div-onboard {
+    border-radius: 15px;
+    padding: 7px;
+    margin-bottom: 15px;
+  }
+  form input {
+    width: 76%;
+  }
+  form div {
+    width: 20%;
+    background-color: #004dfc;
+    border-radius: 5px;
+    border-width: 0;
+    padding: 7px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
