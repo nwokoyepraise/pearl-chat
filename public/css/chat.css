@@ -646,12 +646,8 @@ div.div-button div {
   }
   form div {
     width: 20%;
-    background-color: #004dfc;
-    border-radius: 5px;
-    border-width: 0;
-    padding: 7px 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  }
+  .msg-item {
+    max-width: 65%;
   }
 }
