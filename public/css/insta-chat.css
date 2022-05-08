@@ -406,3 +406,22 @@ div.form input {
         background-color: blue;
     }
 }
+
+@media only screen and (max-width: 700px) {
+    main {
+        vertical-align: middle;
+        max-height: 90%;
+    }
+    main div.div-left {
+        float: none;
+        
+        /* display: block !important; */
+        max-width: 80% !important;
+        margin: 0  auto;
+        vertical-align: middle;
+    }
+
+    main div.div-right {
+        display: none;
+    }
+}
