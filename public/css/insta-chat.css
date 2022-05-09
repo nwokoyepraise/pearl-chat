@@ -1,429 +1,441 @@
 @font-face {
-    font-family: 'Recoleta';
-    src: url('/public/font/recoleta.ttf');
+  font-family: "Recoleta";
+  src: url("/public/font/recoleta.ttf");
 }
 
 * {
-    box-sizing: border-box;
-    font-family: Nunito;
-    font-size: 16px;
+  box-sizing: border-box;
+  font-family: Nunito;
+  font-size: 16px;
 }
 
-html, body {
-    background-image: linear-gradient(#e2eaff, white, white);
-    width: 100%;
-    margin: 0;
-    height: 100%;
-    padding: 0;
+html,
+body {
+  background-image: linear-gradient(#e2eaff, white, white);
+  width: 100%;
+  margin: 0;
+  height: 100%;
+  padding: 0;
 }
 
 .body-overlay {
-    background-color: rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    display: none;
-    position: fixed;
-    overflow: auto;
-    top: 0px;
-    left: 0px;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  display: none;
+  position: fixed;
+  overflow: auto;
+  top: 0px;
+  left: 0px;
 }
 
 .header-nav {
-    width: 100%
+  width: 100%;
 }
 
 main {
-    padding: 0 70px;
+  padding: 0 70px;
 }
 
 main div {
-    max-width: 40%;
+  max-width: 40%;
 }
 
 main div div {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 main div.div-left {
-    float: left;
+  float: left;
 }
 
 main div.div-right {
-    float: right;
-    margin-right: 100px;
-    width: 30% !important;
-    position: relative;
+  float: right;
+  margin-right: 100px;
+  width: 30% !important;
+  position: relative;
 }
 
 main div div h1 {
-    font-family: 'Recoleta', sans-serif;
-    font-size: 40px;
-    color: #10283f;
-    font-weight: 600;
+  font-family: "Recoleta", sans-serif;
+  font-size: 40px;
+  color: #10283f;
+  font-weight: 600;
 }
 
 main div div h3 {
-    margin-bottom: 20px;
-    padding-right: 0px;
-    color: #5a6f95;
-    font-size: 18px;
-    line-height: 30px;
-    font-weight: 400;
-    font-family: sans-serif;
+  margin-bottom: 20px;
+  padding-right: 0px;
+  color: #5a6f95;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 400;
+  font-family: sans-serif;
 }
 
 main div div button.new-meeting {
-    padding: 15px 20px;
-    border-radius: 5px;
-    border-width: 0;
-    color: white;
-    background-color: #004dfc;
-    font-weight: 700;
-    text-decoration: none;
-    font-family: Nunito;
-    margin-right: 20px;
+  padding: 15px 20px;
+  border-radius: 5px;
+  border-width: 0;
+  color: white;
+  background-color: #004dfc;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: Nunito;
+  margin-right: 20px;
 }
 
 main div div button.join {
-    padding: 15px 40px;
-    border-radius: 5px;
-    border-width: 0;
-    color: white;
-    background-color: green;
-    font-weight: 700;
-    text-decoration: none;
-    font-family: Nunito;
+  padding: 15px 40px;
+  border-radius: 5px;
+  border-width: 0;
+  color: white;
+  background-color: green;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: Nunito;
 }
 
 hr {
-    border-top: 0px;
-    margin-top: 30px;
+  border-top: 0px;
+  margin-top: 30px;
 }
 
 main div.div-right div.img img {
-    transform: scale(.70);
-    vertical-align: top !important;
-    width: 100%;
-    position: absolute;
-    margin-top: -80px;
-    image-rendering: -webkit-optimize-contrast;
+  transform: scale(0.7);
+  vertical-align: top !important;
+  width: 100%;
+  position: absolute;
+  margin-top: -80px;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 div.illus-text div {
-    margin-top: 0px;
-    position: absolute;
+  margin-top: 0px;
+  position: absolute;
 }
 
 div.illus-text h1 {
-    font-size: 25px;
-    font-family: 'Nunito';
-    text-align: center;
-    margin: 0;
+  font-size: 25px;
+  font-family: "Nunito";
+  text-align: center;
+  margin: 0;
 }
 
 div.illus-text h3 {
-    font-size: 14px;
-    line-height: 15px;
-    text-align: center;
-    margin-bottom: 0px !important;
+  font-size: 14px;
+  line-height: 15px;
+  text-align: center;
+  margin-bottom: 0px !important;
 }
 
 .illus1 {
-    z-index: 2;
+  z-index: 2;
 }
 
 .illus2 {
-    z-index: 1;
+  z-index: 1;
 }
 
 .illus-dots {
-    text-align: center;
+  text-align: center;
 }
 
 .dot1 {
-    height: 6px;
-    width: 6px;
-    border-radius: 50%;
-    background-color: blue;
-    display: inline-block;
-    animation-name: DotFadeInOut;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 7s;
-    animation-direction: alternate;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: blue;
+  display: inline-block;
+  animation-name: DotFadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 7s;
+  animation-direction: alternate;
 }
 
 .dot2 {
-    height: 6px;
-    width: 6px;
-    border-radius: 50%;
-    background-color: #dadce0;
-    display: inline-block;
-    animation-name: DotFadeOutIn;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 7s;
-    animation-direction: alternate;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: #dadce0;
+  display: inline-block;
+  animation-name: DotFadeOutIn;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 7s;
+  animation-direction: alternate;
 }
 
 footer {
-    width: 100%;
-    bottom: 0;
-    position: absolute;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
 }
 
-.illus1, .text1 {
-    animation-name: FadeInOut;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 7s;
-    animation-direction: alternate;
+.illus1,
+.text1 {
+  animation-name: FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 7s;
+  animation-direction: alternate;
 }
 
 .text2 {
-    animation-name: FadeOutIn;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 7s;
-    animation-direction: alternate;
+  animation-name: FadeOutIn;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 7s;
+  animation-direction: alternate;
 }
 
-button:focus, button:hover {
-    filter: brightness(85%);
-    cursor: pointer;
+button:focus,
+button:hover {
+  filter: brightness(85%);
+  cursor: pointer;
 }
 
 .meeting-modal {
-    display: none;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -60%);
-    background-color: white;
-    z-index: 4;
-    width: 50%;
-    box-shadow: 3px 3px 5px 7px grey;
-    border-radius: 12px;
-    padding: 20px;
-    padding-top: 10px;
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%);
+  background-color: white;
+  z-index: 4;
+  width: 50%;
+  box-shadow: 3px 3px 5px 7px grey;
+  border-radius: 12px;
+  padding: 20px;
+  padding-top: 10px;
 }
 
 div.close {
-    display: block;
-    direction: rtl;
-    margin: 0 10px;
-    color: red;
+  display: block;
+  direction: rtl;
+  margin: 0 10px;
+  color: red;
 }
 
-div.close:hover, div.close:focus {
-    filter: brightness(70%);
-    cursor: pointer;
+div.close:hover,
+div.close:focus {
+  filter: brightness(70%);
+  cursor: pointer;
 }
 
 .qrcode-container {
-    background-color: #10283f;
-    border-radius: 20px;
-    margin: 20px 30px;
-    padding: 20px 20px;
-    padding-bottom: 30px;
-    width: fit-content;
-    float: right;
+  background-color: #10283f;
+  border-radius: 20px;
+  margin: 20px 30px;
+  padding: 20px 20px;
+  padding-bottom: 30px;
+  width: fit-content;
+  float: right;
 }
 
 .modal-content h1 {
-    font-family: 'Nunito';
-    font-size: 30px;
-    line-height: 20px;
+  font-family: "Nunito";
+  font-size: 30px;
+  line-height: 20px;
 }
 
 .modal-content h3 {
-    font-size: 14px;
-    line-height: 25px;
-    margin-left: 5px;
+  font-size: 14px;
+  line-height: 25px;
+  margin-left: 5px;
 }
 
 .modal-content h4 {
-    font-size: 13px;
-    margin-left: 5px;
-    font-family: 'Nunito';
-    color: #10283f;
-    margin-bottom: 5px;
+  font-size: 13px;
+  margin-left: 5px;
+  font-family: "Nunito";
+  color: #10283f;
+  margin-bottom: 5px;
 }
 
 h4#copy-link {
-    display: inline-block;
-    transform: translateY(-7px);
-    color: #174ea6;
-    margin: 0;
+  display: inline-block;
+  transform: translateY(-7px);
+  color: #174ea6;
+  margin: 0;
 }
 
 #chat-link {
-    margin-left: 20px;
-    text-decoration: underline;
+  margin-left: 20px;
+  text-decoration: underline;
 }
 
 .material-icons {
-    color: #174ea6;
+  color: #174ea6;
 }
 
 div.copy-link-container {
-    width: fit-content;
-    height: fit-content !important;
-    padding: 5px 10px;
-    margin-bottom: 0;
-    display: block;
+  width: fit-content;
+  height: fit-content !important;
+  padding: 5px 10px;
+  margin-bottom: 0;
+  display: block;
 }
 
-div.copy-link-container:hover, div.copy-link-container:focus {
-    filter: brightness(90%);
-    cursor: pointer;
-    background-color: white;
-    border-radius: 5px;
+div.copy-link-container:hover,
+div.copy-link-container:focus {
+  filter: brightness(90%);
+  cursor: pointer;
+  background-color: white;
+  border-radius: 5px;
 }
 
 #link-copied {
-    background-color: white;
-    /* filter: brightness(90%); */
-    padding: 5px;
-    border-radius: 5px;
-    text-align: center;
-    margin-top: 5px;
-    width: fit-content !important;
-    margin-left: 30px;
-    display: none;
+  background-color: white;
+  /* filter: brightness(90%); */
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 5px;
+  width: fit-content !important;
+  margin-left: 30px;
+  display: none;
 }
 
 #link-copied h4 {
-    margin: 0;
-    width: fit-content;
+  margin: 0;
+  width: fit-content;
 }
 
 h1.enter-link {
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 div.form {
-    align-items: center;
-    float: none !important;
-    margin: 0 auto !important;
-    width: fit-content;
-    padding: 20px 10px;
-    border-radius: 10px;
-    background-color: #10283f;;
+  align-items: center;
+  float: none !important;
+  margin: 0 auto !important;
+  width: fit-content;
+  padding: 20px 10px;
+  border-radius: 10px;
+  background-color: #10283f;
 }
 
 div.form button {
-    width: fit-content;
-    float: right;
-    border-radius: 5px;
-    border-width: 0;
-    color: white;
-    padding: 5px 20px;
-    background-color: green;
-    vertical-align: middle;
+  width: fit-content;
+  float: right;
+  border-radius: 5px;
+  border-width: 0;
+  color: white;
+  padding: 5px 20px;
+  background-color: green;
+  vertical-align: middle;
 }
 
 div.form input {
-    width: 250px;
-    padding: 5px 5px;
-    background-color: #f3f5f9;
-    /* border: 1px solid #e5e8ed; */
-    border: 1px solid transparent;
-    border-radius: 4px;
-    margin-right: 10px;
+  width: 250px;
+  padding: 5px 5px;
+  background-color: #f3f5f9;
+  /* border: 1px solid #e5e8ed; */
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-right: 10px;
 }
 
 @keyframes FadeInOut {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-    45% {
-        opacity: 1;
-    }
+  45% {
+    opacity: 1;
+  }
 
-    55% {
-        opacity: 0;
-    }
+  55% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes FadeOutIn {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    45% {
-        opacity: 0;
-    }
+  45% {
+    opacity: 0;
+  }
 
-    55% {
-        opacity: 1;
-    }
+  55% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes DotFadeInOut {
-    0% {
-        background-color: blue;
-    }
+  0% {
+    background-color: blue;
+  }
 
-    45% {
-        background-color: blue;
-    }
+  45% {
+    background-color: blue;
+  }
 
-    55% {
-        background-color: #dadce0;
-    }
+  55% {
+    background-color: #dadce0;
+  }
 
-    100% {
-        background-color: #dadce0;
-    }
+  100% {
+    background-color: #dadce0;
+  }
 }
 
 @keyframes DotFadeOutIn {
-    0% {
-        background-color: #dadce0;
-    }
+  0% {
+    background-color: #dadce0;
+  }
 
-    45% {
-        background-color: #dadce0;
-    }
+  45% {
+    background-color: #dadce0;
+  }
 
-    55% {
-        background-color: blue;
-    }
+  55% {
+    background-color: blue;
+  }
 
-    100% {
-        background-color: blue;
-    }
+  100% {
+    background-color: blue;
+  }
 }
 
 @media only screen and (max-width: 700px) {
-    main {
-        max-height: 90%;
-        display: flex;
-        align-items: center;
-    }
-    main div.div-left {
-        float: none;
-        max-width: 100% !important;
-        margin: 0  auto;
-    }
+  main {
+    max-height: 90%;
+    display: flex;
+    align-items: center;
+  }
+  main div.div-left {
+    float: none;
+    max-width: 100% !important;
+    margin: 0 auto;
+  }
 
-    main div.div-right {
-        display: none;
-    }
+  main div.div-right {
+    display: none;
+  }
 
-    div.form input {
-        width: 150px
-    }
+  div.form input {
+    width: 150px;
+  }
+
+  .meeting-modal {
+    max-width: 100% !important;
+  }
+  h1.enter-link {
+      line-height: 35px;
+  }
 }
