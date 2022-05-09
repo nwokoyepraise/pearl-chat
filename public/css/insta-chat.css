@@ -432,10 +432,23 @@ div.form input {
     width: 150px;
   }
 
-  .meeting-modal {
+  #join-meeting-modal {
     max-width: 100% !important;
   }
   h1.enter-link {
-      line-height: 35px;
+    line-height: 35px;
+  }
+
+  #new-meeting-modal {
+      text-align: center;
+  }
+  div.copy-link-container {
+      margin: 0 auto;
+  }
+  #close {
+    text-align: right !important;  
+  }
+  #chat-link {
+      margin-left: 0;
   }
 }
