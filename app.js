@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const server = require("http").createServer(app);
-const port_number = 3000;
+const portNumber = process.env.PORT || process.env.PORT_NUMBER;
 const io = require("socket.io")(server);
 const user = require("./routes/user");
 const auth = require("./routes/auth");
@@ -35,6 +35,6 @@ namespace.on("connection", (client) => {
   });
 });
 
-server.listen(port_number, () => {
-  console.log(`server listening on port ${port_number}`);
+server.listen(portNumber, () => {
+  console.log(`server listening on port ${portNumber}`);
 });
