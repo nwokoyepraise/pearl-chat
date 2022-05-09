@@ -409,16 +409,14 @@ div.form input {
 
 @media only screen and (max-width: 700px) {
     main {
-        vertical-align: middle;
         max-height: 90%;
+        display: flex;
+        align-items: center;
     }
     main div.div-left {
         float: none;
-        
-        /* display: block !important; */
-        max-width: 80% !important;
+        max-width: 100% !important;
         margin: 0  auto;
-        vertical-align: middle;
     }
 
     main div.div-right {
