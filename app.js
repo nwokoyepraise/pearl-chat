@@ -3,10 +3,10 @@ const app = express();
 const server = require("http").createServer(app);
 const port_number = 3000;
 const io = require("socket.io")(server);
-const user_reg = require("./routes/user_reg");
-const user_login = require("./routes/user_login");
-const jwt_auth = require("./middleware/jwt_auth");
-const base_response = require("./middleware/base_response");
+const user = require("./routes/user");
+const auth = require("./routes/auth");
+const isAuth = require("./middleware/isAuth");
+const baseResponse = require("./middleware/baseResponse");
 const ejs = require("ejs");
 
 // Set the view engine to ejs
@@ -16,8 +16,8 @@ app.use(express.static("public"));
 app.use(express.json());
 
 //load routes
-app.use("/user_reg", user_reg, base_response);
-app.use("/user_auth/login", user_login, base_response);
+app.use("/user", user);
+app.use("/auth", auth);
 
 try {
   app.get("/", (req, res) => res.render("pages/index"));

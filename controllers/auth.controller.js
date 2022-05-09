@@ -1,9 +1,9 @@
 require('dotenv').config();
 const token_handle = require('../utils/token_handle');
-const user_profile_model = require('../models/user_profile_model');
+const user_profile_model = require('../models/user.model');
 const argon2 = require('argon2');
 
-module.exports.login = async function (user) {
+module.exports.userLogin = async function (user) {
     try {
         let res0 = await user_profile_model.get_profile_data('email', user.email);
 
