@@ -422,4 +422,8 @@ div.form input {
     main div.div-right {
         display: none;
     }
+
+    div.form input {
+        width: 150px
+    }
 }
