@@ -96,7 +96,7 @@ span {
   
 }
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 430px) {
   ul.main-nav-ul {
     display: none;
   }
