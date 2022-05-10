@@ -60,7 +60,9 @@ button {
 }
 
 button:focus,
-button:hover {
+button:hover,
+span:focus,
+span:hover {
   filter: brightness(85%);
   cursor: pointer;
 }
@@ -89,5 +91,6 @@ button:hover {
   }
   span {
     scale: 0.9;
+    color: #174ea6;
   }
 }
