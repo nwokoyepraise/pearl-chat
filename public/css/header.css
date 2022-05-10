@@ -67,7 +67,36 @@ span:hover {
   cursor: pointer;
 }
 
+span {
+  color: #174ea6;
+}
+
 @media only screen and (max-width: 700px) {
+  ul.main-nav-ul {
+    display: none;
+  }
+  .logo {
+    scale: 0.8;
+    margin-left: 20px;
+  }
+  button {
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-right: 10px;
+    /* font-size: 20px; */
+    margin-left: 0px;
+    margin-right: 30px;
+  }
+  div.button-wrapper {
+    vertical-align: middle !important;
+    display: flex !important;
+    align-items: center;
+    margin-right: 30px;
+  }
+  
+}
+
+@media only screen and (max-width: 390px) {
   ul.main-nav-ul {
     display: none;
   }
@@ -91,6 +120,5 @@ span:hover {
   }
   span {
     scale: 0.9;
-    color: #174ea6;
   }
 }
