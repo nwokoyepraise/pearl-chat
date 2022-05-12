@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const server = require("http").createServer(app);
-const portNumber = process.env.PORT || process.env.PORT_NUMBER;
+const portNumber = process.env.PORT || process.env.PORT_NUMBER || 3000;
 const io = require("socket.io")(server);
 const user = require("./routes/user");
 const auth = require("./routes/auth");
