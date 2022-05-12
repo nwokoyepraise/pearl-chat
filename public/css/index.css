@@ -248,7 +248,7 @@ responsiveness styling for smaller width devices
 
     main {
         margin-bottom: 50px;
-        padding: 50px;
+        padding: 30px;
     }
 
     section.section-main-sub div.text, section.section-main-sub div.img {
@@ -338,7 +338,7 @@ responsiveness styling for smaller width devices
         }
 
         main {
-            padding: 30px !important;
+            padding: 20px !important;
         }
     
         main section h1 {
