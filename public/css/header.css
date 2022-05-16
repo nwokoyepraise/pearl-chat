@@ -174,4 +174,7 @@ span.menu {
   span.menu {
     display: inline;
   }
+  .menu-modal {
+    width: 50%;
+  }
 }
