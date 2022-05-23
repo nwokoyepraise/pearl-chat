@@ -41,7 +41,7 @@ document.getElementById('new-meeting').onclick = function () {
 document.getElementById('close').onclick = function () {
     newMeetingModal.style.display = "none";
     bodyOverlay.style.display = "none";
-    document.querySelector('#qrcode > img').remove();
+    document.querySelector('#qrcode > canvas').remove();
 }
 
 //snippet to close modals when a click is performed outside the scope of the modals
@@ -64,9 +64,11 @@ window.onclick = function (event) {
 
 document.getElementById('copy-link-container').onclick = function () {
     let text = document.getElementById('chat-link');
+  
     navigator.clipboard.writeText(text.innerText);
     linkCopied.style.display = 'block';
     setTimeout(function () { linkCopied.style.display = 'none' }, 4000)
+    
 }
 
 
