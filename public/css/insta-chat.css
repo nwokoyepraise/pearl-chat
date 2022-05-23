@@ -1,3 +1,10 @@
+:root {
+  --main-blue-color: #10283f;
+  --sub-blue-color: #004dfc;
+  --main-mobile-h1-font-size: 30px;
+  --main-mobile-h3-font-size: 18px;
+}
+
 @font-face {
   font-family: "Recoleta";
   src: url("/public/font/recoleta.ttf");
@@ -440,15 +447,66 @@ div.form input {
   }
 
   #new-meeting-modal {
-      text-align: center;
+    text-align: center;
   }
   div.copy-link-container {
-      margin: 0 auto;
+    margin: 0 auto;
   }
   #close {
-    text-align: right !important;  
+    text-align: right !important;
   }
   #chat-link {
-      margin-left: 0;
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  main {
+    max-height: 90%;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+  }
+
+  h1 {
+    font-style: var(--main-mobile-h1-font-size);
+  }
+
+  h3 {
+    font-size: var(--main-mobile-h3-font-size);
+  }
+  
+  main div.div-left {
+    float: none;
+    max-width: 100% !important;
+    margin: 0 auto;
+  }
+
+  main div.div-right {
+    display: none;
+  }
+
+  div.form input {
+    width: 150px;
+  }
+
+  #join-meeting-modal {
+    max-width: 100% !important;
+  }
+  h1.enter-link {
+    line-height: 35px;
+  }
+
+  #new-meeting-modal {
+    text-align: center;
+  }
+  div.copy-link-container {
+    margin: 0 auto;
+  }
+  #close {
+    text-align: right !important;
+  }
+  #chat-link {
+    margin-left: 0;
   }
 }
