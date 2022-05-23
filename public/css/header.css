@@ -1,3 +1,9 @@
+:root {
+  --main-blue-color: #10283f;
+  --sub-blue-color: #004dfc;
+}
+
+
 @font-face {
   font-family: "Recoleta";
   src: url("/public/font/recoleta.ttf");
@@ -50,7 +56,6 @@ div.ul-wrapper {
   display: inline;
   margin: 0 auto;
   padding-left: 0;
-
 }
 
 div.button-wrapper {
@@ -62,7 +67,7 @@ div.button-wrapper {
 button {
   padding: 10px 25px;
   border-radius: 12px;
-  border-width: 0;  
+  border-width: 0;
   color: white;
   background-color: #004dfc;
   font-weight: 700;
@@ -101,12 +106,17 @@ span.menu {
 }
 .menu-modal li a {
   display: block;
-  font-family:  Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
   padding: 15px;
   text-decoration: none;
   border-bottom: 1px solid gray;
   color: #10283f;
+}
+
+.menu-modal a:hover, .menu-modal a:focus{
+  background: var(--sub-blue-color) !important;
+  color: white !important;
 }
 
 @media only screen and (max-width: 700px) {
