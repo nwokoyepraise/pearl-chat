@@ -2,7 +2,7 @@
   --main-blue-color: #10283f;
   --sub-blue-color: #004dfc;
   --main-mobile-h1-font-size: 30px;
-  --main-mobile-h3-font-size: 18px;
+  --main-mobile-h3-font-size: 15px;
 }
 
 @font-face {
@@ -69,13 +69,14 @@ main div div h1 {
   font-size: 40px;
   color: #10283f;
   font-weight: 600;
+  line-height: 1.2em;
 }
 
 main div div h3 {
   margin-bottom: 20px;
   padding-right: 0px;
   color: #5a6f95;
-  font-size: 18px;
+  font-size:var(--main-mobile-h3-font-size);
   line-height: 30px;
   font-weight: 400;
   font-family: sans-serif;
