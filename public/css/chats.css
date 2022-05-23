@@ -651,3 +651,64 @@ div.div-button div {
     max-width: 65%;
   }
 }
+
+@media only screen and (max-width: 430px) {
+  #nav-section {
+    display: none !important;
+  }
+  #msg-section {
+    float: left;
+    /* width: 60%; */
+    margin-left: 10px;
+  }
+  #user-section {
+    float: right;
+    width: 50%;
+    margin-right: 10px;
+  }
+  .div-prospect-details,
+  .div-notes,
+  .div-onboard {
+    border-radius: 15px;
+    padding: 7px;
+    margin-bottom: 15px;
+  }
+  form input {
+    width: 76%;
+  }
+  form div {
+    width: 20%;
+  }
+
+  div.input input {
+    float: left;
+    width: 65%;
+  }
+  div.input button {
+    font-size: 13px;
+    width: 35%;
+  }
+
+  div.div-button div {
+    font-size: 11px;
+    padding: 5px 5px;
+  }
+
+  span#prospect-email, span#prospect-account {
+    display: block;
+  }
+
+  .div-archive {
+    min-width: 80px;
+    padding: 7px;
+  }
+  
+  .div-archive h4 {
+    font-size: 13px;
+    line-height: 10px;
+  }
+
+  span#prospect-archive {
+    display: inline;
+  }
+}
