@@ -475,7 +475,7 @@ div.form input {
   h3 {
     font-size: var(--main-mobile-h3-font-size);
   }
-  
+
   main div.div-left {
     float: none;
     max-width: 100% !important;
@@ -493,8 +493,17 @@ div.form input {
   #join-meeting-modal {
     max-width: 100% !important;
   }
+  div.qrcode-container {
+    margin: 20px auto;
+    display: block  !important;
+    float: unset;
+  }
   h1.enter-link {
     line-height: 35px;
+  }
+
+  .meeting-modal {
+    min-width: 80%;
   }
 
   #new-meeting-modal {
