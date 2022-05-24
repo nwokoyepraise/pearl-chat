@@ -653,18 +653,29 @@ div.div-button div {
 }
 
 @media only screen and (max-width: 430px) {
+  * {
+    overflow-x: hidden;
+  }
+
+  html {
+scroll-behavior: smooth;
+  }
+
   #nav-section {
     display: none !important;
   }
   #msg-section {
     float: left;
-    /* width: 60%; */
+    width: 90%;
     margin-left: 10px;
   }
   #user-section {
     float: right;
+    position: fixed;
+    right: 0;
     width: 50%;
-    margin-right: 10px;
+    margin-right: -50%;
+    /* margin-right: 10px; */
   }
   .div-prospect-details,
   .div-notes,
