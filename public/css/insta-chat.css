@@ -467,6 +467,7 @@ div.form input {
     display: flex;
     align-items: center;
     padding: 0 40px;
+    margin-top: 70px;
   }
 
   h1 {
