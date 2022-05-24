@@ -3,6 +3,8 @@ let bodyOverlay = document.getElementById("body-overlay");
 let newMeetingModal = document.getElementById('new-meeting-modal');
 let linkCopied = document.getElementById('link-copied');
 let joinMeetingModal = document.getElementById('join-meeting-modal');
+let menuSpan = document.getElementById("menu-span");
+let menuModal = document.getElementById("menu-modal");
 
 //snippet for cntrolling the start height and width of illustration dots
 window.addEventListener('load', function () {
@@ -59,6 +61,9 @@ window.onclick = function (event) {
                 bodyOverlay.style.display = "none";
                 break;
         }
+        if (event.target != menuModal && event.target != menuSpan) {
+            menuModal.style.display = "none";
+          }
     }
 }
 
