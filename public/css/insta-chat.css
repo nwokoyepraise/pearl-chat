@@ -494,6 +494,14 @@ div.form input {
   #join-meeting-modal {
     max-width: 100% !important;
   }
+
+  button#form-join{
+    vertical-align: middle !important;
+    display: inline !important;
+    float: none;
+    margin-right: 0;
+  }
+
   div.qrcode-container {
     margin: 20px auto;
     display: block  !important;
