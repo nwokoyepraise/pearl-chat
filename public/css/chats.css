@@ -675,14 +675,22 @@ scroll-behavior: smooth;
     width: 90%;
     margin: 0 auto;
   }
-  #user-section {
+
+  section#user-section {
     float: right;
     position: fixed;
     right: 0;
     width: 50%;
     margin-right: -50%;
-    /* margin-right: 10px; */
+    transition: 0.35s;
+    border-left: none;
+    background-color: white;
+    padding-top: 0;
+    margin-bottom: 150px !important;
+    margin-top: 15px;
+    padding-bottom: 30px;
   }
+  
   .div-prospect-details,
   .div-notes,
   .div-onboard {
