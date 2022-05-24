@@ -1,3 +1,8 @@
+:root{
+  --main-blue-color: #10283f;
+  --sub-blue-color: #004dfc;
+}
+
 @font-face {
   font-family: "Recoleta";
   src: url("/public/font/recoleta.ttf");
@@ -391,6 +396,7 @@ form div:hover {
   margin-left: 10px;
   margin-right: auto;
   color: #5a6f95;
+  border: 1px solid  #dbe1e9;
 }
 
 .user-section {
@@ -667,7 +673,7 @@ scroll-behavior: smooth;
   #msg-section {
     float: left;
     width: 90%;
-    margin-left: 10px;
+    margin: 0 auto;
   }
   #user-section {
     float: right;
