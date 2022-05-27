@@ -81,7 +81,7 @@
         </section>
 
         <section id="msg-section" class="msg-section">
-            <div class="div-msg-section">
+            <div id="div-msg-section" class="div-msg-section">
                 <ul id="messages"></ul>
                 <div class="div-form">
                     <form id="form" action="">
@@ -301,6 +301,15 @@
             expandOnboard.innerText = (expandOnboard.innerText == 'expand_more') ? 'expand_less' : 'expand_more';
             onboardContainer.style.display = (expandOnboard.innerText == 'expand_more') ? 'block' : 'none';
         }
+
+        // messages.onscroll = function () {
+        //     setTimeout(function () {
+        //         document.body.style.overflow = 'hidden';
+        //     }, 1000);
+        // }
+        // messages.onmousemove = function () {
+        //     document.body.style.overflow = '';
+        // }
     </script>
 </body>
 

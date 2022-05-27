@@ -1,4 +1,4 @@
-:root{
+:root {
   --main-blue-color: #10283f;
   --sub-blue-color: #004dfc;
 }
@@ -16,6 +16,7 @@
 
 html {
   height: 100%;
+  overscroll-behavior-y: contain;
 }
 
 body {
@@ -365,11 +366,14 @@ form div:hover {
   cursor: pointer;
 }
 
+#msg-section {
+  overflow-y: auto;
+}
+
 #messages {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow-y: scroll;
   scrollbar-color: #dae4ee white;
   max-height: 90%;
 }
@@ -396,7 +400,7 @@ form div:hover {
   margin-left: 10px;
   margin-right: auto;
   color: #5a6f95;
-  border: 1px solid  #dbe1e9;
+  border: 1px solid #dbe1e9;
 }
 
 .user-section {
@@ -664,7 +668,7 @@ div.div-button div {
   }
 
   html {
-scroll-behavior: smooth;
+    scroll-behavior: smooth;
   }
 
   #nav-section {
@@ -674,6 +678,7 @@ scroll-behavior: smooth;
     float: left;
     width: 90%;
     margin: 0 auto;
+    overflow-y: auto !important;
   }
 
   section#user-section {
@@ -690,7 +695,7 @@ scroll-behavior: smooth;
     margin-top: 15px;
     padding-bottom: 30px;
   }
-  
+
   .div-prospect-details,
   .div-notes,
   .div-onboard {
@@ -719,7 +724,8 @@ scroll-behavior: smooth;
     padding: 5px 5px;
   }
 
-  span#prospect-email, span#prospect-account {
+  span#prospect-email,
+  span#prospect-account {
     display: block;
   }
 
@@ -727,7 +733,7 @@ scroll-behavior: smooth;
     min-width: 80px;
     padding: 7px;
   }
-  
+
   .div-archive h4 {
     font-size: 13px;
     line-height: 10px;
