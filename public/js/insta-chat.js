@@ -91,4 +91,5 @@ document.getElementById("form-join").onclick = function () {
   if (!joinLink.value) {return; }
   let chatLink = joinLink.value;
   window.location.href = `/chats/${chatLink}`;
+  joinLink.value = '';
 };
