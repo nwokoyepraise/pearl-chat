@@ -4,6 +4,7 @@ let newMeetingModal = document.getElementById("new-meeting-modal");
 let linkCopied = document.getElementById("link-copied");
 let joinMeetingModal = document.getElementById("join-meeting-modal");
 let joinLink = document.getElementById('join-link');
+let cryptGen = require('../../utils/cryptGen');
 
 //snippet for cntrolling the start height and width of illustration dots
 window.addEventListener("load", function () {
@@ -23,7 +24,7 @@ window.addEventListener("load", function () {
 
 // <!-- snippet for new-meeting modal -->
 document.getElementById("new-meeting").onclick = function () {
-  let uuid = uuidv4();
+  let uuid = cryptGen.gen(6)
   new QRCode(document.getElementById("qrcode"), {
     text: uuid,
     width: 120,

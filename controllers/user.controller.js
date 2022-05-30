@@ -1,4 +1,4 @@
-const crypt_gen = require('../utils/crypt_gen');
+const crypt_gen = require('../utils/cryptGen');
 const user_profile_model = require('../models/user.model');
 const token_handle = require('../utils/token_handle')
 
