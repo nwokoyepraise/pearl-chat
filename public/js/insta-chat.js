@@ -3,6 +3,7 @@ let bodyOverlay = document.getElementById("body-overlay");
 let newMeetingModal = document.getElementById("new-meeting-modal");
 let linkCopied = document.getElementById("link-copied");
 let joinMeetingModal = document.getElementById("join-meeting-modal");
+let joinLink = document.getElementById('join-link');
 
 //snippet for cntrolling the start height and width of illustration dots
 window.addEventListener("load", function () {
@@ -87,5 +88,7 @@ document.getElementById("join-close").onclick = function () {
 };
 
 document.getElementById("form-join").onclick = function () {
-  window.location.href = "/chats";
+  if (!joinLink.value) {return; }
+  let chatLink = joinLink.value;
+  window.location.href = `/chats/${chatLink}`;
 };

@@ -1,5 +1,7 @@
 let socket = io("/chat");
-socket.emit("join_room", 1234);
+let room = document.getElementById("room").textContent;
+socket.emit("join_room", room);
+
 let inputSlider = document.getElementById("input-slider"),
   activeAway = document.getElementById("active-away"),
   expandIcon = document.getElementById("expand-icon"),
@@ -131,7 +133,7 @@ btnSend.onclick = function () {
   item.appendChild(divMsg);
   messages.appendChild(item);
   window.scrollTo(0, document.body.scrollHeight);
-  socket.emit("message", { room_number: 1234, message: input.value });
+  socket.emit("message", { room_number: room, message: input.value });
   input.value = "";
 };
 

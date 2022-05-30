@@ -21,7 +21,7 @@ app.use("/auth", auth);
 
 app.get("/", (req, res) => res.render("pages/index"));
 app.get("/insta_chat", (req, res) => res.render("pages/insta-chat"));
-app.get("/chats", (req, res) => res.render("pages/chats"));
+app.get("/chats/:room", (req, res) => res.render("pages/chats", {room: req.params.room}));
 
 const namespace = io.of("/chat");
 
