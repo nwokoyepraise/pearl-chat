@@ -14,3 +14,14 @@ module.exports.createRoom = async function (body) {
     return { status: false, status_code: 500, message: "Internal Server Error" };
   }
 };
+
+module.exports.joinRoom = async function (params, userId) {
+  try {
+
+    return await instaChat.joinRoom(params.room, userId);
+  } catch (error) {
+    console.error(error);
+    return { status: false, status_code: 500, message: "Internal Server Error" };
+  }
+};
+
