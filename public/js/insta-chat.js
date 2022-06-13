@@ -66,9 +66,10 @@ window.onclick = function (event) {
 };
 
 document.getElementById("copy-link-container").onclick = function () {
-  let text = document.getElementById("chat-link");
+  let text = document.getElementById("chat-link").textContent;
+  console.log(typeof(text))
 
-  navigator.clipboard.writeText(text.innerText);
+  navigator.clipboard.writeText(text.substring(text.length-12, text.length));
   linkCopied.style.display = "block";
   setTimeout(function () {
     linkCopied.style.display = "none";
