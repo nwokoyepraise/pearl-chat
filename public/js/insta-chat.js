@@ -24,8 +24,6 @@ window.addEventListener("load", function () {
 // <!-- snippet for new-meeting modal -->
 document.getElementById("new-meeting").onclick = function () {
   let uuid = window.cryptGen(10);
-  // document.getElementById("chat-code").textContent;
-  console.log(uuid);
   new QRCode(document.getElementById("qrcode"), {
     text: uuid,
     width: 120,
