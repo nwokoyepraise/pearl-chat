@@ -1,6 +1,6 @@
 require('dotenv').config();
 const token_handle = require('../utils/token_handle');
-const user_profile_model = require('../models/user.model');
+const user_profile_model = require('../models/user');
 const argon2 = require('argon2');
 
 module.exports.userLogin = async function (user) {

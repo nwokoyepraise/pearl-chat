@@ -1,30 +1,21 @@
-const mongoose = require('mongoose');
-const mongo_conn = require('../config/mongo_config');
-const schema = mongoose.Schema;
+const user = require('./user.model');
 
-const user = new schema({
-    user_id: {
-        type: String,
-        unique: true,
-        required: [true, 'user_id required']
-    },
-    username: {
-        type: String,
-        required: [true, 'username required']
-    },
-    email: {
-        type: String,
-        unique: true,
-        required: [true, 'email required']
-    },
-    password: {
-        type: String,
-        required: [true, 'password required']
-    },
-    timestamp: {
-        type: Date,
-        default: new Date
+module.exports.get_profile_data = async function (field, value) {
+    try {
+        //retrieve data from DB
+        return await user.
+            findOne({ [field]: value }).
+            select({ email: 1, password: 1, username: 1, user_id: 1, timestamp: 1 }).
+            lean();
+    } catch (error) {
+        console.log(error);
     }
-});
+}
 
-module.exports = mongo_conn.model('user_profile', user, 'user_profile');
+module.exports.create_user = async function (user_id, username, email, password) {
+    try {
+        return await user.create({ user_id: user_id, username: username, email: email, password: password });
+    } catch (error) {
+        console.log(error);
+    }
+}
