@@ -9,7 +9,6 @@ const chat = new schema({
   },
   members: {
     type: Array,
-    unique: true,
     validate: [(val) => val.length <= 2, "member length can't be more than 2" ]
   },
   messages: [

@@ -3,7 +3,7 @@ let bodyOverlay = document.getElementById("body-overlay");
 let newMeetingModal = document.getElementById("new-meeting-modal");
 let linkCopied = document.getElementById("link-copied");
 let joinMeetingModal = document.getElementById("join-meeting-modal");
-let joinLink = document.getElementById('join-link');
+let joinLink = document.getElementById("join-link");
 
 //snippet for controlling the start height and width of illustration dots
 window.addEventListener("load", function () {
@@ -23,7 +23,7 @@ window.addEventListener("load", function () {
 
 // <!-- snippet for new-meeting modal -->
 document.getElementById("new-meeting").onclick = function () {
-  let uuid = window.genChatCode()
+  let uuid = window.genChatCode();
   new QRCode(document.getElementById("qrcode"), {
     text: uuid,
     width: 120,
@@ -36,6 +36,17 @@ document.getElementById("new-meeting").onclick = function () {
   newMeetingModal.style.display = "block";
   document.getElementById("chat-link").innerText = `https://tiny.ul/${uuid}`;
   currentModal = "new-meeting";
+
+  //create room at backend
+  fetch("/insta_chat", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({"chat_code": uuid})
+  })
+    .then((response) => response.json())
+    .then((data) => console.log(data));
 };
 
 document.getElementById("close").onclick = function () {
@@ -68,7 +79,7 @@ window.onclick = function (event) {
 document.getElementById("copy-link-container").onclick = function () {
   let text = document.getElementById("chat-link").textContent;
 
-  navigator.clipboard.writeText(text.substring(text.length-12, text.length));
+  navigator.clipboard.writeText(text.substring(text.length - 12, text.length));
   linkCopied.style.display = "block";
   setTimeout(function () {
     linkCopied.style.display = "none";
@@ -88,8 +99,10 @@ document.getElementById("join-close").onclick = function () {
 };
 
 document.getElementById("form-join").onclick = function () {
-  if (!joinLink.value) {return; }
+  if (!joinLink.value) {
+    return;
+  }
   let chatLink = joinLink.value;
   window.location.href = `/chats/${chatLink}`;
-  joinLink.value = '';
+  joinLink.value = "";
 };
