@@ -23,7 +23,7 @@ window.addEventListener("load", function () {
 
 // <!-- snippet for new-meeting modal -->
 document.getElementById("new-meeting").onclick = function () {
-  let uuid = window.cryptGen(10);
+  let uuid = window.genChatCode()
   new QRCode(document.getElementById("qrcode"), {
     text: uuid,
     width: 120,
@@ -34,7 +34,7 @@ document.getElementById("new-meeting").onclick = function () {
   });
   bodyOverlay.style.display = "block";
   newMeetingModal.style.display = "block";
-  document.getElementById("chat-link").innerText = `https://tiny.ul/${uuid.substring(0, 8)}`;
+  document.getElementById("chat-link").innerText = `https://tiny.ul/${uuid}`;
   currentModal = "new-meeting";
 };
 
@@ -49,9 +49,9 @@ window.onclick = function (event) {
   if (event.target == bodyOverlay) {
     switch (currentModal) {
       case "new-meeting":
+        document.querySelector("#qrcode > img").remove();
         newMeetingModal.style.display = "none";
         bodyOverlay.style.display = "none";
-        document.querySelector("#qrcode > img").remove();
         break;
 
       case "join-meeting":
