@@ -39,9 +39,9 @@ document.getElementById("new-meeting").onclick = function () {
 };
 
 document.getElementById("close").onclick = function () {
+  document.querySelector("#qrcode > img").remove();
   newMeetingModal.style.display = "none";
   bodyOverlay.style.display = "none";
-  document.querySelector("#qrcode > canvas").remove();
 };
 
 //snippet to close modals when a click is performed outside the scope of the modals
@@ -51,7 +51,7 @@ window.onclick = function (event) {
       case "new-meeting":
         newMeetingModal.style.display = "none";
         bodyOverlay.style.display = "none";
-        document.querySelector("#qrcode > canvas").remove();
+        document.querySelector("#qrcode > img").remove();
         break;
 
       case "join-meeting":
