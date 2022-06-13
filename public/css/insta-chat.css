@@ -94,6 +94,10 @@ main div div button.new-meeting {
   margin-right: 20px;
 }
 
+h4#chat-code {
+  display: none;
+}
+
 main div div button.join {
   padding: 15px 40px;
   border-radius: 5px;
