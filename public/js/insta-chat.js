@@ -133,7 +133,6 @@ document.getElementById("form-join").onclick = async function () {
       },
     });
     let data = await response.json();
-    console.log(" data: ", data);
     if (data?.status == true) {
       window.location.href = `/chats/${chatLink}`;
     } else {
