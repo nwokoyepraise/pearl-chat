@@ -117,13 +117,13 @@ function invalidLink() {
 // snipet to create chat room
 document.getElementById("form-join").onclick = async function () {
   if (!joinLink.value) {
-    return invalidLink();
+    return;
   }
   let chatLink = joinLink.value;
   if (chatLink.length > 12) {
     return invalidLink();
   }
-
+  
   //create room at backend
   try {
     let response = await fetch(`/insta_chat/${chatLink}`, {
