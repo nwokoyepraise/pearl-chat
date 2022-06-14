@@ -4,6 +4,8 @@ let newMeetingModal = document.getElementById("new-meeting-modal");
 let linkCopied = document.getElementById("link-copied");
 let joinMeetingModal = document.getElementById("join-meeting-modal");
 let joinLink = document.getElementById("join-link");
+let linkInfo = document.getElementById("link-info"),
+  form = document.getElementById("form");
 
 //snippet for controlling the start height and width of illustration dots
 window.addEventListener("load", function () {
@@ -49,6 +51,7 @@ document.getElementById("new-meeting").onclick = function () {
     .then((data) => {});
 };
 
+//remove modal on close element click
 document.getElementById("close").onclick = function () {
   document.querySelector("#qrcode > img").remove();
   newMeetingModal.style.display = "none";
@@ -76,6 +79,7 @@ window.onclick = function (event) {
   }
 };
 
+//snipet to copy chat link/code
 document.getElementById("copy-link-container").onclick = function () {
   let text = document.getElementById("chat-link").textContent;
 
@@ -93,32 +97,50 @@ document.getElementById("join-meeting").onclick = function () {
   currentModal = "join-meeting";
 };
 
+// snipet to remove elements on close click
 document.getElementById("join-close").onclick = function () {
   joinMeetingModal.style.display = "none";
   bodyOverlay.style.display = "none";
 };
 
-document.getElementById("form-join").onclick = function () {
+form.addEventListener("submit", function (ev) {
+  ev.preventDefault();
+});
+
+function invalidLink() {
+  linkInfo.style.display = "block";
+  setTimeout(function () {
+    linkInfo.style.display = "none";
+  }, 4000);
+}
+
+// snipet to create chat room
+document.getElementById("form-join").onclick = async function () {
   if (!joinLink.value) {
-    return;
+    return invalidLink();
   }
   let chatLink = joinLink.value;
   if (chatLink.length > 12) {
-    return;
+    return invalidLink();
   }
+
   //create room at backend
-  fetch(`/insta_chat/${chatLink}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.status == true) {
-        window.location.href = `/chats/${chatLink}`;
-      } else {
-      }
+  try {
+    let response = await fetch(`/insta_chat/${chatLink}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
+    let data = await response.json();
+    console.log(" data: ", data);
+    if (data?.status == true) {
+      window.location.href = `/chats/${chatLink}`;
+    } else {
+      invalidLink();
+    }
+  } catch (error) {
+    console.error(error);
+  }
   joinLink.value = "";
 };

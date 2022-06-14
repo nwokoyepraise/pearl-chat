@@ -107,7 +107,7 @@ h4#chat-code {
   margin-top: 10px;
   width: fit-content !important;
   margin: 0 auto;
-  display: block;
+  display: none;
 }
 
 #link-info h4 {
