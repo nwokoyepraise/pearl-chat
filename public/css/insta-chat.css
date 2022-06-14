@@ -98,6 +98,22 @@ h4#chat-code {
   display: none;
 }
 
+#link-info {
+  background-color: white;
+  /* filter: brightness(90%); */
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 10px;
+  width: fit-content !important;
+  margin: 0 auto;
+  display: block;
+}
+
+#link-info h4 {
+  color: red;
+}
+
 main div div button.join {
   padding: 15px 40px;
   border-radius: 5px;
