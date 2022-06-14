@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const mongo_conn = require('../config/mongo_config');
 const schema = mongoose.Schema;
 
 const user = new schema({
@@ -27,4 +26,4 @@ const user = new schema({
     }
 });
 
-module.exports = mongo_conn.model('user_profile', user, 'user_profile');
+module.exports = mongoose.model('user_profile', user, 'user_profile');

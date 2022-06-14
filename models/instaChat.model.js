@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const mongo_conn = require("../config/mongo_config");
 const schema = mongoose.Schema;
 
 const chat = new schema({
@@ -26,4 +25,4 @@ const chat = new schema({
   },
 });
 
-module.exports = mongo_conn.model("insta_chat", chat, "insta_chat");
+module.exports = mongoose.model("insta_chat", chat, "insta_chat");
