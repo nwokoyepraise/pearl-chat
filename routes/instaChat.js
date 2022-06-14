@@ -6,11 +6,11 @@ router.get("", (req, res) => res.render("pages/insta-chat"));
 
 router.patch("/:room", async function (req, res) {
     try {
-        let { matchedCount, modifiedCount, acknowledged } = await instaChatController.joinRoom(req.params, "QIYGn8bMfeoT");
+        let { matchedCount, modifiedCount, acknowledged } = await instaChatController.joinRoom(req.params, "QIY");
         if (!(matchedCount && modifiedCount && acknowledged)) {
            return res.status(404).send( { status: false, message: "Chat room not found" });
         }
-        res.render("pages/chats", {room: req.params.room})
+        res.status(200).send( { status: true, message: "Successful" });
     } catch (error) {
         console.error(error); 
     }

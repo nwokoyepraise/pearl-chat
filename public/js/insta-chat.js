@@ -43,10 +43,10 @@ document.getElementById("new-meeting").onclick = function () {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({"chat_code": uuid})
+    body: JSON.stringify({ chat_code: uuid }),
   })
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => {});
 };
 
 document.getElementById("close").onclick = function () {
@@ -103,6 +103,22 @@ document.getElementById("form-join").onclick = function () {
     return;
   }
   let chatLink = joinLink.value;
-  window.location.href = `/chats/${chatLink}`;
+  if (chatLink.length > 12) {
+    return;
+  }
+  //create room at backend
+  fetch(`/insta_chat/${chatLink}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status == true) {
+        window.location.href = `/chats/${chatLink}`;
+      } else {
+      }
+    });
   joinLink.value = "";
 };
