@@ -8,6 +8,7 @@ module.exports = function (io) {
     });
     client.on("message", (data) => {
       client.to(data.room).emit("message", data.message);
+      console.log(data);
     });
   });
 };
