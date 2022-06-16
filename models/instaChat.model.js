@@ -12,6 +12,7 @@ const chat = new schema({
   },
   messages: [
     {
+      user_id: {type: String, required: [true, "user ID required"]},
       seen: { type: Date, default: null },
       type: { type: Map, required: [true, "type required"] }, //{type: 0||1 (reply or not), message_id: message_id}
       text: { type: String },
