@@ -7,7 +7,7 @@ const io = require("socket.io")(server);
 const user = require("./routes/user");
 const auth = require("./routes/auth");
 const instaChat = require("./routes/instaChat");
-const chat = require("./routes/chat");
+const chatSocket = require("./routes/chatSocket");
 
 // Set the view engine to ejs
 app.set("view engine", "ejs");
@@ -24,7 +24,7 @@ app.get("/", (req, res) => res.render("pages/index"));
 app.get("/chats/:room", (req, res) => res.render("pages/chats", { room: req.params.room }));
 
 //Initialize socket
-(() => {chat(io)})();
+(() => {chatSocket(io)})();
 
 
 server.listen(portNumber, () => {
