@@ -1,14 +1,21 @@
 module.exports = function (io) {
   const namespace = io.of("/chat");
+  const instaChatController = require("../controllers/instaChat.controller");
 
   namespace.on("connection", (client) => {
     client.on("join_room", (data) => {
       client.join(data.room);
       console.log(`client ${client.id} joined room ${data.room}!`);
     });
-    client.on("message", (data) => {
+    client.on("message", async (data) => {
       client.to(data.room).emit("message", data.message);
-      console.log(data);
+      switch (data.type) {
+        // case 'insta_chat':
+        default:
+          let res0 = await instaChatController.saveMessage(data.room, { text: data.message }, client.id);
+          console.log("res0: ", res0);
+          break;
+      }
     });
   });
 };

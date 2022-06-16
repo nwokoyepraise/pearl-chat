@@ -25,3 +25,12 @@ module.exports.joinRoom = async function (params, userId) {
   }
 };
 
+module.exports.saveMessage = async function (chatCode, message, userId) {
+  try {
+
+    return await instaChat.saveMessage(chatCode, message, userId);
+  } catch (error) {
+    console.error(error);
+    return { status: false, status_code: 500, message: "Internal Server Error" };
+  }
+};

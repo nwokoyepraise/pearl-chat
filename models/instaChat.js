@@ -15,3 +15,11 @@ module.exports.joinRoom = async function (chatCode, userId) {
         console.log(error);
     }
 }
+
+module.exports.saveMessage = async function (chatCode, message, userId) {
+    try {
+        return await instaChat.updateOne({chat_code: chatCode}, { $push: {messages: {user_id: userId, type: {reply: false, message_id: null}, text: message.text}}});
+    } catch (error) {
+        console.log(error);
+    }
+}
