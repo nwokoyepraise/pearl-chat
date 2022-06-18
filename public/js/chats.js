@@ -1,6 +1,6 @@
 let socket = io("/chat");
 let room = document.getElementById("room").textContent;
-socket.emit("join_room", {room: room});
+socket.emit("join_room", { room: room });
 
 let inputSlider = document.getElementById("input-slider"),
   activeAway = document.getElementById("active-away"),
@@ -68,7 +68,7 @@ function handleTouchMove(evt) {
   yDown = null;
 }
 
-window.addEventListener("load", function () {
+window.addEventListener("load", async function () {
   let mColors = ["#fe95ca", "#deba31", "#998afe", "#649ef3"];
   let mNames = ["Henry Boyd", "Martha Curtis", "Chuks Nweze", "Louis Ezeka"];
   let nameTag = ["HB", "MC", "CN", "LE"];
@@ -84,6 +84,33 @@ window.addEventListener("load", function () {
 
   msgsList.appendChild(fragment);
   msgCount.textContent = msgsList.childElementCount;
+
+  let cookie = JSON.parse(document.cookie);
+
+  if (cookie?.user_id) {
+    try {
+      let response = await fetch(`/insta_chat/${room}/messages`, {
+        method: "GET",
+      });
+ 
+      let data = (await response.json()).data;
+  
+      if (data.messages) {
+        let msgs = data.messages;
+        for (let i = 0; i < msgs.length; i++) {
+          let item = document.createElement("li");
+          let divMsg = document.createElement("div");
+          divMsg.className = "receiver-msg msg-item";
+          divMsg.textContent = msgs[i].text;
+          item.appendChild(divMsg);
+          messages.appendChild(item);
+        }
+        // window.scrollTo(0, document.body.scrollHeight);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 });
 
 inputSlider.addEventListener("change", function () {

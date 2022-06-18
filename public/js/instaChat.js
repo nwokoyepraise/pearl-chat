@@ -124,9 +124,6 @@ document.getElementById("form-join").onclick = async function () {
     return invalidLink();
   }
 
-  let cookie = document.cookie;
-  console.log(cookie)
-  
   //create room at backend
   try {
     let response = await fetch(`/insta_chat/${chatLink}`, {
@@ -139,7 +136,8 @@ document.getElementById("form-join").onclick = async function () {
     if (data?.status == true) {
       window.location.href = `/chats/${chatLink}`;
       let e = new Date(new Date().getTime()+(1*24*60*60*1000));//expires after a day
-      document.cookie = 'user_id='+ JSON.stringify(data.data.user_id) +';expires=' + e;
+     // document.cookie = 'user_id='+ JSON.stringify(data.data.user_id) +';expires=' + e;
+     document.cookie = JSON.stringify(data.data) +';expires=' + e;
     } else {
       invalidLink();
     }

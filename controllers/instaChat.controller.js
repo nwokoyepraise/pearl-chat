@@ -39,3 +39,15 @@ module.exports.saveMessage = async function (chatCode, message, userId) {
     return { status: false, status_code: 500, message: "Internal Server Error" };
   }
 };
+
+module.exports.getMessages = async function (chatCode) {
+  try {
+
+    let data =  await instaChat.getMessages(chatCode);
+    return {status: true, data: data}
+  } catch (error) {
+    console.error(error);
+    return { status: false, status_code: 500, message: "Internal Server Error" };
+  }
+};
+

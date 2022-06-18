@@ -23,3 +23,11 @@ module.exports.saveMessage = async function (chatCode, message, userId) {
         console.log(error);
     }
 }
+
+module.exports.getMessages = async function (chatCode) {
+    try {
+        return await instaChat.findOne({chat_code: chatCode}, {messages : 1});
+    } catch (error) {
+        console.log(error);
+    }
+}
