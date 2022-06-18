@@ -12,8 +12,7 @@ module.exports = function (io) {
       switch (data.type) {
         // case 'insta_chat':
         default:
-          let res0 = await instaChatController.saveMessage(data.room, { text: data.message }, client.id);
-          console.log("res0: ", res0);
+          await instaChatController.saveMessage(data.room, { text: data.message }, client.id);
           break;
       }
     });

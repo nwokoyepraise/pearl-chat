@@ -1,4 +1,5 @@
 const instaChat = require("../models/instaChat");
+const cryptGen = require("../utils/cryptGen");
 
 module.exports.createRoom = async function (body) {
   try {
@@ -15,10 +16,14 @@ module.exports.createRoom = async function (body) {
   }
 };
 
-module.exports.joinRoom = async function (params, userId) {
+module.exports.joinRoom = async function (params) {
   try {
-
-    return await instaChat.joinRoom(params.room, userId);
+    let userId = cryptGen.gen(12);
+    let { matchedCount, modifiedCount, acknowledged } = await instaChat.joinRoom(params.room, userId);
+    if (!(matchedCount && modifiedCount && acknowledged)) {
+      return { status: false, status_code: 404, message: "Chat room not found" };
+   }
+   return {status: true, data: {user_id: userId}}
   } catch (error) {
     console.error(error);
     return { status: false, status_code: 500, message: "Internal Server Error" };
