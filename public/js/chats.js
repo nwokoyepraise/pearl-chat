@@ -25,6 +25,8 @@ let inputSlider = document.getElementById("input-slider"),
   expandOnboard = document.getElementById("expand-onboard"),
   onboardContainer = document.getElementById("onboard-container");
 
+const cookie = JSON.parse(document.cookie);
+
 document.addEventListener("touchstart", handleTouchStart, false);
 document.addEventListener("touchmove", handleTouchMove, false);
 
@@ -85,27 +87,31 @@ window.addEventListener("load", async function () {
   msgsList.appendChild(fragment);
   msgCount.textContent = msgsList.childElementCount;
 
-  let cookie = JSON.parse(document.cookie);
-
+  //fetch messages from DB if previous chats had been saved
   if (cookie?.user_id) {
     try {
       let response = await fetch(`/insta_chat/${room}/messages`, {
         method: "GET",
       });
- 
+
       let data = (await response.json()).data;
-  
+
       if (data.messages) {
         let msgs = data.messages;
         for (let i = 0; i < msgs.length; i++) {
           let item = document.createElement("li");
           let divMsg = document.createElement("div");
-          divMsg.className = "receiver-msg msg-item";
+          if (msgs[i].user_id == cookie.user_id) {
+            divMsg.className = "sender-msg msg-item";
+          } else {
+            divMsg.className = "receiver-msg msg-item";
+          }
+       
           divMsg.textContent = msgs[i].text;
           item.appendChild(divMsg);
           messages.appendChild(item);
         }
-        // window.scrollTo(0, document.body.scrollHeight);
+       window.scrollTo(0, document.body.scrollHeight);
       }
     } catch (error) {
       console.error(error);
@@ -160,7 +166,7 @@ btnSend.onclick = function () {
   item.appendChild(divMsg);
   messages.appendChild(item);
   window.scrollTo(0, document.body.scrollHeight);
-  socket.emit("message", { room: room, message: input.value });
+  socket.emit("message", { room: room, user_id: cookie.user_id, message: input.value });
   input.value = "";
 };
 
