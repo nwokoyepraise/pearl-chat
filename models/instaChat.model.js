@@ -24,6 +24,6 @@ const chat = new schema({
     type: Date,
     default: new Date(),
   },
-});
+}, {expireAfterSeconds: 86400});//delete document after 24 hours
 
 module.exports = mongoose.model("insta_chat", chat, "insta_chat");
