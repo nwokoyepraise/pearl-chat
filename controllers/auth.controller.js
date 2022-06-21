@@ -1,5 +1,5 @@
 require('dotenv').config();
-const tokenHandler = require('../utils/tokenHandler');
+const tokenHandler = require('../utils/token-handler');
 const user = require('../models/user');
 const argon2 = require('argon2');
 

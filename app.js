@@ -8,7 +8,7 @@ const user = require("./routes/user");
 const auth = require("./routes/auth");
 const instaChat = require("./routes/instaChat");
 const chatSocket = require("./routes/chatSocket");
-const rsaHandler = require("./utils/rsaHandler");
+const rsaHandler = require("./utils/rsa-handler");
 
 //rsaHandler.generate("client")
 

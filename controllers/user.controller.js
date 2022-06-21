@@ -1,6 +1,6 @@
 const cryptGen = require('../utils/cryptGen');
 const user = require('../models/user');
-const tokenHandler = require('../utils/tokenHandler')
+const tokenHandler = require('../utils/token-handler')
 
 module.exports.reg_user = async function (body) {
     try {
