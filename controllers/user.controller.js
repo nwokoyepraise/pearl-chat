@@ -1,12 +1,12 @@
-const crypt_gen = require('../utils/cryptGen');
-const user_profile_model = require('../models/user');
-const token_handle = require('../utils/token_handle')
+const cryptGen = require('../utils/cryptGen');
+const user = require('../models/user');
+const tokenHandler = require('../utils/tokenHandler')
 
 module.exports.reg_user = async function (body) {
     try {
         var email = body?.email?.toLowerCase(),
             username = body?.username,
-            user_id = crypt_gen.gen(12),
+            user_id = cryptGen.gen(12),
             password = body?.password;
 
         //check and return if email or password o username does not exist or if null
@@ -20,21 +20,21 @@ module.exports.reg_user = async function (body) {
         if (password.length < 8) { return { status: false, status_code: 400, message: "Password length is too short" } }
 
         //check and return if user already exists in db
-        let res0 = await user_profile_model.get_profile_data('email', email);
+        let res0 = await user.get_profile_data('email', email);
 
         if (res0?.email) { return { status: false, status_code: 400, message: "User already exists" } }
 
-        let password_hash = await token_handle.hash_password(password);
+        let password_hash = await tokenHandler.hash_password(password);
 
         //create user
-        let res1 = await user_profile_model.create_user(user_id, username, email, password_hash);
+        let res1 = await user.create_user(user_id, username, email, password_hash);
 
         if (!res1._id) { return { status: false, status_code: 500, message: "Unable to create user at this point, please try again later" } }
 
         console.log('user registered successfully!');
 
         //generate user jwt
-        const mjwt = token_handle.gen_jwt({ sub: user_id });
+        const mjwt = tokenHandler.gen_jwt({ sub: user_id });
         return { status: true, data: { user_id: res1.user_id, username: res1.username, email: res1.email, jwt: mjwt } }
 
     } catch (error) {

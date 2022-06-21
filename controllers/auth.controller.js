@@ -1,11 +1,11 @@
 require('dotenv').config();
-const token_handle = require('../utils/token_handle');
-const user_profile_model = require('../models/user');
+const tokenHandler = require('../utils/tokenHandler');
+const user = require('../models/user');
 const argon2 = require('argon2');
 
 module.exports.userLogin = async function (user) {
     try {
-        let res0 = await user_profile_model.get_profile_data('email', user.email);
+        let res0 = await user.get_profile_data('email', user.email);
 
         //return if any credential is null
         if (!user.email || !user.password) { return { status: false, status_code: 400, message: "Null values not allowed!" } }
@@ -14,7 +14,7 @@ module.exports.userLogin = async function (user) {
         if (!(await argon2.verify(res0.password, user.password))) { return { status: false, status_code: 401, message: "Invalid Credentials!" } }
 
         //generate new user tokens
-        const jwt = token_handle.gen_jwt({ sub: res0.user_id });
+        const jwt = tokenHandler.gen_jwt({ sub: res0.user_id });
 
         //return new credentials
         return { status: true, data: { user_id: user.user_id, jwt: jwt } }
