@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const authController = require('../controllers/auth.controller');
-const baseResponse = require('../middleware/baseResponse');
+const baseResponse = require('../middleware/base-response');
 
 module.exports = router.post('', async function (req, res, next) {
     try {

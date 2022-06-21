@@ -1,4 +1,4 @@
-const instaChat = require('./instaChat.model');
+const instaChat = require('./insta-chat.model');
 
 module.exports.createRoom = async function (chatCode) {
     try {

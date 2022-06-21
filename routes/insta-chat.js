@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const baseResponse = require("../middleware/baseResponse");
-const instaChatController = require("../controllers/instaChat.controller");
+const baseResponse = require("../middleware/base-response");
+const instaChatController = require("../controllers/insta-chat.controller");
 
 router.get("", (req, res) => res.render("pages/insta-chat"));
 

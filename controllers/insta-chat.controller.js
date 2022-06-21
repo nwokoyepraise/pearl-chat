@@ -1,5 +1,5 @@
-const instaChat = require("../models/instaChat");
-const cryptGen = require("../utils/cryptGen");
+const instaChat = require("../models/insta-chat");
+const cryptGen = require("../utils/crypt-gen");
 
 module.exports.createRoom = async function (body) {
   try {

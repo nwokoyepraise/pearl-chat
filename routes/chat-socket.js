@@ -1,6 +1,6 @@
 module.exports = function (io) {
   const namespace = io.of("/chat");
-  const instaChatController = require("../controllers/instaChat.controller");
+  const instaChatController = require("../controllers/insta-chat.controller");
 
   namespace.on("connection", (client) => {
     client.on("join_room", (data) => {

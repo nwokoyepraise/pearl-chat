@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express();
 const server = require("http").createServer(app);
-require("./config/mongoConfig")();
+require("./config/mongo-config")();
 const portNumber = process.env.PORT || process.env.PORT_NUMBER || 3000;
 const io = require("socket.io")(server);
 const user = require("./routes/user");
 const auth = require("./routes/auth");
-const instaChat = require("./routes/instaChat");
-const chatSocket = require("./routes/chatSocket");
+const instaChat = require("./routes/insta-chat");
+const chatSocket = require("./routes/chat-socket");
 const rsaHandler = require("./utils/rsa-handler");
 
 //rsaHandler.generate("client")
