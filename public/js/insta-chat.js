@@ -114,7 +114,20 @@ function invalidLink() {
   }, 4000);
 }
 
-// snipet to create chat room
+function ab2str(buf) {
+  return String.fromCharCode.apply(null, new Uint8Array(buf));
+}
+
+function arrayBufferToBase64String(arrayBuffer) {
+    var byteArray = new Uint8Array(arrayBuffer)
+    var byteString = '';
+    for (var i=0; i<byteArray.byteLength; i++) {
+        byteString += String.fromCharCode(byteArray[i]);
+    }
+    return btoa(byteString);
+}
+
+// snipet to join chat room
 document.getElementById("form-join").onclick = async function () {
   if (!joinLink.value) {
     return;
@@ -123,8 +136,76 @@ document.getElementById("form-join").onclick = async function () {
   if (chatLink.length > 12) {
     return invalidLink();
   }
+  try {
+    let keyPair = await window.crypto.subtle.generateKey(
+      {
+        name: "RSA-OAEP",
+        modulusLength: 4096,
+        publicExponent: new Uint8Array([1, 0, 1]),
+        hash: "SHA-256",
+      },
+      true,
+      ["encrypt", "decrypt"]
+    );
 
-  //create room at backend
+    const exportedPvt = await window.crypto.subtle.exportKey("jwk", keyPair.privateKey);
+    const exportedPub = await window.crypto.subtle.exportKey("jwk", keyPair.publicKey);
+
+    const importedPvt = await window.crypto.subtle.importKey(
+      "jwk",
+      exportedPvt,
+      {
+        name: "RSA-OAEP",
+        hash: "SHA-256",
+      },
+      true,
+      [ "decrypt"]
+    );
+    console.log("importedPvt:", importedPvt);
+
+    const importedPub = await window.crypto.subtle.importKey(
+      "jwk",
+      exportedPub,
+      {
+        name: "RSA-OAEP",
+        modulusLength: 4096,
+        publicExponent: new Uint8Array([1, 0, 1]),
+        hash: "SHA-256",
+      },
+      true,
+      ["encrypt"]
+    );
+
+    console.log("importedPub:", importedPub);
+    let enc = new TextEncoder().encode("Hello World");
+    let encrypted = await window.crypto.subtle.encrypt(
+      {
+        name: "RSA-OAEP",
+      },
+      importedPub,
+      enc
+    );
+    console.log("encryted: ",  arrayBufferToBase64String(encrypted));//new TextDecoder().decode(encryted)
+
+    let decrypted = await window.crypto.subtle.decrypt(
+      {
+        name: "RSA-OAEP",
+      },
+      importedPvt,
+      encrypted
+    ); 
+    console.log("decryted:", new TextDecoder().decode(decrypted));
+  } catch (error) {
+    console.error(error);
+  }
+
+  // let privateKey = await window.crypto.subtle.exportKey("pkcs8", keyPair.privateKey);
+  // const exportedAsString = ab2str(privateKey);
+  // const exportedAsBase64 = window.Buffer.from(exportedAsString, "base64").toString("base64");
+  // console.log(exportedAsBase64);
+
+  return; // console.log(await window.genKeyPair());
+  //join room
   try {
     let response = await fetch(`/insta_chat/${chatLink}`, {
       method: "PATCH",
@@ -135,9 +216,9 @@ document.getElementById("form-join").onclick = async function () {
     let data = await response.json();
     if (data?.status == true) {
       window.location.href = `/chats/${chatLink}`;
-      let e = new Date(new Date().getTime()+(1*24*60*60*1000));//expires after a day
-     // document.cookie = 'user_id='+ JSON.stringify(data.data.user_id) +';expires=' + e;
-     document.cookie = JSON.stringify(data.data) +';expires=' + e;
+      let e = new Date(new Date().getTime() + 1 * 24 * 60 * 60 * 1000); //expires after a day
+      // document.cookie = 'user_id='+ JSON.stringify(data.data.user_id) +';expires=' + e;
+      document.cookie = JSON.stringify(data.data) + ";expires=" + e;
     } else {
       invalidLink();
     }
