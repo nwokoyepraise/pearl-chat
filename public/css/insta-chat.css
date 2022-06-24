@@ -370,6 +370,10 @@ div.form input {
   margin-right: 10px;
 }
 
+#passcode-modal {
+  display: none;
+}
+
 @keyframes FadeInOut {
   0% {
     opacity: 1;
@@ -459,7 +463,11 @@ div.form input {
   }
 
   div.form input {
-    width: 150px;
+    width: 65%;
+  }
+
+  div.form button {
+    margin-right: 0;
   }
 
   #join-meeting-modal {

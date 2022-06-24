@@ -23,6 +23,23 @@
     <div class="body-overlay" id="body-overlay"></div>
 
     <main>
+          <!-- passcode modal -->
+        <div id="passcode-modal" class="meeting-modal">
+            <div class="modal-content">
+                <div id="join-close" class="close">&times;</div>
+                <h1 class="enter-link">Enter desired passcode</h1>
+                <div class="form">
+                    <form id="form" action="">
+                        <input type="text" placeholder="Enter passcode" name="passcode" id="passcode" required>
+                        <button type="submit" id="passcode">OK</a></li>
+                    </form>
+                </div>
+                <div id="link-info">
+                    <h4>Passcode appears to be invalid!</h4>
+                </div>
+            </div>
+        </div>
+
         <!-- new meeting modal -->
         <div class="meeting-modal" id="new-meeting-modal">
             <div class="modal-content" id="modal-content">
