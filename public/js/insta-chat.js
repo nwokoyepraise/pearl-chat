@@ -22,6 +22,9 @@ form.addEventListener("submit", function (ev) {
 document.getElementById("form-passcode-join").addEventListener("submit", function (ev) {
   ev.preventDefault();
 });
+document.getElementById("form-passcode-create").addEventListener("submit", function (ev) {
+  ev.preventDefault();
+});
 
 function invalidPasscode() {
   passcodeInfo.style.display = "block";
@@ -74,16 +77,21 @@ document.getElementById("btn-passcode").onclick = async function () {
   let uuid = window.genChatCode();
 
   //create room at backend
-  let response = await fetch("/insta_chat", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ chat_code: uuid, passcode: passcodeEntry.value }),
-  });
-  let data = await response.json();
-  if (data?.status != true) {
-    return alert("Oops!, Unbale to create chat link at this point");
+  try {
+    let response = await fetch("/insta_chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ chat_code: uuid, passcode: passcodeEntry.value }),
+    });
+  
+    let data = await response.json();
+    if (data?.status != true) {
+      return alert("Oops!, Unbale to create chat link at this point");
+    }
+  } catch (error) {
+    console.error(error);
   }
 
   new QRCode(document.getElementById("qrcode"), {
@@ -122,8 +130,6 @@ document.getElementById("passcode-create-close").onclick = function () {
   passcodeCreateModal.style.display = "none";
   bodyOverlay.style.display = "none";
 };
-
-
 
 //snippet to close modals when a click is performed outside the scope of the modals
 window.onclick = function (event) {
@@ -238,7 +244,7 @@ document.getElementById("btn-passcode-join").onclick = async function () {
     });
 
     let data = await response.json();
-   
+
     if (data?.status == true) {
       window.location.href = `/chats/${chatLink}`;
       let e = new Date(new Date().getTime() + 1 * 24 * 60 * 60 * 1000); //expires after a day

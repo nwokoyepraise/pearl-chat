@@ -52,5 +52,5 @@ rsaHandler.serverExampleEncrypt = () => {
   let dec = rsaHandler.decrypt(rsaHandler.serverPrivate, enc);
   console.log("Decrypted RSA string …");
   console.log(dec);
-};rsaHandler.initLoadServerKeys("./"); rsaHandler.serverExampleEncrypt();
+};//rsaHandler.initLoadServerKeys("./"); //rsaHandler.serverExampleEncrypt();
 module.exports = rsaHandler;
