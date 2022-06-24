@@ -41,6 +41,22 @@ function invalidPasscodeJoin() {
   }, 4000);
 }
 
+function removeModals() {
+  if (document.querySelector("#qrcode > img")) {
+    document.querySelector("#qrcode > img").remove();
+  }
+  passcodeEntry.value = "";
+  passcodeJoinModal.style.display = "none";
+  bodyOverlay.style.display = "none";
+  passcodeEntry.value = "";
+  passcodeCreateModal.style.display = "none";
+  bodyOverlay.style.display = "none";
+  newMeetingModal.style.display = "none";
+  bodyOverlay.style.display = "none";
+  joinMeetingModal.style.display = "none";
+  bodyOverlay.style.display = "none";
+}
+
 //snippet for controlling the start height and width of illustration dots
 window.addEventListener("load", function () {
   var div = document.querySelector(".div-right div.img");
@@ -85,7 +101,7 @@ document.getElementById("btn-passcode").onclick = async function () {
       },
       body: JSON.stringify({ chat_code: uuid, passcode: passcodeEntry.value }),
     });
-  
+
     let data = await response.json();
     if (data?.status != true) {
       return alert("Oops!, Unbale to create chat link at this point");
@@ -134,31 +150,9 @@ document.getElementById("passcode-create-close").onclick = function () {
 //snippet to close modals when a click is performed outside the scope of the modals
 window.onclick = function (event) {
   if (event.target == bodyOverlay) {
-    switch (currentModal) {
-      case "new-meeting":
-        document.querySelector("#qrcode > img").remove();
-        newMeetingModal.style.display = "none";
-        bodyOverlay.style.display = "none";
-        break;
-
-      case "join-meeting":
-        joinMeetingModal.style.display = "none";
-        bodyOverlay.style.display = "none";
-        break;
-
-      case "passcode-create":
-        passcodeEntry.value = "";
-        passcodeCreateModal.style.display = "none";
-        bodyOverlay.style.display = "none";
-        break;
-
-      case "passcode-join":
-        passcodeEntry.value = "";
-        passcodeJoinModal.style.display = "none";
-        bodyOverlay.style.display = "none";
-        break;
-    }
+    removeModals();
   }
+
   if (event.target != menuModal && event.target != menuSpan) {
     menuModal.style.display = "none";
   }
@@ -250,6 +244,7 @@ document.getElementById("btn-passcode-join").onclick = async function () {
       let e = new Date(new Date().getTime() + 1 * 24 * 60 * 60 * 1000); //expires after a day
       // document.cookie = 'user_id='+ JSON.stringify(data.data.user_id) +';expires=' + e;
       document.cookie = JSON.stringify(data.data) + ";expires=" + e;
+      removeModals();
     } else {
       invalidPasscodeJoin();
     }
