@@ -37,13 +37,14 @@ window.addEventListener("load", function () {
   div_text.style.width = illus_text_rect.width + "px";
 });
 
-// <!-- snippet for new-meeting modal -->
+// <!-- snippet display passcode modal -->
 document.getElementById("new-meeting").onclick = async function () {
   bodyOverlay.style.display = "block";
   passcodeModal.style.display = "block";
   currentModal = "passcode";
 };
 
+// snippet to display new-meeting modal
 document.getElementById("btn-passcode").onclick = async function () {
   if (!passcodeEntry.value) {
     return;
