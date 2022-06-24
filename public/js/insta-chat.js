@@ -6,11 +6,20 @@ let joinMeetingModal = document.getElementById("join-meeting-modal");
 let joinLink = document.getElementById("join-link");
 let linkInfo = document.getElementById("link-info"),
   form = document.getElementById("form"),
-  passcodeModal = document.getElementById("passcode-modal"),
-  passcodeEntry = document.getElementById("input-passcode"),
-  passcodeInfo = document.getElementById("passcode-info");
+  passcodeCreateModal = document.getElementById("passcode-create-modal"),
+  passcodeEntry = document.getElementById("input-passcode-entry"),
+  passcodeInfo = document.getElementById("passcode-info"),
+  passcodeJoinModal = document.getElementById("passcode-join-modal"),
+  passcodeJoin = document.getElementById("input-passcode-join"),
+  minPasscodeLength = 8;
+
+let chatLink;
 
 form.addEventListener("submit", function (ev) {
+  ev.preventDefault();
+});
+
+document.getElementById("form-passcode-join").addEventListener("submit", function (ev) {
   ev.preventDefault();
 });
 
@@ -40,8 +49,8 @@ window.addEventListener("load", function () {
 // <!-- snippet display passcode modal -->
 document.getElementById("new-meeting").onclick = async function () {
   bodyOverlay.style.display = "block";
-  passcodeModal.style.display = "block";
-  currentModal = "passcode";
+  passcodeCreateModal.style.display = "block";
+  currentModal = "passcode-create";
 };
 
 // snippet to display new-meeting modal
@@ -50,7 +59,7 @@ document.getElementById("btn-passcode").onclick = async function () {
     return;
   }
 
-  if (passcodeEntry.value.length < 8) {
+  if (passcodeEntry.value.length < minPasscodeLength) {
     return invalidPasscode();
   }
 
@@ -82,7 +91,7 @@ document.getElementById("btn-passcode").onclick = async function () {
   document.getElementById("chat-link").innerText = `https://tiny.ul/${uuid}`;
   currentModal = "new-meeting";
   passcodeEntry.value = "";
-  passcodeModal.style.display = "none";
+  passcodeCreateModal.style.display = "none";
 };
 
 //remove modal on close element click
@@ -107,9 +116,15 @@ window.onclick = function (event) {
         bodyOverlay.style.display = "none";
         break;
 
-      case "passcode":
+      case "passcode-create":
         passcodeEntry.value = "";
-        passcodeModal.style.display = "none";
+        passcodeCreateModal.style.display = "none";
+        bodyOverlay.style.display = "none";
+        break;
+
+      case "passcode-join":
+        passcodeEntry.value = "";
+        passcodeJoinModal.style.display = "none";
         bodyOverlay.style.display = "none";
         break;
     }
@@ -155,25 +170,35 @@ document.getElementById("form-join").onclick = async function () {
   if (!joinLink.value) {
     return;
   }
-  let chatLink = joinLink.value;
+  chatLink = joinLink.value;
   if (chatLink.length > 12) {
     return invalidLink();
+  } else {
+    passcodeJoinModal.style.display = "block";
+    currentModal = "passcode-join";
+  }
+};
+
+document.getElementById("btn-passcode-join").onclick = async function () {
+  if (!passcodeJoin.value) {
+    return;
   }
 
-  // let privateKey = await window.crypto.subtle.exportKey("pkcs8", keyPair.privateKey);
-  // const exportedAsString = ab2str(privateKey);
-  // const exportedAsBase64 = window.Buffer.from(exportedAsString, "base64").toString("base64");
-  // console.log(exportedAsBase64);
+  let passcodeValue = passcodeJoin.value;
+  if (passcodeValue.length < minPasscodeLength) {
+    return invalidPasscode();
+  }
 
-  return; // console.log(await window.genKeyPair());
-  //join room
+  // join room
   try {
     let response = await fetch(`/insta_chat/${chatLink}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({ passcode: passcodeValue }),
     });
+    console.log(response)
     let data = await response.json();
     if (data?.status == true) {
       window.location.href = `/chats/${chatLink}`;
@@ -181,10 +206,11 @@ document.getElementById("form-join").onclick = async function () {
       // document.cookie = 'user_id='+ JSON.stringify(data.data.user_id) +';expires=' + e;
       document.cookie = JSON.stringify(data.data) + ";expires=" + e;
     } else {
-      invalidLink();
+      invalidPasscode();
     }
   } catch (error) {
     console.error(error);
   }
   joinLink.value = "";
+  passcodeJoin.value = "";
 };

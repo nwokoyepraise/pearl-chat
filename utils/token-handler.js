@@ -21,3 +21,11 @@ module.exports.getAuth = function (auth_header) {
     auth = auth_header.split(' ')[1];
     return auth;
 }
+
+module.exports.chkKey = async function (hash, plain) {
+    try {
+        return await argon2.verify(hash, plain)
+    } catch (error) {
+        console.log(error);
+    }
+}

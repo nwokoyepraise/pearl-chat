@@ -20,109 +20,130 @@
 
 <body>
     <%- include("../partials/header") %>
-    <div class="body-overlay" id="body-overlay"></div>
+        <div class="body-overlay" id="body-overlay"></div>
 
-    <main>
-          <!-- passcode modal -->
-        <div id="passcode-modal" class="meeting-modal">
-            <div class="modal-content">
-                <div id="join-close" class="close">&times;</div>
-                <h1 class="enter-link">Enter desired passcode</h1>
-                <div class="form">
-                    <form id="form" action="">
-                        <input type="text" placeholder="Enter passcode" name="passcode" id="input-passcode" required>
-                        <button type="submit" id="btn-passcode">OK</a></li>
-                    </form>
-                </div>
-                <div id="passcode-info" class="entry-info">
-                    <h4>Passcode appears to be invalid!</h4>
-                </div>
-            </div>
-        </div>
-
-        <!-- new meeting modal -->
-        <div class="meeting-modal" id="new-meeting-modal">
-            <div class="modal-content" id="modal-content">
-                <div id="close" class="close">&times;</div>
-                <div class="qrcode-container">
-                    <div id="qrcode"></div>
-                </div>
-                <h1>Chat link ready</h1>
-                <h3>Copy and share the chat link below to start OR Scan QR code</h3>
-
-                <h4 id="chat-link"></h4>
-
-                <div id="copy-link-container" class="copy-link-container">
-                    <span id="icon-copy-all" class="material-icons">copy_all</span>
-                    <h4 id="copy-link">Copy chat link</h4>
-                </div>
-
-                <div id="link-copied">
-                    <h4>Link copied!</h4>
-                </div>
-            </div>
-        </div>
-
-        <!-- join meeting modal -->
-        <div id="join-meeting-modal" class="meeting-modal">
-            <div class="modal-content">
-                <div id="join-close" class="close">&times;</div>
-                <h1 class="enter-link">Enter chat link to start</h1>
-                <div class="form">
-                    <form id="form" action="">
-                        <input type="text" placeholder="Enter chat link/code" name="chat_link" id="join-link" required>
-                        <button type="submit" id="form-join">Join</a></li>
-                    </form>
-                </div>
-                <div id="link-info" class="entry-info">
-                    <h4>Link/Chat code appears to be invalid!</h4>
-                </div>
-            </div>
-        </div>
-
-        <div class="div-left">
-            <div class="text">
-                <h1>Premium chats. <br>Nothing to download.</h1>
-                <h3>We bring to you InstaChat, start chatting right away securely with our state-of-the-art encryption
-                    technology. No need to share personal information.</h3>
-            </div>
-
-            <div class="buttons">
-                <button id="new-meeting" class="new-meeting">+ New Meeting</button>
-                <button id="join-meeting" class="join">Join</button>
-            </div>
-            <hr>
-        </div>
-
-
-        <div class="div-right">
-            <div class="img">
-                <img class="illus1" src="/img/intro_illus1.svg" alt="">
-                <img class="illus2" src="/img/intro_illus2.svg" alt="">
-            </div>
-
-            <div class="illus-text">
-                <div class="text1">
-                    <h1>Start chatting</h1>
-                    <h3>Quickly get a link to start chatting without sharing personal info</h3>
-                </div>
-
-                <div class="text2">
-                    <h1>Secure Communication</h1>
-                    <h3>Chat with encryption. Chats expire at the end of each session.</h3>
+        <main>
+            <!-- passcode create modal -->
+            <div id="passcode-create-modal" class="meeting-modal">
+                <div class="modal-content">
+                    <div id="join-close" class="close">&times;</div>
+                    <h1 class="enter-link">Enter desired passcode</h1>
+                    <div class="form">
+                        <form id="form-passcode-create" action="">
+                            <input type="text" placeholder="Enter passcode" name="passcode" id="input-passcode-entry"
+                                required>
+                            <button type="submit" id="btn-passcode">OK</a></li>
+                        </form>
+                    </div>
+                    <div id="passcode-info" class="entry-info">
+                        <h4>Passcode appears to be invalid!</h4>
+                    </div>
                 </div>
             </div>
 
-            <div class="illus-dots">
-                <div class="dot1"></div>
-                <div class="dot2"></div>
+            <!-- new meeting modal -->
+            <div class="meeting-modal" id="new-meeting-modal">
+                <div class="modal-content" id="modal-content">
+                    <div id="close" class="close">&times;</div>
+                    <div class="qrcode-container">
+                        <div id="qrcode"></div>
+                    </div>
+                    <h1>Chat link ready</h1>
+                    <h3>Copy and share the chat link below to start OR Scan QR code</h3>
+
+                    <h4 id="chat-link"></h4>
+
+                    <div id="copy-link-container" class="copy-link-container">
+                        <span id="icon-copy-all" class="material-icons">copy_all</span>
+                        <h4 id="copy-link">Copy chat link</h4>
+                    </div>
+
+                    <div id="link-copied">
+                        <h4>Link copied!</h4>
+                    </div>
+                </div>
             </div>
-        </div>
-    </main>
-    <footer class="footer">
-        <%- include("../partials/footer") %>
-    </footer>
-    <script src="/js/insta-chat.js"></script>
+
+            <!-- join meeting modal -->
+            <div id="join-meeting-modal" class="meeting-modal">
+                <div class="modal-content">
+                    <div id="join-close" class="close">&times;</div>
+                    <h1 class="enter-link">Enter chat link to start</h1>
+                    <div class="form">
+                        <form id="form" action="">
+                            <input type="text" placeholder="Enter chat link/code" name="chat_link" id="join-link"
+                                required>
+                            <button type="submit" id="form-join">OK</a></li>
+                        </form>
+                    </div>
+                    <div id="link-info" class="entry-info">
+                        <h4>Link/Chat code appears to be invalid!</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- passcode join modal -->
+            <div id="passcode-join-modal" class="meeting-modal">
+                <div class="modal-content">
+                    <div id="join-close" class="close">&times;</div>
+                    <h1 class="enter-link">Enter chat passcode</h1>
+                    <div class="form">
+                        <form id="form-passcode-join" action="">
+                            <input type="text" placeholder="Enter passcode" name="passcode" id="input-passcode-join"
+                                required>
+                            <button type="submit" id="btn-passcode-join">Join</a></li>
+                        </form>
+                    </div>
+                    <div id="passcode-info" class="entry-info">
+                        <h4>Passcode appears to be invalid!</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-left">
+                <div class="text">
+                    <h1>Premium chats. <br>Nothing to download.</h1>
+                    <h3>We bring to you InstaChat, start chatting right away securely with our state-of-the-art
+                        encryption
+                        technology. No need to share personal information.</h3>
+                </div>
+
+                <div class="buttons">
+                    <button id="new-meeting" class="new-meeting">+ New Meeting</button>
+                    <button id="join-meeting" class="join">Join</button>
+                </div>
+                <hr>
+            </div>
+
+
+            <div class="div-right">
+                <div class="img">
+                    <img class="illus1" src="/img/intro_illus1.svg" alt="">
+                    <img class="illus2" src="/img/intro_illus2.svg" alt="">
+                </div>
+
+                <div class="illus-text">
+                    <div class="text1">
+                        <h1>Start chatting</h1>
+                        <h3>Quickly get a link to start chatting without sharing personal info</h3>
+                    </div>
+
+                    <div class="text2">
+                        <h1>Secure Communication</h1>
+                        <h3>Chat with encryption. Chats expire at the end of each session.</h3>
+                    </div>
+                </div>
+
+                <div class="illus-dots">
+                    <div class="dot1"></div>
+                    <div class="dot2"></div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <%- include("../partials/footer") %>
+        </footer>
+        <script src="/js/insta-chat.js"></script>
 </body>
 
 </html>
