@@ -1,9 +1,13 @@
 const instaChat = require("../models/insta-chat");
 const cryptGen = require("../utils/crypt-gen");
+const argon2 = require("argon2");
+const { hashKey } = require("../utils/token-handler");
 
 module.exports.createRoom = async function (body) {
   try {
     let { chat_code, passcode } = body;
+
+    passcode = await hashKey(passcode);
 
     let data = await instaChat.createRoom(chat_code, passcode);
     if (!data?._id) {
