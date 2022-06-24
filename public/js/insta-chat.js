@@ -30,6 +30,14 @@ function invalidPasscode() {
   }, 4000);
 }
 
+function invalidPasscodeJoin() {
+  let passcodeJoinInfo = document.getElementById("passcode-join-info");
+  passcodeJoinInfo.style.display = "block";
+  setTimeout(function () {
+    passcodeJoinInfo.style.display = "none";
+  }, 4000);
+}
+
 //snippet for controlling the start height and width of illustration dots
 window.addEventListener("load", function () {
   var div = document.querySelector(".div-right div.img");
@@ -181,14 +189,13 @@ document.getElementById("form-join").onclick = async function () {
         "Content-Type": "application/json",
       },
     });
-   
+
     let data = await response.json();
-   
+
     if (data.data?.room_exists != true) {
-  
       return invalidLink();
-    } 
-     passcodeJoinModal.style.display = "block";
+    }
+    passcodeJoinModal.style.display = "block";
     currentModal = "passcode-join";
   }
 };
@@ -212,15 +219,16 @@ document.getElementById("btn-passcode-join").onclick = async function () {
       },
       body: JSON.stringify({ passcode: passcodeValue }),
     });
-   
+
     let data = await response.json();
+   
     if (data?.status == true) {
       window.location.href = `/chats/${chatLink}`;
       let e = new Date(new Date().getTime() + 1 * 24 * 60 * 60 * 1000); //expires after a day
       // document.cookie = 'user_id='+ JSON.stringify(data.data.user_id) +';expires=' + e;
       document.cookie = JSON.stringify(data.data) + ";expires=" + e;
     } else {
-      invalidPasscode();
+      invalidPasscodeJoin();
     }
   } catch (error) {
     console.error(error);

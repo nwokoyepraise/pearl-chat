@@ -41,7 +41,7 @@ module.exports.joinRoom = async function (params, body) {
     if (!data?._id) {
       return { status: false, status_code: 404, message: "Chat room not found" };
     }
-    if (!chkKey(data.passcode, passcode)) {
+    if (! await chkKey(data.passcode, passcode)) {
       return { status: false, status_code: 401, message: "Passcode invalid" };
     }
 
