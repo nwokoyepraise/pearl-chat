@@ -337,6 +337,7 @@ div.copy-link-container:focus {
 h1.enter-link {
   text-align: center;
   margin-bottom: 30px;
+  line-height: 1.1em;
 }
 
 div.form {
@@ -368,10 +369,6 @@ div.form input {
   border: 1px solid transparent;
   border-radius: 4px;
   margin-right: 10px;
-}
-
-#passcode-modal {
-  display: none;
 }
 
 @keyframes FadeInOut {
