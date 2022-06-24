@@ -19,6 +19,18 @@ module.exports.createRoom = async function (body) {
   }
 };
 
+module.exports.roomExists = async function (params) {
+  try {
+
+    let data = await instaChat.roomExists(params.room);
+
+    return { status: true, data: data };
+  } catch (error) {
+    console.error(error);
+    return { status: false, status_code: 500, message: "Internal Server Error" };
+  }
+};
+
 module.exports.joinRoom = async function (params, body) {
   try {
     const userId = cryptGen.gen(12);
@@ -36,6 +48,7 @@ module.exports.joinRoom = async function (params, body) {
     let { matchedCount, modifiedCount, acknowledged } = await instaChat.joinRoom(params.room, userId);
 
     if (!(matchedCount && modifiedCount && acknowledged)) {
+      return { status: false, status_code: 500, message: "Unable to join room at the moment, please try again" };
     }
     return { status: true, data: { user_id: userId } };
   } catch (error) {

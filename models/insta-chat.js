@@ -8,13 +8,25 @@ module.exports.createRoom = async function (chatCode, passcode) {
   }
 };
 
-module.exports.getRoom = async function (chatCode) {
-    try {
-      return await instaChat.findOne({ chat_code: chatCode });
-    } catch (error) {
-      console.log(error);
+module.exports.roomExists = async function (chatCode) {
+  try {
+    let data = await instaChat.findOne({ chat_code: chatCode }, { _id: 1 });
+    if (!data?._id) {
+      return { room_exists: false };
     }
-  };
+    return { room_exists: true };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports.getRoom = async function (chatCode) {
+  try {
+    return await instaChat.findOne({ chat_code: chatCode });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 module.exports.joinRoom = async function (chatCode, userId) {
   try {

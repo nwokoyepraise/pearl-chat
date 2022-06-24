@@ -4,6 +4,15 @@ const instaChatController = require("../controllers/insta-chat.controller");
 
 router.get("", (req, res) => res.render("pages/insta-chat"));
 
+router.get("/:room", async function (req, res) {
+  try {
+    let data = await instaChatController.roomExists(req.params);
+    res.status(200).send(data);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 router.patch("/:room", async function (req, res) {
   try {
     let data = await instaChatController.joinRoom(req.params, req.body);
