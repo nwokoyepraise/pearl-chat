@@ -3,9 +3,9 @@ const cryptGen = require("../utils/crypt-gen");
 
 module.exports.createRoom = async function (body) {
   try {
-    let { chat_code } = body;
+    let { chat_code, passcode } = body;
 
-    let data = await instaChat.createRoom(chat_code);
+    let data = await instaChat.createRoom(chat_code, passcode);
     if (!data?._id) {
         return { status: false, status_code: 500, message: "Unable to create room, please try again" };
     }

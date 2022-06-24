@@ -99,7 +99,7 @@ h4#chat-code {
   display: none;
 }
 
-#link-info {
+.entry-info {
   background-color: white;
   /* filter: brightness(90%); */
   padding: 5px;
@@ -111,9 +111,9 @@ h4#chat-code {
   display: none;
 }
 
-#link-info h4 {
-  color: red;
-  font-weight: 200;
+.entry-info h4 {
+  color: red !important;
+  font-weight: 200 !important;
 }
 
 main div div button.join {
