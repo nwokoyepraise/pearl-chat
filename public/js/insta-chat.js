@@ -109,6 +109,22 @@ document.getElementById("close").onclick = function () {
   bodyOverlay.style.display = "none";
 };
 
+//remove passcode join modal on close element click
+document.getElementById("passcode-join-close").onclick = function () {
+  passcodeEntry.value = "";
+  passcodeJoinModal.style.display = "none";
+  bodyOverlay.style.display = "none";
+};
+
+//remove passcode entry modal on close element click
+document.getElementById("passcode-create-close").onclick = function () {
+  passcodeEntry.value = "";
+  passcodeCreateModal.style.display = "none";
+  bodyOverlay.style.display = "none";
+};
+
+
+
 //snippet to close modals when a click is performed outside the scope of the modals
 window.onclick = function (event) {
   if (event.target == bodyOverlay) {
