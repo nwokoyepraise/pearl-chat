@@ -174,7 +174,21 @@ document.getElementById("form-join").onclick = async function () {
   if (chatLink.length > 12) {
     return invalidLink();
   } else {
-    passcodeJoinModal.style.display = "block";
+    //check if room exists
+    let response = await fetch(`/insta_chat/${chatLink}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+   
+    let data = await response.json();
+   
+    if (data.data?.room_exists != true) {
+  
+      return invalidLink();
+    } 
+     passcodeJoinModal.style.display = "block";
     currentModal = "passcode-join";
   }
 };
@@ -198,7 +212,7 @@ document.getElementById("btn-passcode-join").onclick = async function () {
       },
       body: JSON.stringify({ passcode: passcodeValue }),
     });
-    console.log(response)
+   
     let data = await response.json();
     if (data?.status == true) {
       window.location.href = `/chats/${chatLink}`;
