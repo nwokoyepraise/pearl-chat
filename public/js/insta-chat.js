@@ -195,6 +195,7 @@ document.getElementById("form-join").onclick = async function () {
     if (data.data?.room_exists != true) {
       return invalidLink();
     }
+    joinMeetingModal.style.display = "none";
     passcodeJoinModal.style.display = "block";
     currentModal = "passcode-join";
   }
