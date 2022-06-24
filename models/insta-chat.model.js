@@ -10,6 +10,10 @@ const chat = new schema({
     type: Array,
     validate: [(val) => val.length <= 2, "member length can't be more than 2" ]
   },
+  passcode: {
+    type: String,
+    required: [true, "passcode required"]
+  },
   messages: [
     {
       user_id: {type: String, required: [true, "user ID required"]},
