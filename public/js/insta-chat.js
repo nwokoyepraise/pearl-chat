@@ -24,8 +24,22 @@ window.addEventListener("load", function () {
 });
 
 // <!-- snippet for new-meeting modal -->
-document.getElementById("new-meeting").onclick = function () {
+document.getElementById("new-meeting").onclick = async function () {
   let uuid = window.genChatCode();
+
+  //create room at backend
+  let response = await fetch("/insta_chat", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ chat_code: uuid }),
+  });
+  let data = await response.json();
+  if (data?.status != true) {
+    return alert("Oops!, Unbale to create chat link at this point");
+  }
+
   new QRCode(document.getElementById("qrcode"), {
     text: uuid,
     width: 120,
@@ -38,17 +52,6 @@ document.getElementById("new-meeting").onclick = function () {
   newMeetingModal.style.display = "block";
   document.getElementById("chat-link").innerText = `https://tiny.ul/${uuid}`;
   currentModal = "new-meeting";
-
-  //create room at backend
-  fetch("/insta_chat", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ chat_code: uuid }),
-  })
-    .then((response) => response.json())
-    .then((data) => {});
 };
 
 //remove modal on close element click
@@ -114,8 +117,6 @@ function invalidLink() {
   }, 4000);
 }
 
-
-
 // snipet to join chat room
 document.getElementById("form-join").onclick = async function () {
   if (!joinLink.value) {
@@ -125,7 +126,7 @@ document.getElementById("form-join").onclick = async function () {
   if (chatLink.length > 12) {
     return invalidLink();
   }
- 
+
   // let privateKey = await window.crypto.subtle.exportKey("pkcs8", keyPair.privateKey);
   // const exportedAsString = ab2str(privateKey);
   // const exportedAsBase64 = window.Buffer.from(exportedAsString, "base64").toString("base64");
