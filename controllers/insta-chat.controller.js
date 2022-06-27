@@ -4,11 +4,11 @@ const { hashKey, chkKey } = require("../utils/token-handler");
 
 module.exports.createRoom = async function (body) {
   try {
-    let { chat_code, passcode } = body;
+    let { chat_code, passphrase } = body;
 
-    passcode = await hashKey(passcode);
+    passphrase = await hashKey(passphrase);
 
-    let data = await instaChat.createRoom(chat_code, passcode);
+    let data = await instaChat.createRoom(chat_code, passphrase);
     if (!data?._id) {
       return { status: false, status_code: 500, message: "Unable to create room, please try again" };
     }
@@ -34,15 +34,15 @@ module.exports.roomExists = async function (params) {
 module.exports.joinRoom = async function (params, body) {
   try {
     const userId = cryptGen.gen(12);
-    const { passcode } = body;
+    const { passphrase } = body;
 
     let data = await instaChat.getRoom(params.room);
 
     if (!data?._id) {
       return { status: false, status_code: 404, message: "Chat room not found" };
     }
-    if (! await chkKey(data.passcode, passcode)) {
-      return { status: false, status_code: 401, message: "Passcode invalid" };
+    if (! await chkKey(data.passphrase, passphrase)) {
+      return { status: false, status_code: 401, message: "Passphrase invalid" };
     }
 
     let { matchedCount, modifiedCount, acknowledged } = await instaChat.joinRoom(params.room, userId);

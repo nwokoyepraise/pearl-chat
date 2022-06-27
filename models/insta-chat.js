@@ -1,8 +1,8 @@
 const instaChat = require("./insta-chat.model");
 
-module.exports.createRoom = async function (chatCode, passcode) {
+module.exports.createRoom = async function (chatCode, passphrase) {
   try {
-    return await instaChat.create({ chat_code: chatCode, passcode: passcode });
+    return await instaChat.create({ chat_code: chatCode, passphrase: passphrase });
   } catch (error) {
     console.log(error);
   }

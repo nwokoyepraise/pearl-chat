@@ -6,12 +6,12 @@ let joinMeetingModal = document.getElementById("join-meeting-modal");
 let joinLink = document.getElementById("join-link");
 let linkInfo = document.getElementById("link-info"),
   form = document.getElementById("form"),
-  passcodeCreateModal = document.getElementById("passcode-create-modal"),
-  passcodeEntry = document.getElementById("input-passcode-entry"),
-  passcodeInfo = document.getElementById("passcode-info"),
-  passcodeJoinModal = document.getElementById("passcode-join-modal"),
-  passcodeJoin = document.getElementById("input-passcode-join"),
-  minPasscodeLength = 8;
+  passphraseCreateModal = document.getElementById("passphrase-create-modal"),
+  passphraseEntry = document.getElementById("input-passphrase-entry"),
+  passphraseInfo = document.getElementById("passphrase-info"),
+  passphraseJoinModal = document.getElementById("passphrase-join-modal"),
+  passphraseJoin = document.getElementById("input-passphrase-join"),
+  minPassphraseLength = 8;
 
 let chatLink;
 
@@ -19,25 +19,25 @@ form.addEventListener("submit", function (ev) {
   ev.preventDefault();
 });
 
-document.getElementById("form-passcode-join").addEventListener("submit", function (ev) {
+document.getElementById("form-passphrase-join").addEventListener("submit", function (ev) {
   ev.preventDefault();
 });
-document.getElementById("form-passcode-create").addEventListener("submit", function (ev) {
+document.getElementById("form-passphrase-create").addEventListener("submit", function (ev) {
   ev.preventDefault();
 });
 
-function invalidPasscode() {
-  passcodeInfo.style.display = "block";
+function invalidPassphrase() {
+  passphraseInfo.style.display = "block";
   setTimeout(function () {
-    passcodeInfo.style.display = "none";
+    passphraseInfo.style.display = "none";
   }, 4000);
 }
 
-function invalidPasscodeJoin() {
-  let passcodeJoinInfo = document.getElementById("passcode-join-info");
-  passcodeJoinInfo.style.display = "block";
+function invalidPassphraseJoin() {
+  let passphraseJoinInfo = document.getElementById("passphrase-join-info");
+  passphraseJoinInfo.style.display = "block";
   setTimeout(function () {
-    passcodeJoinInfo.style.display = "none";
+    passphraseJoinInfo.style.display = "none";
   }, 4000);
 }
 
@@ -45,11 +45,11 @@ function removeModals() {
   if (document.querySelector("#qrcode > img")) {
     document.querySelector("#qrcode > img").remove();
   }
-  passcodeEntry.value = "";
-  passcodeJoinModal.style.display = "none";
+  passphraseEntry.value = "";
+  passphraseJoinModal.style.display = "none";
   bodyOverlay.style.display = "none";
-  passcodeEntry.value = "";
-  passcodeCreateModal.style.display = "none";
+  passphraseEntry.value = "";
+  passphraseCreateModal.style.display = "none";
   bodyOverlay.style.display = "none";
   newMeetingModal.style.display = "none";
   bodyOverlay.style.display = "none";
@@ -73,21 +73,21 @@ window.addEventListener("load", function () {
   div_text.style.width = illus_text_rect.width + "px";
 });
 
-// <!-- snippet display passcode modal -->
+// <!-- snippet display passphrase modal -->
 document.getElementById("new-meeting").onclick = async function () {
   bodyOverlay.style.display = "block";
-  passcodeCreateModal.style.display = "block";
-  currentModal = "passcode-create";
+  passphraseCreateModal.style.display = "block";
+  currentModal = "passphrase-create";
 };
 
 // snippet to display new-meeting modal
-document.getElementById("btn-passcode").onclick = async function () {
-  if (!passcodeEntry.value) {
+document.getElementById("btn-passphrase").onclick = async function () {
+  if (!passphraseEntry.value) {
     return;
   }
 
-  if (passcodeEntry.value.length < minPasscodeLength) {
-    return invalidPasscode();
+  if (passphraseEntry.value.length < minPassphraseLength) {
+    return invalidPassphrase();
   }
 
   let uuid = window.genChatCode();
@@ -99,7 +99,7 @@ document.getElementById("btn-passcode").onclick = async function () {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ chat_code: uuid, passcode: passcodeEntry.value }),
+      body: JSON.stringify({ chat_code: uuid, passphrase: passphraseEntry.value }),
     });
 
     let data = await response.json();
@@ -122,8 +122,8 @@ document.getElementById("btn-passcode").onclick = async function () {
   newMeetingModal.style.display = "block";
   document.getElementById("chat-link").innerText = `https://tiny.ul/${uuid}`;
   currentModal = "new-meeting";
-  passcodeEntry.value = "";
-  passcodeCreateModal.style.display = "none";
+  passphraseEntry.value = "";
+  passphraseCreateModal.style.display = "none";
 };
 
 //remove modal on close element click
@@ -133,17 +133,17 @@ document.getElementById("close").onclick = function () {
   bodyOverlay.style.display = "none";
 };
 
-//remove passcode join modal on close element click
-document.getElementById("passcode-join-close").onclick = function () {
-  passcodeEntry.value = "";
-  passcodeJoinModal.style.display = "none";
+//remove passphrase join modal on close element click
+document.getElementById("passphrase-join-close").onclick = function () {
+  passphraseEntry.value = "";
+  passphraseJoinModal.style.display = "none";
   bodyOverlay.style.display = "none";
 };
 
-//remove passcode entry modal on close element click
-document.getElementById("passcode-create-close").onclick = function () {
-  passcodeEntry.value = "";
-  passcodeCreateModal.style.display = "none";
+//remove passphrase entry modal on close element click
+document.getElementById("passphrase-create-close").onclick = function () {
+  passphraseEntry.value = "";
+  passphraseCreateModal.style.display = "none";
   bodyOverlay.style.display = "none";
 };
 
@@ -212,19 +212,19 @@ document.getElementById("form-join").onclick = async function () {
       return invalidLink();
     }
     joinMeetingModal.style.display = "none";
-    passcodeJoinModal.style.display = "block";
-    currentModal = "passcode-join";
+    passphraseJoinModal.style.display = "block";
+    currentModal = "passphrase-join";
   }
 };
 
-document.getElementById("btn-passcode-join").onclick = async function () {
-  if (!passcodeJoin.value) {
+document.getElementById("btn-passphrase-join").onclick = async function () {
+  if (!passphraseJoin.value) {
     return;
   }
 
-  let passcodeValue = passcodeJoin.value;
-  if (passcodeValue.length < minPasscodeLength) {
-    return invalidPasscode();
+  let passphraseValue = passphraseJoin.value;
+  if (passphraseValue.length < minPassphraseLength) {
+    return invalidPassphrase();
   }
 
   // join room
@@ -234,7 +234,7 @@ document.getElementById("btn-passcode-join").onclick = async function () {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ passcode: passcodeValue }),
+      body: JSON.stringify({ passphrase: passphraseValue }),
     });
 
     let data = await response.json();
@@ -246,11 +246,11 @@ document.getElementById("btn-passcode-join").onclick = async function () {
       document.cookie = JSON.stringify(data.data) + ";expires=" + e;
       removeModals();
     } else {
-      invalidPasscodeJoin();
+      invalidPassphraseJoin();
     }
   } catch (error) {
     console.error(error);
   }
   joinLink.value = "";
-  passcodeJoin.value = "";
+  passphraseJoin.value = "";
 };
