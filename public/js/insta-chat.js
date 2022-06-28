@@ -104,7 +104,7 @@ document.getElementById("btn-passphrase").onclick = async function () {
 
     let data = await response.json();
     if (data?.status != true) {
-      return alert("Oops!, Unbale to create chat link at this point");
+      return alert("Oops!, Unable to create chat link at this point");
     }
   } catch (error) {
     console.error(error);
