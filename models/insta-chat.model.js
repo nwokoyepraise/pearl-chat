@@ -8,7 +8,11 @@ const chat = new schema({
   },
   members: {
     type: Array,
-    validate: [(val) => val.length <= 2, "member length can't be more than 2" ]
+    validate: {
+      validator: function(){
+        return this.members.length > 2;
+      }, message: "member length can't be more than 2"
+    }
   },
   passphrase: {
     type: String,

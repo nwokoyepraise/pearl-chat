@@ -235,11 +235,6 @@ document.getElementById("btn-passphrase-join").onclick = async function () {
   let privateKey = await window.rsaHandler.exportToJwkFormat(keyPair.privateKey);
   let publicKey = await window.rsaHandler.exportToJwkFormat(keyPair.publicKey);
 
-  //  console.log(publicKey, privateKey);
-  //  let e = new Date(new Date().getTime() + 1 * 24 * 60 * 60 * 1000); //expires after a day
-  //  document.cookie = "user_id=" + JSON.stringify({user_id: "nihiG23"}) + ";expires=" + e;
-  //  return;
-
   // join room
   try {
     let response = await fetch(`/insta_chat/${chatLink}`, {
