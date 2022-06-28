@@ -4,33 +4,32 @@
   var crypto = window.crypto.subtle;
   var rsaParams = { name: "RSA-OAEP", hash: { name: "SHA-1" } };
 
-
   function arrayBufferToBase64String(arrayBuffer) {
-      var byteArray = new Uint8Array(arrayBuffer)
-      var byteString = '';
-      for (var i=0; i<byteArray.byteLength; i++) {
-          byteString += String.fromCharCode(byteArray[i]);
-      }
-      return window.btoa(byteString);
+    var byteArray = new Uint8Array(arrayBuffer);
+    var byteString = "";
+    for (var i = 0; i < byteArray.byteLength; i++) {
+      byteString += String.fromCharCode(byteArray[i]);
+    }
+    return window.btoa(byteString);
   }
 
-  async function genKeyPair (){
+  async function genKeyPair() {
     return await window.crypto.subtle.generateKey(
-        {
-          name: "RSA-OAEP",
-          modulusLength: 4096,
-          publicExponent: new Uint8Array([1, 0, 1]),
-          hash: "SHA-256",
-        },
-        true,
-        ["encrypt", "decrypt"]
-      );
+      {
+        name: "RSA-OAEP",
+        modulusLength: 4096,
+        publicExponent: new Uint8Array([1, 0, 1]),
+        hash: "SHA-256",
+      },
+      true,
+      ["encrypt", "decrypt"]
+    );
   }
-  async function exportToJwkFormat(key){
+  async function exportToJwkFormat(key) {
     try {
-       return await window.crypto.subtle.exportKey("jwk", key);
+      return await window.crypto.subtle.exportKey("jwk", key);
     } catch (error) {
-        console.error(error);
+      console.error(error);
     }
   }
 
@@ -70,25 +69,25 @@
     }
   }
 
-  function publicEncrypt(keyInJwkFormat, message) {
+  async function publicEncrypt(keyInJwkFormat, message) {
     try {
-        let enc = new TextEncoder().encode(message);
-        let encrypted = await window.crypto.subtle.encrypt(
-          {
-            name: "RSA-OAEP",
-          },
-          keyInJwkFormat,
-          enc
-        );
-        return arrayBufferToBase64String(encrypted);
+      let enc = new TextEncoder().encode(message);
+      let encrypted = await window.crypto.subtle.encrypt(
+        {
+          name: "RSA-OAEP",
+        },
+        keyInJwkFormat,
+        enc
+      );
+      return arrayBufferToBase64String(encrypted);
     } catch (error) {
-        console.error(error);
+      console.error(error);
     }
   }
 
-  function privateDecrypt(keyInJwkFormat, encryptedBase64Message) {
-   try {
-    let decrypted = await window.crypto.subtle.decrypt(
+  async function privateDecrypt(keyInJwkFormat, encryptedBase64Message) {
+    try {
+      let decrypted = await window.crypto.subtle.decrypt(
         {
           name: "RSA-OAEP",
         },
@@ -96,12 +95,12 @@
         encryptedBase64Message
       );
       return new TextDecoder().decode(decrypted);
-   } catch (error) {
-    console.error(error);
-   }
+    } catch (error) {
+      console.error(error);
+    }
   }
 
-  window.rsaWrapper = {
+window.rsaHandler = {
     genKeyPair: genKeyPair,
     exportToJwkFormat: exportToJwkFormat,
     importPrivateKey: importPrivateKey,

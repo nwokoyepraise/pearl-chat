@@ -9,6 +9,7 @@ const auth = require("./routes/auth");
 const instaChat = require("./routes/insta-chat");
 const chatSocket = require("./routes/chat-socket");
 const rsaHandler = require("./utils/rsa-handler");
+const cookieParser = require("cookie-parser");
 
 //rsaHandler.generate("client")
 
@@ -17,6 +18,7 @@ app.set("view engine", "ejs");
 // Render static files
 app.use(express.static("public"));
 app.use(express.json());
+app.use(cookieParser())
 
 //load routes
 app.use("/user", user);

@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const baseResponse = require("../middleware/base-response");
 const instaChatController = require("../controllers/insta-chat.controller");
+const { json } = require("express");
 
 router.get("", (req, res) => res.render("pages/insta-chat"));
 
@@ -20,6 +21,8 @@ router.patch("/:room", async function (req, res) {
     if (data.status != true) {
       return res.status(data.status_code).send({ status: false, message: data.message });
     }
+  
+    res.cookie("user", d, { maxAge: 1 * 24 * 60 * 60 * 1000, httpOnly: true, sameSite: true, secure: true });
     res.status(200).send(data);
   } catch (error) {
     console.error(error);
@@ -45,8 +48,8 @@ router.get(
   async function (req, res, next) {
     try {
       res.locals.data = await instaChatController.getMessages(req.params.room);
-       //revert response to user
-       next();
+      //revert response to user
+      next();
     } catch (error) {
       console.error(error);
     }

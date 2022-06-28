@@ -217,6 +217,7 @@ document.getElementById("form-join").onclick = async function () {
   }
 };
 
+//snippet to join chat room
 document.getElementById("btn-passphrase-join").onclick = async function () {
   if (!passphraseJoin.value) {
     return;
@@ -227,6 +228,18 @@ document.getElementById("btn-passphrase-join").onclick = async function () {
     return invalidPassphrase();
   }
 
+  //generate rsa key pair
+  let keyPair = await window.rsaHandler.genKeyPair();
+
+  //export keys to jwk formats
+  let privateKey = await window.rsaHandler.exportToJwkFormat(keyPair.privateKey);
+  let publicKey = await window.rsaHandler.exportToJwkFormat(keyPair.publicKey);
+
+  //  console.log(publicKey, privateKey);
+  //  let e = new Date(new Date().getTime() + 1 * 24 * 60 * 60 * 1000); //expires after a day
+  //  document.cookie = "user_id=" + JSON.stringify({user_id: "nihiG23"}) + ";expires=" + e;
+  //  return;
+
   // join room
   try {
     let response = await fetch(`/insta_chat/${chatLink}`, {
@@ -235,15 +248,15 @@ document.getElementById("btn-passphrase-join").onclick = async function () {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ passphrase: passphraseValue }),
-    });
-
+    }); //return;
+   
     let data = await response.json();
 
     if (data?.status == true) {
       window.location.href = `/chats/${chatLink}`;
       let e = new Date(new Date().getTime() + 1 * 24 * 60 * 60 * 1000); //expires after a day
-      // document.cookie = 'user_id='+ JSON.stringify(data.data.user_id) +';expires=' + e;
-      document.cookie = JSON.stringify(data.data) + ";expires=" + e;
+     // document.cookie = "user_id=" + JSON.stringify(data.data) + ";expires=" + e;
+      //   document.cookie = JSON.stringify(data.data) + ";expires=" + e;
       removeModals();
     } else {
       invalidPassphraseJoin();
