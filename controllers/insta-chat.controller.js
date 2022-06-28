@@ -41,6 +41,11 @@ module.exports.joinRoom = async function (params, body) {
     if (!data?._id) {
       return { status: false, status_code: 404, message: "Chat room not found" };
     }
+
+    if (data.members.length >= 2) {
+      return { status: false, status_code: 406, message: "Member count in room can't exceed 2" };
+    }
+
     if (! await chkKey(data.passphrase, passphrase)) {
       return { status: false, status_code: 401, message: "Passphrase invalid" };
     }

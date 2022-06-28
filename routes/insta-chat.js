@@ -21,8 +21,7 @@ router.patch("/:room", async function (req, res) {
     if (data.status != true) {
       return res.status(data.status_code).send({ status: false, message: data.message });
     }
-  
-    res.cookie("user", d, { maxAge: 1 * 24 * 60 * 60 * 1000, httpOnly: true, sameSite: true, secure: true });
+    res.cookie("user",  JSON.stringify({user_id: data.data.user_id}), { maxAge: 1 * 24 * 60 * 60 * 1000, httpOnly: true, sameSite: true, secure: true });
     res.status(200).send(data);
   } catch (error) {
     console.error(error);
