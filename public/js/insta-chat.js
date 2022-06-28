@@ -33,8 +33,11 @@ function invalidPassphrase() {
   }, 4000);
 }
 
-function invalidPassphraseJoin() {
+function invalidPassphraseJoin(message) {
   let passphraseJoinInfo = document.getElementById("passphrase-join-info");
+  if (message){
+    passphraseJoinInfo.innerText = message;
+  }
   passphraseJoinInfo.style.display = "block";
   setTimeout(function () {
     passphraseJoinInfo.style.display = "none";
@@ -253,7 +256,10 @@ document.getElementById("btn-passphrase-join").onclick = async function () {
      // document.cookie = "user_id=" + JSON.stringify(data.data) + ";expires=" + e;
       //   document.cookie = JSON.stringify(data.data) + ";expires=" + e;
       removeModals();
-    } else {
+    } else if (data?.status == false && response.status == 406){
+      alert(data.message)
+    }
+    else {
       invalidPassphraseJoin();
     }
   } catch (error) {
